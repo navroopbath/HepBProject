@@ -3,7 +3,7 @@ class Member < ActiveRecord::Base
   has_and_belongs_to_many :event
 
   def authenticate(pass)
-    pass == self.password ? True : False
+    pass == self.password ? true : false
   end
 
 end

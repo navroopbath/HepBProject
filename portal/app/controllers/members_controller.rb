@@ -33,4 +33,20 @@ class MembersController < ApplicationController
   	# redirect_to 'not sure'
   end
 
+  def login_index
+  end
+
+  def login
+    user = (Member.where email: params[:member][:email])[0]
+    if user && user.authenticate(params[:member][:password])
+      redirect_to member_home
+    else
+      flash.now[:danger] = "Invalid Email/Password combination."
+      render 'new'
+    end
+  end
+
+  def sign_up_index
+  end
+
 end
