@@ -48,4 +48,3 @@ Scenario: account already exists
   Then I should be on the sign-up page
   And I should see "Account already exists"
 
-
