@@ -12,31 +12,27 @@ Background: members have been added to database
  And I am on the portal login page
 
 Scenario: Succsessful login 
-	Given that I am on the portal login page
-	When I type "judyBlume@gmail.com" into username
-	And I type "123456" into password
-	And I press "Login"
+	When I fill in "Email" with "judyBlume@gmail.com" 
+	And I fill in "Password" with "123456"
+	And I press "Submit"
 	Then I should be on the portal dashboard 
 
 Scenario: Unsuccessful login (No username) 
-	Given that I am on the portal login page
-	And I type "blah" into username
-	And I type "blerg" into password
-	And I press "Login"
+	When I fill in "Email" with "blah"
+	And I fill in "Password" with "blerg" 
+	And I press "Submit"
 	Then I should be on the portal login page
 	And I should see "Unsuccessful login: Incorrect username or password"
 
 Scenario: Unsuccessful login (Incorrect password) 
-	Given that I am on the portal login page
-	And I type "judyBlume@gmail.com" into username
-	And I type "blerggg" into password
-	And I press "Login"
+	When I fill in "Email" with "judyBlume@gmail.com" 
+	And I fill in "Password" with "blerg" 
+	And I press "Submit"
 	Then I should be on the portal login page
 	And I should see "Unsuccessful login: Incorrect username or password" 
 
 Scenario: Unsuccessful login (blank feilds)
-	Given that I am on the portal login page
-	And I type "judyBlume@gmail.com"  into username
-	And I press "Login"
+	When I fill in "Email" with "judyBlume@gmail.com"
+	And I press "Submit"
 	Then I should be on the portal login page
 	And I should see "Unsuccessful login: missing (blank) fields"
