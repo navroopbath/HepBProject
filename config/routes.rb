@@ -5,6 +5,8 @@ HepBProject::Application.routes.draw do
   post 'members/login', to: 'members#login', as: 'members_login'
   get 'members/signup', to: 'members#sign_up_index', as: 'members_sign_up_index'
   post 'members/signup', to: 'members#sign_up', as: 'members_sign_up'
+
+  get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
