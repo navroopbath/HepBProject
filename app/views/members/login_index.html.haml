@@ -1,6 +1,6 @@
 %h2 Log In
 
-= form_tag login_path, :method => :post do
+= form_tag members_login_index_path, :method => :post do
 	%div
 	= label :member, :email, 'Email'
 	= text_field :member, 'email'
