@@ -1,0 +1,47 @@
+%head
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+%div#sign-up-title Sign Up
+
+%div#sign-up-form
+  = form_tag members_sign_up_index_path do 
+    %div.sign-up-field
+      = label :members, :email, 'Email'
+      %br
+      = email_field :members, :email, placeholder: "john@example.com"
+
+    %div.sign-up-field
+      = label :members, :password, 'Password'
+      %br
+      = password_field_tag :members, :password
+
+    %div.sign-up-field
+      = label :members, :confirm_password, 'Confirm Password'
+      %br
+      = password_field_tag :members, :confirm_password
+
+    %div.sign-up-field
+      = label :members, :first_name, 'First Name'
+      %br
+      = text_field :members, :first_name, placeholder: "John"
+
+    %div.sign-up-field
+      = label :members, :last_name, 'Last Name'
+      %br
+      = text_field :members, :last_name, placeholder: "Doe"
+
+    -#= label :members, 'Major'
+    -#= text_field 'major'
+    %div.sign-up-field
+      = label :members, :year, 'Year'
+      %br
+      = select :members, :year, ['Freshman', 'Sophomore', 'Junior', 'Senior']
+
+    %div.sign-up-field
+      = label :members, :phone, 'Phone'
+      %br
+      = text_field :members, :phone, placeholder: "999-999-9999"
+
+    -#= label :members, 'Confirm Password'
+    -#= text_field :members, 'confirm_password'
+    %div#sign-up-submit
+      = submit_tag 'Submit'
