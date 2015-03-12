@@ -1,0 +1,31 @@
+%h1 Sign Up
+
+
+
+= form_tag members_path do 
+
+	= label :members, :first_name, 'First Name'
+	= text_field :members, 'first_name'
+
+	= label :members, :last_name, 'Last Name'
+	= text_field :members, 'last_name'
+
+	-#= label :members, 'Major'
+	-#= text_field 'major'
+
+	= label :members, :year, 'Year'
+	= select :members, :year, ['Freshman', 'Sophomore', 'Junior', 'Senior']
+
+	= label :members, :email, 'Email'
+	= text_field :members, 'email'
+
+	= label :members, :phone, 'Phone'
+	= text_field :members, 'phone'
+
+	= label :members, :password, 'Password'
+	= text_field :members, 'password'
+
+	-#= label :members, 'Confirm Password'
+	-#= text_field :members, 'confirm_password'
+
+	= submit_tag 'Submit'
