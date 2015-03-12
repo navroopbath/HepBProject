@@ -1,13 +1,16 @@
-%h2 Log In
+%div#title Log In
 
-= form_tag members_login_index_path, :method => :post do
-	%div
-	= label :member, :email, 'Email'
-	= text_field :member, 'email'
+%div#login-form
+  = form_tag members_login_index_path, :method => :post do
+    %div#login-field
+      = label :member, :email, 'Email'
+      %br
+      = text_field :member, 'email'
 
-	%div
-	= label :member, :password, 'Password'
-	= text_field :member, 'password', :type => :password
+    %div#login-field
+      = label :member, :password, 'Password'
+      %br
+      = text_field :member, 'password', :type => :password
 
-	%div
-	= submit_tag 'Submit'
+    %div#login-submit
+      = submit_tag 'Submit'

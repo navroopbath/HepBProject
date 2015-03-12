@@ -15,19 +15,19 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-#sign-up-title {
+#title {
   font-size: 35px;
   width: 300px;
   font-weight: bold;
   margin: 30px auto;
 }
-#sign-up-form {
+#sign-up-form, #login-form{
   width: 400px;
   margin-left: auto;
   margin-right: auto;
   line-height: 1.5;
 }
 
-#sign-up-submit {
+#sign-up-submit, #login-submit{
   margin-top: 30px;
 }

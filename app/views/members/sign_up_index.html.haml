@@ -1,23 +1,23 @@
 %head
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-%div#sign-up-title Sign Up
+%div#title Sign Up
 
 %div#sign-up-form
   = form_tag members_sign_up_index_path do 
     %div.sign-up-field
       = label :members, :email, 'Email'
       %br
-      = email_field :members, :email, placeholder: "john@example.com"
+      = text_field :members, :email, placeholder: "john@example.com"
 
     %div.sign-up-field
       = label :members, :password, 'Password'
       %br
-      = password_field_tag :members, :password
+      = text_field :members, :password, :type => :password
 
     %div.sign-up-field
       = label :members, :confirm_password, 'Confirm Password'
       %br
-      = password_field_tag :members, :confirm_password
+      = text_field :members, :confirm_password, :type => :password
 
     %div.sign-up-field
       = label :members, :first_name, 'First Name'
