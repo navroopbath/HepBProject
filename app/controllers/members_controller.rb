@@ -36,7 +36,12 @@ class MembersController < ApplicationController
   def login_index
   end
 
+  def members_dashboard_home_path
+
+  end
+
   def login
+    redirect_to members_login_path
   
   end
 
