@@ -45,6 +45,7 @@ class MembersController < ApplicationController
   end
 
   def sign_up
+    redirect_to members_login_index_path
   end
 
 end
