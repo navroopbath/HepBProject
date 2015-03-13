@@ -7,10 +7,6 @@
 #   end
 # end
 
-Given(/^that I am on the portal login page$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 When(/^I type "(.*?)" into username$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end

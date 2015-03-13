@@ -6,6 +6,10 @@ class MembersController < ApplicationController
   def login_index
   end
 
+  def members_dashboard_home_path
+    
+  end
+
   def login
     if empty_fields?
       #one or more fields empty
