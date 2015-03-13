@@ -16,7 +16,7 @@ class MembersController < ApplicationController
         member_to_find = Member.find_by_email(params[:members][:email])
         if member_to_find and params[:members][:password] == member_to_find[:password]
           #successful login
-          redirect_to members_dashboard_home_path
+          redirect_to members_dashboard_home_path(Member.where(id: member_to_find[:id])[0])
         else
           #incorrect password
           flash[:notice] = 'Unsuccessful login: Incorrect username or password'

@@ -15,7 +15,7 @@ Scenario: Successful login
 	When I fill in "Email" with "judyBlume@gmail.com"
 	And I fill in "Password" with "123456"
 	And I press "Submit"
-	Then I should be on the portal dashboard 
+	Then I should be on the portal dashboard for "judyBlume@gmail.com"
 
 Scenario: Unsuccessful login (No username) 
 	When I fill in "Email" with "blah"
