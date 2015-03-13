@@ -16,7 +16,7 @@ Scenario: Succsessful login
 	When I type "judyBlume@gmail.com" into username
 	And I type "123456" into password
 	And I press "Login"
-	Then I should be on the portal dashboard 
+	Then I should be on the portal dashboard for "judyBlume@gmail.com"
 
 Scenario: Unsuccessful login (No username) 
 	Given that I am on the portal login page

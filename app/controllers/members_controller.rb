@@ -1,5 +1,8 @@
 class MembersController < ApplicationController
 
+  def dashboard_home
+  end
+
   def login_index
   end
 
