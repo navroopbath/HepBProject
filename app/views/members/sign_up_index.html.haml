@@ -7,7 +7,7 @@
     %div.sign-up-field
       = label :members, :email, 'Email'
       %br
-      = text_field :members, :email, placeholder: "john@example.com"
+      = text_field :members, :email, placeholder: "john@example.com", :value => "#{@email}"
 
     %div.sign-up-field
       = label :members, :password, 'Password'
@@ -22,24 +22,24 @@
     %div.sign-up-field
       = label :members, :first_name, 'First Name'
       %br
-      = text_field :members, :first_name, placeholder: "John"
+      = text_field :members, :first_name, placeholder: "John", :value => "#{@first_name}"
 
     %div.sign-up-field
       = label :members, :last_name, 'Last Name'
       %br
-      = text_field :members, :last_name, placeholder: "Doe"
+      = text_field :members, :last_name, placeholder: "Doe", value: "#{@last_name}"
 
     -#= label :members, 'Major'
     -#= text_field 'major'
     %div.sign-up-field
       = label :members, :year, 'Year'
       %br
-      = select :members, :year, ['Freshman', 'Sophomore', 'Junior', 'Senior']
+      = select :members, :year, ['Freshman', 'Sophomore', 'Junior', 'Senior'], value: "#{@year}"
 
     %div.sign-up-field
       = label :members, :phone, 'Phone'
       %br
-      = text_field :members, :phone, placeholder: "999-999-9999"
+      = text_field :members, :phone, placeholder: "999-999-9999", value: "#{@phone}"
 
     -#= label :members, 'Confirm Password'
     -#= text_field :members, 'confirm_password'
