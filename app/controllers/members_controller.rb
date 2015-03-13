@@ -48,7 +48,7 @@ class MembersController < ApplicationController
     if params[:members][:password] == params[:members][:confirm_password] 
       if not empty_fields?
         flash[:notice] = 'You have been sent a confirmation email'
-        redirect_to members_login_index_path, notice: 'You have been sent a confirmation email' and return
+        redirect_to members_login_index_path and return
       else
         flash[:notice] = 'One or more of the fields are empty'
         #session[:members]
