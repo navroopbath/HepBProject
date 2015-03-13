@@ -13,8 +13,8 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the portal login page$/ then '/members/login'
-    when /^the portal sign-up page$/ then '/members/signup'
+    when /^the portal login page$/ then members_login_index_path
+    when /^the portal sign-up page$/ then members_sign_up_index_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

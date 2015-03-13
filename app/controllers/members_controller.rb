@@ -28,6 +28,10 @@ class MembersController < ApplicationController
           redirect_to members_sign_up_index_path and return
         else
           flash[:notice] = 'You have been sent a confirmation email'
+          params[:members].delete(:confirm_password)
+          params[:members][:is_admin] = false
+          params[:members][:hours] = 0
+          Member.create!(params[:members])
           redirect_to members_login_index_path and return
         end
       else

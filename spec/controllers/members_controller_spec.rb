@@ -4,16 +4,14 @@ describe MembersController do
 
   describe 'POST sign up' do
 
-    subject {post :sign_up}
-
     before :each do
-      @member = Member.create!({:first_name => 'Craig', :last_name => 'Hiller', :year => 'Senior', :phone => 5555555555, :email => 'chiller@berkeley.edu', :password => 'superchillerbro'})
-      Member.should_receive(:create!).and_return(@member)
-      subject
+      @fields = {:first_name => 'John', :last_name => 'Doe', :year => 'Sophomore', :phone => '5555555555', :email => 'johndoe@gmail.com', :password => 'password123', :confirm_password => 'password123'}
+      #@new_user = {"first_name" => 'John', "last_name" => 'Doe', "year" => 'Sophomore', "phone" => 5555555555, "email" => 'johndoe@gmail.com', "password" => 'password123', "is_admin" => false, "hours" => 0}
+      post :sign_up, {:members => @fields}
     end
 
     it "should create a new member in the database" do
-      expect(assigns(:member)).to eq @member
+      expect(Member.where(id: 1)[0].email).to eq 'johndoe@gmail.com'
     end
 
     it "should set a flash message that a confirmation email has been sent" do
