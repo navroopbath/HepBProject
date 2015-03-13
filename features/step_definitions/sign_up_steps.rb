@@ -21,3 +21,20 @@ When /^I fill in all fields with: (.*)$/ do |values|
     end
   end
 end
+
+Then /^I should see the following information: (.*)$/ do |values|
+  #used for password mismatch scenario
+  fields = ['First Name', 'Last Name', 'Year', 'Phone', 'Email']
+  values = values.gsub(' ','').split(',')
+  fields.zip(values).each do |field, value|
+    if field == 'Year'
+      steps %Q{
+        Then I should see "#{field}: #{value}"
+      }
+    else
+      steps %Q{
+        Then the "#{field}" field should contain "#{value}"
+      }
+    end
+  end
+end
