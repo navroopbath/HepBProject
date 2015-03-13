@@ -3,14 +3,14 @@
 %div#login-form
   = form_tag members_login_index_path, :method => :post do
     %div#login-field
-      = label :member, :email, 'Email'
+      = label :members, :email, 'Email'
       %br
-      = text_field :member, 'email'
+      = text_field :members, 'email'
 
     %div#login-field
-      = label :member, :password, 'Password'
+      = label :members, :password, 'Password'
       %br
-      = text_field :member, 'password', :type => :password
+      = text_field :members, 'password', :type => :password
 
     %div#login-submit
       = submit_tag 'Submit'

@@ -4,6 +4,27 @@ class MembersController < ApplicationController
   end
 
   def login
+    if empty_fields?
+      #one or more fields empty
+      flash[:notice] = 'Unsuccessful login: One or more of the fields are empty'
+      redirect_to members_login_index_path
+    else
+      if params[:members][:email]
+        member_to_find = Member.find_by_email(params[:members][:email])
+        if member_to_find and params[:members][:password] == member_to_find[:password]
+          #successful login
+          redirect_to members_dashboard_home_path
+        else
+          #incorrect password
+          flash[:notice] = 'Unsuccessful login: Incorrect username or password'
+          redirect_to members_login_index_path
+        end
+      else
+        #no username
+        flash[:notice] = 'Unsuccessful login: Incorrect username or password'
+        redirect_to members_login_index_path
+      end
+    end
   end
 
 
