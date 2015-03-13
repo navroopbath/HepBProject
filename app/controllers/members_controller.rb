@@ -13,7 +13,6 @@ class MembersController < ApplicationController
     @phone = nil
     @year = nil
     @email = nil
-    @test = nil
   end
 
   def sign_up
