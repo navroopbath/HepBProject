@@ -10,11 +10,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-env:
-  - DB=sqlite
-script: 
-  - RAILS_ENV=test bundle exec rake db:migrate
-  
+
 ActiveRecord::Schema.define(:version => 20150312044254) do
 
   create_table "members", :force => true do |t|
