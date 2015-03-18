@@ -1,7 +1,7 @@
 Feature: Home Tab
   As a HepB volunteer
   So that I can see my volunteer progress and be up to date with current announcements
-  I want to see my volunteer info and current announcement when I click the Home tab
+  I want to see my volunteer info and current announcements when I click the Home tab
 
 Background: members have been added to database
 
