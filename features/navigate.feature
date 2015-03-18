@@ -1,6 +1,6 @@
 Feature: Navigating through the tabs.
   As a volunteer
-  So that I can access information about hours, events, anouncements, and settings
+  So that I can access information about hours, events, announcements, and settings
   I want to be able to navigate to the different tabs
 
 Background: I am saved in the database and logged in.
