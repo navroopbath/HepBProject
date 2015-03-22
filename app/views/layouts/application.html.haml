@@ -27,15 +27,21 @@
                 %a{:href => "#"}Events
               %li
                 %a{:href => "#"}Announcements
+              %li
+                %A{:href => "#"}Hours
 
             %ul{:class => 'nav navbar-nav navbar-right'}
               %li.dropdown
-                %ul.dropdown-menu
-                  %li John Doe
-                  %li johndoe@berkeley.edu
+                %a{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown', :role => 'button'}
+                  Account
+                  %span.caret
+                %ul.dropdown-menu{:role => 'menu'}
+                  %li 
+                    John Doe
+                  %li 
+                    %span johndoe@berkeley.edu
                   %li
                     %a{:href => "#"}Edit settings
-
 
       - if flash[:notice]
         #notice.message= flash[:notice]
