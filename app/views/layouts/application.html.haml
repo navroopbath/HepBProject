@@ -7,7 +7,36 @@
     = csrf_meta_tags
 
   %body
-    #main
+    #container
+      %nav{:class => 'navbar navbar-default navbar-fixed-top'}
+        %div.container-fluid
+          %div.navbar-header
+            %button{:type => 'button', :class => 'navbar-toggle collapsed', 'data-toggle' => 'collapse', 'data-target' => '#navbar', 'aria-expanded' => 'false', 'aria-controls' => 'navbar'}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{:href => members_login_index_path}
+              =image_tag "hepb_logo.png", :width => '45px'
+
+          %div#navbar{:class => 'navbar navbar-collapse'}
+            %ul{:class=> 'nav navbar-nav'}
+              %li
+                %a{:href => "#"}Dashboard
+              %li
+                %a{:href => "#"}Events
+              %li
+                %a{:href => "#"}Announcements
+
+            %ul{:class => 'nav navbar-nav navbar-right'}
+              %li.dropdown
+                %ul.dropdown-menu
+                  %li John Doe
+                  %li johndoe@berkeley.edu
+                  %li
+                    %a{:href => "#"}Edit settings
+
+
       - if flash[:notice]
         #notice.message= flash[:notice]
       - elsif flash[:warning]
