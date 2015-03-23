@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
 
   def dashboard_home
+    @member = Member.find(params[:id])
   end
 
   def login_index
