@@ -1,1 +1,42 @@
 = render 'navbar'
+
+%div.col-lg-8
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-clock-o.fa-fw
+        Announcements
+    %div.panel-body
+
+%div.col-lg-4
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-bell.fa-fw
+        Upcoming Events
+    %div.panel-body
+      %div.list-group
+        %a.list-group-item{:href => '#'}
+          Oakland Clinic
+          %span.pull-right.text-muted.small
+            Tomorrow 8:00 am
+        %a.list-group-item{:href => '#'}
+          San Francisco Clinic
+          %span.pull-right.text-muted.small
+            2 days from now
+        %a.list-group-item{:href => '#'}
+          General Meeting
+          %span.pull-right.text-muted.small
+            2 days from now
+        %a.list-group-item{:href => '#'}
+          Recruitment
+          %span.pull-right.text-muted.small
+            4 days from now
+        %a.list-group-item{:href => '#'}
+          Bar Hop
+          %span.pull-right.text-muted.small
+            5 days from now
+        %a.list-group-item{:href => '#'}
+          Berkeley Clinic
+          %span.pull-right.text-muted.small
+            5 days from now
+      %a.btn.btn-default.btn-block{:href => '#'}
+        View All Events
