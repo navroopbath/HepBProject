@@ -6,6 +6,13 @@
       %i.fa.fa-clock-o.fa-fw
         Announcements
     %div.panel-body
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th Announcement
+            %th Date
+      %a.btn.btn-primary.btn-block{:href => '#'}
+        View All Announcements
 
 %div.col-lg-4
   %div.panel.panel-default
@@ -13,6 +20,7 @@
       %i.fa.fa-bell.fa-fw
         Upcoming Events
     %div.panel-body
+      You are signed up for:
       %div.list-group
         %a.list-group-item{:href => '#'}
           Oakland Clinic
@@ -38,5 +46,5 @@
           Berkeley Clinic
           %span.pull-right.text-muted.small
             5 days from now
-      %a.btn.btn-default.btn-block{:href => '#'}
+      %a.btn.btn-primary.btn-block{:href => '#'}
         View All Events
