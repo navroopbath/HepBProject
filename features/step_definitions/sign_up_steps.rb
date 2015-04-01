@@ -11,8 +11,8 @@ When /^I fill in all fields with: (.*)$/ do |values|
   values = values.gsub(' ','').split(',')
   fields.zip(values).each do |field, value|
     steps %Q{
-        When I fill in "#{field}" with "#{value}"
-      }
+      When I fill in "#{field}" with "#{value}"
+    }
   end
 end
 
@@ -22,7 +22,7 @@ Then /^I should see the following information: (.*)$/ do |values|
   values = values.gsub(' ','').split(',')
   fields.zip(values).each do |field, value|
     steps %Q{
-        Then the "#{field}" field should contain "#{value}"
-      }
+      Then the "#{field}" field should contain "#{value}"
+    }
   end
 end

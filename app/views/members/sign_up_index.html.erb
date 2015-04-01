@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Please sign up for HepBProject</h3>
+        </div>
+        <div class="panel-body">
+          <%= form_tag members_sign_up_index_path, :method => :post, :class => 'form-horizontal' %>
+            <div class="row">
+              <!-- First Name -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :first_name, 'First Name'%>
+                <div class="form-group">
+                  <%= text_field :members ,'first_name', :placeholder => "John", :class => "form-control input-sm"  %>
+                </div>
+              </div>
+              <!-- Last Name -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :last_name, 'Last Name'%>
+                <div class="form-group">
+                  <%= text_field :members, 'last_name', :placeholder => "Doe", :class => "form-control input-sm" %>
+                </div>
+              </div>
+            </div>
+            <!-- Email -->
+            <%= label :members, :email, 'Email'%>
+            <div class="form-group">
+              <%= text_field :members, 'email', :placeholder => "john@doe.com", :class => "form-control input-sm", :type => "email" %>
+            </div>
+            <!-- Year -->
+            <%= label :members, :year, 'Year'%>
+            <div class="form-group">
+              <%= text_field :members, 'year', :placeholder => "Freshman", :class => "form-control input-sm" %>
+            </div>
+            <!-- Phone -->
+            <%= label :members, :phone, 'Phone'%>
+            <div class="form-group">
+              <%= text_field :members, 'phone', :placeholder => "9999999999", :class => "form-control input-sm" %>
+            </div>
+            <div class="row">
+              <!-- Password -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :password, 'Password'%>
+                <div class="form-group">
+                  <%= text_field :members, 'password', :placeholder => "Password", :class => "form-control input-sm", :type => "password" %>
+                </div>
+              </div>
+              <!-- Confirm Password -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :confirm_password, 'Confirm Password'%>
+                <div class="form-group">
+                  <%= text_field :members, 'confirm_password', :placeholder => "Confirm Password", :class => "form-control input-sm", :type => "password" %>
+                </div>
+              </div>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-info btn-block">
+          <!-- end of form -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
