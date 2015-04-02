@@ -1,0 +1,54 @@
+=render 'navbar'
+
+%div.col-lg-4
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-clock-o.fa-fw
+        Events stats
+    %div.panel-body
+      Required Events Completed
+      .progress
+        .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "50", :role => "progressbar", :style => "width: 50%;"}
+          1/2
+
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th Total Hours Completed
+            %th 45
+
+%div.col-lg-8
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-clock-o.fa-fw
+        Events attended
+    %div.panel-body
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th Date
+            %th Event
+            %th Hours completed
+
+        %tbody
+          %tr
+            %th 3/17/2015
+            %th Clinic Training in Wheeler
+            %th 3
+
+          %tr
+            %th 3/14/2015
+            %th Outreach Event in Hayward
+            %th 2
+
+          %tr
+            %th 3/11/2015
+            %th Wednesday Clinic
+            %th 3
+
+          %tr
+            %th 3/4/2015
+            %th Wedbesday Clinic
+            %th 2
+
+      

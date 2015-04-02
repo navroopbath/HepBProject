@@ -1,6 +1,21 @@
 class MembersController < ApplicationController
+  before_filter :set_current_mem, :except => [:login_index, :login, :sign_up, :sign_up_index]
+
+  def set_current_mem
+    @current_mem ||= Member.find_by_id(session[:member_id])
+    if !@current_mem
+      flash[:notice] = "You must be signed in first."
+      redirect_to members_login_index_path unless @current_mem
+    end
+  end
 
   def dashboard_home
+  end
+
+  def announcements
+  end
+
+  def stats
   end
 
   def login_index
@@ -16,6 +31,8 @@ class MembersController < ApplicationController
         member_to_find = Member.find_by_email(params[:members][:email])
         if member_to_find and params[:members][:password] == member_to_find[:password]
           #successful login
+          session[:member_id] = member_to_find.id
+          session[:member] = member_to_find
           redirect_to members_dashboard_home_path(Member.where(id: member_to_find[:id])[0])
         else
           #incorrect password
@@ -103,6 +120,11 @@ class MembersController < ApplicationController
       end
     end
     return false
+  end
+
+  def logout
+    session[:member_id] = nil
+    redirect_to members_login_index_path, :notice => "Logged out"
   end
 
 end
