@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
-
-  attr_accessible :name, :date, :location, :description, :start_time, :duration, :num_volunteers, :num_waitlist
-  has_many :member
+  attr_accessible :event_name, :location, :date, :duration, :num_volunteers, :description
+  has_many :members, :through => :memevents
+  has_many :memevents
 
 end
