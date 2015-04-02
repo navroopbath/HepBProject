@@ -13,8 +13,9 @@ events = [{:event_name => 'Korean Health Fair', :date => '2003-05-30T10:00:00', 
         {:name => 'Japanese Health Fair', :date => '2003-05-30T10:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '3'}
 ]
 
-announcements = [{:date_written => '2002-05-30T09:00:00', :body => 'Ice Cream Social on Tuesday', :pinned = true, :type = 'Upcoming Events'},
-              {:date_written => '2002-05-30T09:00:00', :body => 'Workshop on Wednesday', :pinned = true, :type = 'Upcoming Events'}]
+announcements = [{:date_written => '2002-05-30T09:00:00', :body => 'Ice Cream Social on Tuesday', :pinned => 'true', :type => 'Upcoming Events'},
+              {:date_written => '2002-05-30T09:00:00', :body => 'Workshop on Wednesday', :pinned => 'true', :type => 'Upcoming Events'}
+            ]
 
 members.each do |member|
   Member.create!(member)
