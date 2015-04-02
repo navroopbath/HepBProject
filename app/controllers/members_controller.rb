@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_filter :set_current_mem, :except => [:login_index, :login]
+  before_filter :set_current_mem, :except => [:login_index, :login, :sign_up, :sign_up_index]
 
   def set_current_mem
     @current_mem ||= Member.find_by_id(session[:member_id])
