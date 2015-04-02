@@ -40,5 +40,3 @@ announcements.each do |announcement|
   Announcement.create!(announcement)
 end
 
-debugger
-
