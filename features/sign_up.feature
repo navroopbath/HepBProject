@@ -11,7 +11,6 @@ Background: Members in the database
   And I am on the portal sign-up page
 
 Scenario: successful sign-up
-  Then show me the page
   When I fill in all fields with: Armando, Fox, 5/16/15, 5555555555, afox@berkeley.edu, test, test
   And I press "Submit"
   Then I should be on the portal login page
