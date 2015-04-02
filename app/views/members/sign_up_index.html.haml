@@ -32,9 +32,9 @@
     -#= label :members, 'Major'
     -#= text_field 'major'
     %div.sign-up-field
-      = label :members, :year, 'Year'
+      = label :members, :grad_date, 'Graduation Date'
       %br
-      = select :members, :year, ['Freshman', 'Sophomore', 'Junior', 'Senior'], value: "#{@year}"
+      = text_field :members, :grad_date, placeholder: "5/16/15", value: "#{@grad_date}"
 
     %div.sign-up-field
       = label :members, :phone, 'Phone'

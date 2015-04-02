@@ -6,8 +6,8 @@ Feature: log in as volunteer
 Background: members have been added to database
 
  Given the following members exist:
-  | first_name   | last_name  | year    | phone       | email                 | password  | is_admin | hours |
-  | Judy         | Blume      | Senior  | 5555555555  | judyBlume@gmail.com   | 123456    | no       | 5     |
+  | first_name   | last_name  | grad_date | phone       | email                 | password  | is_admin | 
+  | Judy         | Blume      | 5/16/15   | 5555555555  | judyBlume@gmail.com   | 123456    | no       | 
  
  And I am on the portal login page
 

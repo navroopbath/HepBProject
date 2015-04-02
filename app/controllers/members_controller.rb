@@ -35,7 +35,7 @@ class MembersController < ApplicationController
     @first_name = nil
     @last_name = nil
     @phone = nil
-    @year = nil
+    @grad_date = nil
     @email = nil
   end
 
@@ -54,13 +54,12 @@ class MembersController < ApplicationController
           flash[:notice] = 'You have been sent a confirmation email'
           params[:members].delete(:confirm_password)
           params[:members][:is_admin] = false
-          params[:members][:hours] = 0
           Member.create!(params[:members])
           redirect_to members_login_index_path and return
         end
       else
         flash[:notice] = 'One or more of the fields are empty'
-        fields = [:first_name, :last_name, :year, :phone, :email, :password, :confirm_password]
+        fields = [:first_name, :last_name, :grad_date, :phone, :email, :password, :confirm_password]
         fields.each do |field|
           instance_variable_set("@#{field}", nil)
           if params[:members][field] != nil and params[:members][field] != ''
@@ -72,7 +71,7 @@ class MembersController < ApplicationController
       end
     else
       flash[:notice] = 'Passwords do not match'
-      fields = [:first_name, :last_name, :year, :phone, :email]
+      fields = [:first_name, :last_name, :grad_date, :phone, :email]
       fields.each do |field|
         instance_variable_set("@#{field}", params[:members][field])
       end
