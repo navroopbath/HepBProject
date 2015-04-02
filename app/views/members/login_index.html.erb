@@ -12,17 +12,21 @@
             <!-- Email -->
             <%= label :members, :email, 'Email' %>
             <div class='form-group'>
-              <%= text_field :members, 'email', :type => "email", :class =>"form-control input-sm"%>
+              <div class="col-md-12">
+                <%= text_field :members, 'email', :type => "email", :class =>"form-control input-sm"%>
+              </div>
             </div>
             <!-- Password -->
             <%= label :members, :password, 'Password' %>
             <div class='form-group'>
-              <%= text_field :members, 'password', :type => 'password', :class =>"form-control input-sm"%>
+              <div class="col-md-12">
+                <%= text_field :members, 'password', :type => 'password', :class =>"form-control input-sm"%>
+              </div>
             </div>
             <!-- Submit Button -->
             <div class='form-group last'>
-              <div class='col-sm-offset-4 col-sm-10'>
-                <%= submit_tag 'Submit', :class => 'btn btn-primary btn-sm' %>
+              <div class='col-md-12'>
+                <%= submit_tag 'Submit', :class => 'btn btn-primary btn-md btn-block' %>
               </div>
             </div>
           <!-- Eno of Form -->
