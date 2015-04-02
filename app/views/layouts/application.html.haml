@@ -7,11 +7,10 @@
     = csrf_meta_tags
 
   %body
+    %div#flash-container
+      -flash.each do |key, value|
+        %div.alert.alert-danger
+          %button.close{:type=>'button', 'data-dismiss'=>'alert'}
+          = value
     #container
-    
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-
       = yield

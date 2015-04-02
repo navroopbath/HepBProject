@@ -22,7 +22,7 @@ Background: members have been added to database
 Scenario: Successfully displays my statistics information
   Given I am logged in
   When I go to the portal dashboard
-  I should see "Welcome, Judy Blume!"
+  #I should see "Welcome, Judy Blume!"
   And I should see "5" under "Total Hours"
   And I should see "2" under "Events Completed So Far"
 
