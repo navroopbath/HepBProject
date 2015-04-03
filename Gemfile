@@ -34,7 +34,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '~> 3.3.4'
 end
-gem 'rake'
+gem 'rake','10.4.2'
 
 gem 'jquery-rails'
 gem 'haml'
