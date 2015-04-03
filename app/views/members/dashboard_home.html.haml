@@ -12,7 +12,7 @@
           - @announcements.each do |announcement|
             %tr
               %th= announcement.body
-              %th= time_ago_in_words(announcement.date_written)
+              %th= announcement.date_written.strftime("%m/%d/%Y at %I:%M%p")
       %a.btn.btn-primary.btn-block{:href => '#'}
         View All Announcements
 
