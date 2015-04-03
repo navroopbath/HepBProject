@@ -38,6 +38,7 @@ gem 'rake'
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'mail', '2.5.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

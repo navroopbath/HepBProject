@@ -73,7 +73,8 @@ class MembersController < ApplicationController
           flash[:notice] = 'You have been sent a confirmation email'
           params[:members].delete(:confirm_password)
           params[:members][:is_admin] = false
-          Member.create!(params[:members])
+          member = Member.create!(params[:members])
+          MemberMailer.registration_confirmation(member).deliver
           redirect_to members_login_index_path and return
         end
       else

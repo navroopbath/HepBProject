@@ -180,6 +180,7 @@ DEPENDENCIES
   haml
   jquery-rails
   launchy
+  mail (= 2.5.4)
   pg
   rails (= 3.2.16)
   rake
