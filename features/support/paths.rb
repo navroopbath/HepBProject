@@ -18,6 +18,7 @@ module NavigationHelpers
     when /^the portal dashboard for "(.+)"$/ then members_dashboard_home_path(Member.where(first_name: $1)[0])
     when /^the announcements tab for "(.+)"$/ then members_announcements_path(Member.where(first_name: $1)[0])
     when /^the stats page for "(.+)"$/ then members_stats_path(Member.where(first_name: $1)[0])
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
