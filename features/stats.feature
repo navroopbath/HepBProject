@@ -35,8 +35,8 @@ Background: members have been added to database
 
   Scenario: see my hours
     Then I should see "5" under "Total Hours Completed"
-    Then I should see "2" under "Events Attended"
+    Then I should see "2" under "Required Events Completed"
 
   Scenario: see my past events in order
-    Then I should see "Hospital" before "Clinic"
+    Then I should see "Clinic" before "Hospital"
     And I should see "Clinic"
