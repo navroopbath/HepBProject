@@ -17,6 +17,7 @@ Background: members have been added to database
   | event_name | location | date                    | duration | num_volunteers | description |
   | Clinic     | Berkeley | 2012-02-26 09:34:00.000 | 2        | 10             | plz attend  |
   | Hospital   | Oakland  | 2012-03-14 09:34:00.000 | 3        | 10             | help out!   |
+  | Social     | Oakland  | 2012-03-14 09:34:00.000 | 3        | 15             | it's fun!   |
 
   And John has attended the following events:
   | event_name | hours_attended | waitlisted | date_added              |
@@ -26,23 +27,21 @@ Background: members have been added to database
   And the following announcements exist:
   | date_written            | body             | pinned | type     |
   | 2012-02-26 09:34:00.000 | Come to meeting! | true   | Reminder |
+  | 1999-02-26 09:34:00.000 | Don't forget!    | false  | Reminder |
+
+  And I am logged in as "John"
+  When I go to the portal dashboard for "John"
 
 
-Scenario: Successfully displays my statistics information
-  Given I am logged in
-  When I go to the portal dashboard
-  #I should see "Welcome, Judy Blume!"
-  And I should see "5" under "Total Hours"
-  And I should see "2" under "Events Completed So Far"
+Scenario: Successfully displays my upcoming events
+  Then I should see the following events in this order:
+  | event_name | date                    | 
+  | Clinic     | 2012-02-26 09:34:00.000 | 
+  | Hospital   | 2012-03-14 09:34:00.000 | 
+  And I should not see "Social"
 
 Scenario: Successfully displays current announcements
-  Given I am logged in
-  When I go to the portal dashboard
-  #I should see "Welcome, Judy Blume!"
-  And I should see "Come to meeting!" under "Annoucements"
-
-Scenario: Can't visit Home page if not logged in
-  #not logged in
-  When I visit '/members/home'
-  #I should be on the login page
-  And I should see "Please log in to continue"
+  Then I should see the following announcements in this order:
+  | date_written            | body             | 
+  | 2012-02-26 09:34:00.000 | Come to meeting! | 
+  And I should not see "Don't forget!"

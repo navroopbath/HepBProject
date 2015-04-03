@@ -10,6 +10,7 @@ class MembersController < ApplicationController
   end
 
   def dashboard_home
+    @events = @current_mem.events
   end
 
   def announcements
