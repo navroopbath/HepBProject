@@ -9,6 +9,10 @@ Background: members have been added to database
   | first_name   | last_name  | grad_date | phone       | email                 | password    | is_admin | warnings |
   | John         | Blume      | 5/16/15   | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
 
+  And John speaks the following languages:
+  | lang    | fluency        |
+  | English | Native Speaker |
+
   And the following events exist:
   | event_name | location | date                    | duration | num_volunteers | description |
   | Clinic     | Berkeley | 2012-02-26 09:34:00.000 | 2        | 10             | plz attend  |
@@ -20,8 +24,8 @@ Background: members have been added to database
   | Hospital   | 3              | false      | 2012-02-25 09:34:00.000 | 
 
   And the following announcements exist:
-  | author | date_created            | body             | 
-  | Craig  | 2012-02-26 09:34:00.000 | Come to meeting! |
+  | date_written            | body             | pinned | type     |
+  | 2012-02-26 09:34:00.000 | Come to meeting! | true   | Reminder |
 
 
 Scenario: Successfully displays my statistics information

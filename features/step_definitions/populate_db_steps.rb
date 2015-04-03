@@ -4,6 +4,13 @@ Given /(.+) is in the database with the following information/ do |mem_name, mem
   end
 end
 
+And /(.+) speaks the following languages/ do |mem_name, languages_table|
+  mem = Member.where(first_name: mem_name)[0]
+  languages_table.hashes.each do |language|
+    mem.languages.build(language)
+  end
+end
+
 Given /the following events exist/ do |events_table|
   events_table.hashes.each do |event|
     Event.create!(event)
@@ -11,11 +18,11 @@ Given /the following events exist/ do |events_table|
 end
 
 Given /(.+) has attended the following events/ do |mem_name, memevents_table|
-  mem = Member.where(first_name: mem_name)
+  mem = Member.where(first_name: mem_name)[0]
   memevents_table.hashes.each do |memevent|
-    event = Event.where(event_name: memevent.delete("event_name"))
-    memevent = mem.build(memevent)
-    event.memevents << memevent
+    event = Event.where(event_name: memevent.delete("event_name"))[0]
+    me = mem.memevents.build(memevent)
+    event.memevents << me
   end
 end
 
