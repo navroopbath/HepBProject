@@ -1,6 +1,6 @@
 class DeleteHoursFromMembers < ActiveRecord::Migration
   def up
-    remove_column :members, :year
+    remove_column :members, :hours
   end
 
   def down
