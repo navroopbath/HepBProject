@@ -2,7 +2,7 @@ env:
   - DB=sqlite
 script: 
   - RAILS_ENV=test bundle exec rake db:migrate
-  - rspec spec
+  - rake spec
   - rake cucumber
 language: ruby
 rvm:
