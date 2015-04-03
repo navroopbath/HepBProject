@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150403061716) do
+ActiveRecord::Schema.define(:version => 20150403195754) do
 
   create_table "announcements", :force => true do |t|
     t.datetime "date_written"
     t.text     "body"
     t.boolean  "pinned"
     t.string   "announcement_type"
+    t.string   "title"
   end
 
   create_table "events", :force => true do |t|

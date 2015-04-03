@@ -25,9 +25,9 @@ Background: members have been added to database
   | Hospital   | 3              | false      | 2012-02-25 09:34:00.000 | 
 
   And the following announcements exist:
-  | date_written            | body             | pinned | announcement_type |
-  | 2012-02-26 09:34:00.000 | Come to meeting! | true   | Reminder          |
-  | 1999-02-26 09:34:00.000 | Don't forget!    | false  | Reminder          |
+  | date_written            | body             | pinned | announcement_type | title    |
+  | 2012-02-26 09:34:00.000 | Come to meeting! | true   | Reminder          | Reminder |
+  | 1999-02-26 09:34:00.000 | Don't forget!    | false  | Reminder          | Reminder |
 
   And I am logged in as "John"
   When I go to the portal dashboard for "John"

@@ -11,9 +11,13 @@
         %thead
           - @announcements.each do |announcement|
             %tr
-              %th= announcement.body
-              %th= time_ago_in_words(announcement.date_written)
-      %a.btn.btn-primary.btn-block{:href => '#'}
+              %h3= announcement.title
+              %p
+                = announcement.body
+              %p.text-muted.small
+                = announcement.date_written.strftime("%m/%d/%Y at %I:%M%p")
+            %hr/
+      %a.btn.btn-primary.btn-block{:href => members_announcements_path}
         View All Announcements
 
 %div.col-lg-4
