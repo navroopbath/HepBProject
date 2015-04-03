@@ -3,7 +3,7 @@ env:
 script: 
   - RAILS_ENV=test bundle exec rake db:migrate
   - rspec spec
-  - cucumber feature/
+  - rake cucumber
 language: ruby
 rvm:
   - "1.9.3"
