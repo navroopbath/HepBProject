@@ -5,8 +5,7 @@ describe MembersController do
   describe 'POST sign up' do
 
     before :each do
-      @fields = {:first_name => 'John', :last_name => 'Doe', :year => 'Sophomore', :phone => '5555555555', :email => 'johndoe@gmail.com', :password => 'password123', :confirm_password => 'password123'}
-      #@new_user = {"first_name" => 'John', "last_name" => 'Doe', "year" => 'Sophomore', "phone" => 5555555555, "email" => 'johndoe@gmail.com', "password" => 'password123', "is_admin" => false, "hours" => 0}
+      @fields = {:first_name => 'John', :last_name => 'Doe', :grad_date => 'May 18, 2015', :phone => '5555555555', :email => 'johndoe@gmail.com', :password => 'password123', :confirm_password => 'password123'}
       post :sign_up, {:members => @fields}
     end
 

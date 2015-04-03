@@ -19,6 +19,13 @@ class MembersController < ApplicationController
   end
 
   def stats
+    @memevents = @current_mem.memevents
+    @total_hours_completed = @memevents.inject(0){|sum, x| sum + x.hours_attended}
+    if @memevents.length > 2
+      @num_required_events = 2
+    else
+      @num_required_events = @memevents.length
+    end
   end
 
   def login_index
