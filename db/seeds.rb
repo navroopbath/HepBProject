@@ -31,10 +31,12 @@ events.each do |event|
   e = Event.create!(event)
 end
 
-m = Memevent.create!(memevent)
-m.member = Member.where(id: 1)[0]
-m.event = Event.where(id: 1)[0]
-m.save!
+1.upto(3) do |i|
+  m = Memevent.create!(memevent)
+  m.member = Member.where(id: 1)[0]
+  m.event = Event.where(id: i)[0]
+  m.save!
+end
 
 announcements.each do |announcement|
   Announcement.create!(announcement)
