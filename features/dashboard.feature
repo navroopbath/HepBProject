@@ -28,20 +28,16 @@ Background: members have been added to database
   | date_written            | body             | pinned | announcement_type | title    |
   | 2012-02-26 09:34:00.000 | Come to meeting! | true   | Reminder          | Reminder |
   | 1999-02-26 09:34:00.000 | Don't forget!    | false  | Reminder          | Reminder |
+  | 2011-02-26 09:34:00.000 | Oh hai           | true   | Reminder          | Reminder |
 
   And I am logged in as "John"
   When I go to the portal dashboard for "John"
 
 
 Scenario: Successfully displays my upcoming events
-  #Then I should see the following events in this order:
-  #| event_name | date                    | 
-  #| Clinic     | 2012-02-26 09:34:00.000 | 
-  #| Hospital   | 2012-03-14 09:34:00.000 | 
+  Then I should see "Clinic" before "Hospital"
   And I should not see "Social"
 
 Scenario: Successfully displays current announcements
-  #Then I should see the following announcements in this order:
-  #| date_written            | body             | 
-  #| 2012-02-26 09:34:00.000 | Come to meeting! | 
+  Then I should see "Oh hai" before "Come to meeting!"
   And I should not see "Don't forget!"
