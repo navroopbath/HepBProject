@@ -34,8 +34,8 @@ Background: members have been added to database
   When I go to the stats page for "John"
 
   Scenario: see my hours
-    Then I should see "2"
-    And I should see "2"
+    Then I should see "5" under "Total Hours Completed"
+    Then I should see "2" under "Events Attended"
 
   Scenario: see my past events in order
     Then I should see "Hospital" before "Clinic"
