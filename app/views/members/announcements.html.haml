@@ -4,83 +4,26 @@
   %div.panel.panel-default
     %div.panel-heading
       %b All Announcements
-    %div.panel-body
-      .row.centered-form
-        .col-xs-12
-          %h2 Article Heading
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-            Aliquam in felis sit amet augue.
-          %p.lead
-            %button.btn.btn-default Read More
-          %p.pull-right
-            %span.label.label-default keyword
-            %span.label.label-default tag
-            %span.label.label-default post
-          %ul.list-inline
-            %li
-              %a{:href => "#"} 2 Days Ago
-            %li
-              %a{:href => "#"}
-                %i.glyphicon.glyphicon-comment
-                2 Comments
-            %li
-              %a{:href => "#"}
-                %i.glyphicon.glyphicon-share
-                14 Shares
-      %hr/
-      .row
-        .col-xs-12
-          %h2 Article Heading
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-            Aliquam in felis sit amet augue.
-          %p.lead
-            %button.btn.btn-default Read More
-          %p.pull-right
-            %span.label.label-default keyword
-            %span.label.label-default tag
-            %span.label.label-default post
-          %ul.list-inline
-            %li
-              %a{:href => "#"} 4 Days Ago
-            %li
-              %a{:href => "#"}
-                %i.glyphicon.glyphicon-comment
-                7 Comments
-            %li
-              %a{:href => "#"}
-                %i.glyphicon.glyphicon-share
-                56 Shares
-      %hr/
-      .row
-        .col-xs-12
-          %h2 Article Heading
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-            Aliquam in felis sit amet augue.
-          %p.lead
-            %button.btn.btn-default Read More
-          %p.pull-right
-            %span.label.label-default keyword
-            %span.label.label-default tag
-            %span.label.label-default post
-          %ul.list-inline
-            %li
-              %a{:href => "#"} 1 Week Ago
-            %li
-              %a{:href => "#"}
-                %i.glyphicon.glyphicon-comment
-                4 Comments
-            %li
-              %a{:href => "#"}
-                %i.glyphicon.glyphicon-share
-                34 Shares
-      %hr/
-/ /center
+    - @ordered_announcements.each do |this_announcement|
+      %div.panel-body
+        .row.centered-form
+          .col-xs-12
+            %h2= this_announcement.title
+            %p= this_announcement.body
+            %p.lead
+              %button.btn.btn-default Read More
+            %p.pull-right
+              %span.label.label-default keyword
+              %span.label.label-default tag
+              %span.label.label-default post
+            %ul.list-inline
+              %li
+                %a{:href => "#"} 2 Days Ago
+              %li
+                %a{:href => "#"}
+                  %i.glyphicon.glyphicon-comment
+                  2 Comments
+              %li
+                %a{:href => "#"}
+                  %i.glyphicon.glyphicon-share
+                  14 Shares
