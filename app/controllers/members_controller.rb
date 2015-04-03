@@ -11,6 +11,7 @@ class MembersController < ApplicationController
 
   def dashboard_home
     @events = @current_mem.events
+    @announcements = Announcement.where(pinned: true)
   end
 
   def announcements

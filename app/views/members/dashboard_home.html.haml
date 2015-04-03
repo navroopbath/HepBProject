@@ -9,9 +9,10 @@
     %div.panel-body
       %table.table.table-striped.table-bordered
         %thead
-          %tr
-            %th Announcement
-            %th Date
+          - @announcements.each do |announcement|
+            %tr
+              %th= announcement.body
+              %th= time_ago_in_words(announcement.date_written)
       %a.btn.btn-primary.btn-block{:href => '#'}
         View All Announcements
 
