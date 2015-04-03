@@ -15,6 +15,7 @@ class MembersController < ApplicationController
   end
 
   def announcements
+    @ordered_announcements = Announcement.order(:date_written)
   end
 
   def stats
