@@ -11,8 +11,12 @@
         %thead
           - @announcements.each do |announcement|
             %tr
-              %th= announcement.body
-              %th= announcement.date_written.strftime("%m/%d/%Y at %I:%M%p")
+              %h3= announcement.title
+              %p
+                = announcement.body
+              %p.text-muted.small
+                = announcement.date_written.strftime("%m/%d/%Y at %I:%M%p")
+            %hr/
       %a.btn.btn-primary.btn-block{:href => '#'}
         View All Announcements
 
