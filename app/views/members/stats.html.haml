@@ -8,14 +8,16 @@
     %div.panel-body
       Required Events Completed
       .progress
-        .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "50", :role => "progressbar", :style => "width: 50%;"}
-          1/2
+        .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "50", :role => "progressbar", :style => "width: #{@num_required_events*50}%;"}
+          = @num_required_events
+          \/ 2
 
       %table.table.table-striped.table-bordered
         %thead
-          %tr
+          %tr#total
             %th Total Hours Completed
-            %th 45
+            %th
+              = @total_hours_completed
 
 %div.col-lg-8
   %div.panel.panel-default
@@ -31,24 +33,11 @@
             %th Hours completed
 
         %tbody
-          %tr
-            %th 3/17/2015
-            %th Clinic Training in Wheeler
-            %th 3
-
-          %tr
-            %th 3/14/2015
-            %th Outreach Event in Hayward
-            %th 2
-
-          %tr
-            %th 3/11/2015
-            %th Wednesday Clinic
-            %th 3
-
-          %tr
-            %th 3/4/2015
-            %th Wedbesday Clinic
-            %th 2
-
-      
+          - @memevents.each do |memevent|
+            %tr
+              %th 
+                =memevent.event.date.strftime("%m/%d/%Y")
+              %th 
+                =memevent.event.event_name
+              %th 
+                =memevent.hours_attended
