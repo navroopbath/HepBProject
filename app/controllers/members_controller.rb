@@ -10,8 +10,8 @@ class MembersController < ApplicationController
   end
 
   def dashboard_home
-    @events = @current_mem.events
-    @announcements = Announcement.where(pinned: true)
+    @events = @current_mem.events.order(:date)
+    @announcements = Announcement.where(pinned: true).order(:date_written)
   end
 
   def announcements
