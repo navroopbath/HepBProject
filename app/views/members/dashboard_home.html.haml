@@ -1,3 +1,4 @@
+- require 'active_support/core_ext'
 = render 'navbar'
 
 %div.col-lg-8
@@ -8,9 +9,10 @@
     %div.panel-body
       %table.table.table-striped.table-bordered
         %thead
-          %tr
-            %th Announcement
-            %th Date
+          - @announcements.each do |announcement|
+            %tr
+              %th= announcement.body
+              %th= time_ago_in_words(announcement.date_written)
       %a.btn.btn-primary.btn-block{:href => '#'}
         View All Announcements
 
@@ -22,29 +24,10 @@
     %div.panel-body
       You are signed up for:
       %div.list-group
-        %a.list-group-item{:href => '#'}
-          Oakland Clinic
-          %span.pull-right.text-muted.small
-            Tomorrow 8:00 am
-        %a.list-group-item{:href => '#'}
-          San Francisco Clinic
-          %span.pull-right.text-muted.small
-            2 days from now
-        %a.list-group-item{:href => '#'}
-          General Meeting
-          %span.pull-right.text-muted.small
-            2 days from now
-        %a.list-group-item{:href => '#'}
-          Recruitment
-          %span.pull-right.text-muted.small
-            4 days from now
-        %a.list-group-item{:href => '#'}
-          Bar Hop
-          %span.pull-right.text-muted.small
-            5 days from now
-        %a.list-group-item{:href => '#'}
-          Berkeley Clinic
-          %span.pull-right.text-muted.small
-            5 days from now
+        - @events.each do |event|
+          %a.list-group-item{:href => '#'}
+            =event.event_name
+            %span.pull-right.text-muted.small
+              = time_ago_in_words(event.date) 
       %a.btn.btn-primary.btn-block{:href => '#'}
         View All Events

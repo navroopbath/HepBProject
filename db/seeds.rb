@@ -8,13 +8,13 @@ members = [{:first_name =>'Navroop', :last_name =>'Singh', :grad_date =>'2002-05
         {:first_name =>'Craig', :last_name =>'Hiller', :grad_date =>'2002-05-30T09:00:00', :phone =>'5555555555',:email =>'chiller@berkeley.edu', :password =>'saas', :is_admin =>'false', :warnings =>'0'}
 ]
 
-events = [{:event_name => 'Korean Health Fair', :date => '2003-05-30T10:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
+events = [{:event_name => 'Korean Health Fair', :date => '2015-04-5T10:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Chinese Health Fair', :date => '2003-05-30T10:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Japanese Health Fair', :date => '2003-05-30T10:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'}
 ]
 
-announcements = [{:date_written => '2002-05-30T09:00:00', :body => 'Ice Cream Social on Tuesday', :pinned => 'true', :announcement_type => 'Upcoming Events'},
-              {:date_written => '2002-05-30T09:00:00', :body => 'Workshop on Wednesday', :pinned => 'true', :announcement_type => 'Upcoming Events'}
+announcements = [{:date_written => '2015-05-30T09:00:00', :body => 'Ice Cream Social on Tuesday', :pinned => 'true', :announcement_type => 'Upcoming Events'},
+              {:date_written => '2015-05-30T09:00:00', :body => 'Workshop on Wednesday', :pinned => 'true', :announcement_type => 'Upcoming Events'}
             ]
 
 languages = {:lang => 'English', :fluency => 'Native Speaker'}
