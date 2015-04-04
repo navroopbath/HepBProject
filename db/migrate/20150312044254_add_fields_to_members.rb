@@ -8,6 +8,7 @@ class AddFieldsToMembers < ActiveRecord::Migration
       t.string :email
       t.string :password
       t.boolean :is_admin
+      t.integer :hours
     end
   end
 end
