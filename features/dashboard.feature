@@ -41,3 +41,11 @@ Scenario: Successfully displays my upcoming events
 Scenario: Successfully displays current announcements
   Then I should see "Oh hai" before "Come to meeting!"
   And I should not see "Don't forget!"
+
+Scenario: Hover over events displays discription 
+  When I hover over Clinic 
+  Then I should see Berkeley
+  And I should "plz attend"
+
+Scenario: General meeting block
+  I should see the General Meeting annoucement 
