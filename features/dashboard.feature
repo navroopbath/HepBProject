@@ -8,6 +8,7 @@ Background: members have been added to database
  Given John is in the database with the following information:
   | first_name   | last_name  | grad_date | phone       | email                 | password    | is_admin | warnings |
   | John         | Blume      | 5/16/15   | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
+  | Vin          | Disel      | 5/16/15   | 1111111111  | fastandfur@mail.com   | abcdefgh    | no       |    0     |
 
   And John speaks the following languages:
   | lang    | fluency        |
@@ -37,6 +38,10 @@ Background: members have been added to database
 Scenario: Successfully displays my upcoming events
   Then I should see "Clinic" before "Hospital"
   And I should not see "Social"
+
+Scenario: Successfully displays contacts
+  Then I should see "Vin Disel"
+  And I should see "fastandfur@mail.com"
 
 Scenario: Successfully displays current announcements
   Then I should see "Oh hai" before "Come to meeting!"
