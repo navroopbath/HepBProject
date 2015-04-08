@@ -4,6 +4,12 @@ Given /(.+) is in the database with the following information/ do |mem_name, mem
   end
 end
 
+Given /the following members are in the database/ do |members_table|
+  members_table.hashes.each do |member|
+    Member.create!(member)
+  end
+end
+
 And /(.+) speaks the following languages/ do |mem_name, languages_table|
   mem = Member.where(first_name: mem_name)[0]
   languages_table.hashes.each do |language|
