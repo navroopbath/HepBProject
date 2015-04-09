@@ -114,6 +114,8 @@ GEM
       activesupport (= 3.2.16)
       bundler (~> 1.0)
       railties (= 3.2.16)
+    rails-settings-cached (0.2.4)
+      rails (>= 3.0.0)
     railties (3.2.16)
       actionpack (= 3.2.16)
       activesupport (= 3.2.16)
@@ -183,6 +185,7 @@ DEPENDENCIES
   mail (= 2.5.4)
   pg
   rails (= 3.2.16)
+  rails-settings-cached (= 0.2.4)
   rake (= 10.4.2)
   rspec-rails (~> 2.14.0)
   sass-rails (~> 3.2.3)
