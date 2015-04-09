@@ -18,6 +18,41 @@ class MembersController < ApplicationController
     @ordered_announcements = Announcement.order(:date_written)
   end
 
+  def settings_index
+    @member = Member.find_by_email(session[:member][:email])
+  end
+
+  def settings
+    @member = Member.find_by_id(session[:member_id])
+    if params[:members][:password] != params[:members][:confirm_password]
+      flash[:notice] = "Password mismatch"
+      redirect_to members_settings_index_path
+    else
+      if @member.first_name != params[:members][:first_name]
+        @member.first_name = params[:members][:first_name]
+      end
+      if @member.last_name != params[:members][:last_name]
+        @member.last_name = params[:members][:last_name]
+      end
+      if @member.email != params[:members][:email]
+        @member.email = params[:members][:emial]
+      end
+      if @member.grad_date.strftime("%m/%d/%Y") != params[:members][:grad_date]
+        @member.grad_date = params[:members][:grad_date]
+      end
+      if @member.phone != params[:members][:phone]
+        @member.phone = params[:members][:phone]
+      end
+      if @member.password != params[:members][:password]
+        @member.password = params[:members][:password]
+      end
+    end
+    @member.save!
+    session[:member] = @member
+    flash[:error] = "Your information was updated successfully"
+    redirect_to members_dashboard_home_path(Member.where(id: @member[:id])[0])
+  end
+
   def stats
     @memevents = @current_mem.memevents
     @total_hours_completed = @memevents.inject(0){|sum, x| sum + x.hours_attended}

@@ -1,0 +1,65 @@
+<%= render "navbar", :handlers => [:haml] %> 
+
+<div class="container">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Edit Information</h3>
+        </div>
+        <div class="panel-body">
+          <%= form_tag members_settings_index_path, :method => :post, :class => 'form-horizontal' %>
+            <div class="row">
+              <!-- First Name -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :first_name, 'First Name'%>
+                <div class="form-group">
+                  <%= text_field :members ,'first_name', :value => @member.first_name, :class => "form-control input-sm"  %>
+                </div>
+              </div>
+              <!-- Last Name -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :last_name, 'Last Name'%>
+                <div class="form-group">
+                  <%= text_field :members, 'last_name', :value => @member.last_name, :class => "form-control input-sm" %>
+                </div>
+              </div>
+            </div>
+            <!-- Email -->
+            <%= label :members, :email, 'Email'%>
+            <div class="form-group">
+              <%= text_field :members, 'email', :value => @member.email, :class => "form-control input-sm", :type => "email" %>
+            </div>
+            <!-- Year -->
+            <%= label :members, :grad_date, 'Graduation Date'%>
+            <div class="form-group">
+              <%= text_field :members, 'grad_date', :value => @member.grad_date.strftime("%m/%d/%Y"), :class => "form-control input-sm" %>
+            </div>
+            <!-- Phone -->
+            <%= label :members, :phone, 'Phone'%>
+            <div class="form-group">
+              <%= text_field :members, 'phone', :value => @member.phone, :class => "form-control input-sm" %>
+            </div>
+            <div class="row">
+              <!-- Password -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :password, 'Password'%>
+                <div class="form-group">
+                  <%= text_field :members, 'password', :value => @member.password, :class => "form-control input-sm", :type => "password" %>
+                </div>
+              </div>
+              <!-- Confirm Password -->
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <%= label :members, :confirm_password, 'Confirm Password'%>
+                <div class="form-group">
+                  <%= text_field :members, 'confirm_password', :value => @member.password, :class => "form-control input-sm", :type => "password" %>
+                </div>
+              </div>
+            </div>
+            <input type="submit" value="Update Information" class="btn btn-info btn-block">
+          <!-- end of form -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
