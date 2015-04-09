@@ -20,9 +20,9 @@ Background: members have been added to database
   | Social     | Oakland  | 2012-03-14 09:34:00.000 | 3        | 15             | it's fun!   |
 
   And John has attended the following events:
-  | event_name | hours_attended | waitlisted | date_added              |
-  | Clinic     | 2              | false      | 2012-02-25 09:34:00.000 |
-  | Hospital   | 3              | false      | 2012-02-25 09:34:00.000 | 
+  | event_name | hours | waitlisted | date_added              |
+  | Clinic     | 2     | false      | 2012-02-25 09:34:00.000 |
+  | Hospital   | 3     | false      | 2012-02-25 09:34:00.000 | 
 
   And the following announcements exist:
   | date_written            | body             | pinned | announcement_type | title    |
