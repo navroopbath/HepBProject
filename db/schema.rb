@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150403195754) do
+ActiveRecord::Schema.define(:version => 20150409043320) do
 
   create_table "announcements", :force => true do |t|
     t.datetime "date_written"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20150403195754) do
   end
 
   create_table "memevents", :force => true do |t|
-    t.float    "hours_attended"
+    t.float    "hours"
     t.boolean  "waitlisted"
     t.datetime "date_added"
     t.integer  "member_id"
