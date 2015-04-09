@@ -22,7 +22,7 @@ announcements = [{:date_written => '2015-04-18T09:00:00',:title => 'Ice Cream So
 
 languages = {:lang => 'English', :fluency => 'Native Speaker'}
 
-memevent = {:hours_attended => '2', :waitlisted => 'false', :date_added => '2002-05-30T09:00:00'}
+memevent = {:hours => '2', :waitlisted => 'false', :date_added => '2002-05-30T09:00:00'}
 
 members.each do |member|
   m = Member.create!(member)
