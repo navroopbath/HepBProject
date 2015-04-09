@@ -45,3 +45,11 @@ announcements.each do |announcement|
   Announcement.create!(announcement)
 end
 
+#SEED MASTER SETTINGS
+Settings.master_admin_email = 'hepbhomies@gmail.com'
+Settings.master_admin_password = 'topsecretpassword'
+Settings.notifications_email = 'hepbhomies@gmail.com'
+Settings.notifications_email_password = 'topsecretpassword'
+Settings.deadline_one = '03/15/15' # format '%m/%d/%Y'
+Settings.deadline_two = '05/15/15'
+
