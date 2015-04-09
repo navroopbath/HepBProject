@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150403195754) do
+ActiveRecord::Schema.define(:version => 20150409052650) do
 
   create_table "announcements", :force => true do |t|
     t.datetime "date_written"
@@ -48,11 +48,23 @@ ActiveRecord::Schema.define(:version => 20150403195754) do
   end
 
   create_table "memevents", :force => true do |t|
-    t.float    "hours_attended"
+    t.float    "hours"
     t.boolean  "waitlisted"
     t.datetime "date_added"
     t.integer  "member_id"
     t.integer  "event_id"
+    t.boolean  "approved"
   end
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
 
 end

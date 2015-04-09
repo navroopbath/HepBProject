@@ -55,7 +55,7 @@ class MembersController < ApplicationController
 
   def stats
     @memevents = @current_mem.memevents
-    @total_hours_completed = @memevents.inject(0){|sum, x| sum + x.hours_attended}
+    @total_hours_completed = @memevents.inject(0){|sum, x| sum + x.hours}
     if @memevents.length > 2
       @num_required_events = 2
     else

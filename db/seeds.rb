@@ -22,7 +22,7 @@ announcements = [{:date_written => '2015-04-18T09:00:00',:title => 'Ice Cream So
 
 languages = {:lang => 'English', :fluency => 'Native Speaker'}
 
-memevent = {:hours_attended => '2', :waitlisted => 'false', :date_added => '2002-05-30T09:00:00'}
+memevent = {:hours => '2', :waitlisted => 'false', :date_added => '2002-05-30T09:00:00', :approved => 'true'}
 
 members.each do |member|
   m = Member.create!(member)
@@ -44,4 +44,12 @@ end
 announcements.each do |announcement|
   Announcement.create!(announcement)
 end
+
+#SEED MASTER SETTINGS
+Settings.master_admin_email = 'hepbhomies@gmail.com'
+Settings.master_admin_password = 'topsecretpassword'
+Settings.notifications_email = 'hepbhomies@gmail.com'
+Settings.notifications_email_password = 'topsecretpassword'
+Settings.deadline_one = '03/15/15' # format '%m/%d/%Y'
+Settings.deadline_two = '05/15/15'
 
