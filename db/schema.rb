@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150409045459) do
+ActiveRecord::Schema.define(:version => 20150409052650) do
 
   create_table "announcements", :force => true do |t|
     t.datetime "date_written"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20150409045459) do
     t.datetime "date_added"
     t.integer  "member_id"
     t.integer  "event_id"
+    t.boolean  "approved"
   end
 
   create_table "settings", :force => true do |t|
