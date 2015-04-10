@@ -1,47 +1,44 @@
-%head
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-%div#title Sign Up
-
-%div#sign-up-form
-  = form_tag members_sign_up_index_path do 
-    %div.sign-up-field
-      = label :members, :email, 'Email'
-      %br
-      = text_field :members, :email, placeholder: "john@example.com", :value => "#{@email}"
-
-    %div.sign-up-field
-      = label :members, :password, 'Password'
-      %br
-      = text_field :members, :password, :type => :password
-
-    %div.sign-up-field
-      = label :members, :confirm_password, 'Confirm Password'
-      %br
-      = text_field :members, :confirm_password, :type => :password
-
-    %div.sign-up-field
-      = label :members, :first_name, 'First Name'
-      %br
-      = text_field :members, :first_name, placeholder: "John", :value => "#{@first_name}"
-
-    %div.sign-up-field
-      = label :members, :last_name, 'Last Name'
-      %br
-      = text_field :members, :last_name, placeholder: "Doe", value: "#{@last_name}"
-
-    -#= label :members, 'Major'
-    -#= text_field 'major'
-    %div.sign-up-field
-      = label :members, :grad_date, 'Graduation Date'
-      %br
-      = text_field :members, :grad_date, placeholder: "5/16/15", value: "#{@grad_date}"
-
-    %div.sign-up-field
-      = label :members, :phone, 'Phone'
-      %br
-      = text_field :members, :phone, placeholder: "999-999-9999", value: "#{@phone}"
-
-    -#= label :members, 'Confirm Password'
-    -#= text_field :members, 'confirm_password'
-    %div#sign-up-submit
-      = submit_tag 'Submit'
+.container
+  .row.centered-form
+    .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Please sign up for HepBProject
+        .panel-body
+          = form_tag members_sign_up_index_path, :method => :post, :class => 'form-horizontal'
+          .row
+            / First Name
+            .col-xs-6.col-sm-6.col-md-6
+              = label :members, :first_name, 'First Name'
+              .form-group
+                = text_field :members ,'first_name', :placeholder => "John", :class => "form-control input-sm"
+            / Last Name
+            .col-xs-6.col-sm-6.col-md-6
+              = label :members, :last_name, 'Last Name'
+              .form-group
+                = text_field :members, 'last_name', :placeholder => "Doe", :class => "form-control input-sm"
+          / Email
+          = label :members, :email, 'Email'
+          .form-group
+            = text_field :members, 'email', :placeholder => "john@doe.com", :class => "form-control input-sm", :type => "email"
+          / Year
+          = label :members, :grad_date, 'Graduation Date'
+          .form-group
+            = text_field :members, 'grad_date', :placeholder => "mm/dd/yyyy", :class => "form-control input-sm"
+          / Phone
+          = label :members, :phone, 'Phone'
+          .form-group
+            = text_field :members, 'phone', :placeholder => "9999999999", :class => "form-control input-sm"
+          .row
+            / Password
+            .col-xs-6.col-sm-6.col-md-6
+              = label :members, :password, 'Password'
+              .form-group
+                = text_field :members, 'password', :placeholder => "Password", :class => "form-control input-sm", :type => "password"
+            / Confirm Password
+            .col-xs-6.col-sm-6.col-md-6
+              = label :members, :confirm_password, 'Confirm Password'
+              .form-group
+                = text_field :members, 'confirm_password', :placeholder => "Confirm Password", :class => "form-control input-sm", :type => "password"
+          %input.btn.btn-info.btn-block{:type => "submit", :value => "Submit"}/
+          / end of form

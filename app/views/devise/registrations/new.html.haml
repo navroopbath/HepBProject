@@ -1,21 +1,92 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @validatable
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.container
+  .row.centered-form
+    .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Sign up
+        .panel-body
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-horizontal") do |f|
+            %h3= devise_error_messages!
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :first_name
+                = f.text_field :first_name, :placeholder => "John"
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :last_name
+                = f.text_field :last_name, :placeholder => "Doe"
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :email
+                %br/
+                = f.email_field :email, autofocus: true, :placeholder => "johndoe@gmail.com"
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :password
+                - if @validatable
+                  %em
+                    (#{@minimum_password_length} characters minimum)
+                %br/
+                = f.password_field :password, autocomplete: "off"
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :password_confirmation
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "off"
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :phone
+                = f.text_field :phone, :placeholder => "5103005000"
+            .form-group
+              .col-xs-8.col-sm-8.col-md-8
+                = f.label :grad_date
+                = f.text_field :grad_date, :placeholder => "05/18/2015"
+            .form-group.last
+              .col-xs-8.col-sm-8.col-md-8
+                %input.btn.btn-info.btn-block{:type => "submit", :value => "Submit"}
+
+
+/ .container
+/   .row.centered-form
+/     .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+/       .panel.panel-default
+/         .panel-heading
+/           %h3.panel-title Please sign up for HepBProject
+/         .panel-body
+/           = form_tag members_sign_up_index_path, :method => :post, :class => 'form-horizontal'
+/           .row
+/             / First Name
+/             .col-xs-6.col-sm-6.col-md-6
+/               = label :members, :first_name, 'First Name'
+/               .form-group
+/                 = text_field :members ,'first_name', :placeholder => "John", :class => "form-control input-sm"
+/             / Last Name
+/             .col-xs-6.col-sm-6.col-md-6
+/               = label :members, :last_name, 'Last Name'
+/               .form-group
+/                 = text_field :members, 'last_name', :placeholder => "Doe", :class => "form-control input-sm"
+/           / Email
+/           = label :members, :email, 'Email'
+/           .form-group
+/             = text_field :members, 'email', :placeholder => "john@doe.com", :class => "form-control input-sm", :type => "email"
+/           / Year
+/           = label :members, :grad_date, 'Graduation Date'
+/           .form-group
+/             = text_field :members, 'grad_date', :placeholder => "mm/dd/yyyy", :class => "form-control input-sm"
+/           / Phone
+/           = label :members, :phone, 'Phone'
+/           .form-group
+/             = text_field :members, 'phone', :placeholder => "9999999999", :class => "form-control input-sm"
+/           .row
+/             / Password
+/             .col-xs-6.col-sm-6.col-md-6
+/               = label :members, :password, 'Password'
+/               .form-group
+/                 = text_field :members, 'password', :placeholder => "Password", :class => "form-control input-sm", :type => "password"
+/             / Confirm Password
+/             .col-xs-6.col-sm-6.col-md-6
+/               = label :members, :confirm_password, 'Confirm Password'
+/               .form-group
+/                 = text_field :members, 'confirm_password', :placeholder => "Confirm Password", :class => "form-control input-sm", :type => "password"
+/           %input.btn.btn-info.btn-block{:type => "submit", :value => "Submit"}/
+/           / end of form
