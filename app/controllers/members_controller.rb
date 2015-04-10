@@ -1,4 +1,13 @@
 class MembersController < ApplicationController
+  before_action :authenticate_member!
+  # To verify if a user is signed in, use the following helper:
+  # user_signed_in?
+  #
+  # For the current signed-in user, this helper is available:
+  # current_user
+  #
+  # You can access the session for this scope:
+  # user_session
   before_filter :set_current_mem, :except => [:login_index, :login, :sign_up, :sign_up_index]
 
   def set_current_mem
