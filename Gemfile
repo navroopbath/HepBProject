@@ -21,7 +21,7 @@ group :production do
   gem 'pg'
 end
 
-# Gems used only for assets and not required
+# Gems used only for assets and not requirede
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -40,7 +40,10 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'mail', '2.5.4'
 gem "rails-settings-cached", "0.2.4"
-
+gem 'bootstrap_calendar_rails'
+gem 'devise'
+gem 'erb2haml'
+gem 'html2haml'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
