@@ -4,7 +4,6 @@ HepBProject::Application.routes.draw do
     sessions: 'members/sessions',
     registrations: 'members/registrations'
   }
-
   root :to => redirect('/members/sign_in')
   # get 'members/login', to: 'members#login_index', as: 'members_login_index'
   # post 'members/login', to: 'members#login', as: 'members_login'
