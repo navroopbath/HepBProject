@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :authenticate_member!
+  before_filter :authenticate_member!
   # To verify if a user is signed in, use the following helper:
   # user_signed_in?
   #
@@ -8,18 +8,17 @@ class MembersController < ApplicationController
   #
   # You can access the session for this scope:
   # user_session
-  before_filter :set_current_mem, :except => [:login_index, :login, :sign_up, :sign_up_index]
-
   def set_current_mem
     @current_mem ||= Member.find_by_id(session[:member_id])
     if !@current_mem
       flash[:notice] = "You must be signed in first."
-      redirect_to members_login_index_path unless @current_mem
+      redirect_to new_member_session_path unless @current_mem
     end
   end
 
   def dashboard_home
-    @events = @current_mem.events.order(:date)
+    @current_member = current_member
+    @events = @current_member.events.order(:date)
     @announcements = Announcement.where(pinned: true).order(:date_written)
   end
 
@@ -70,9 +69,6 @@ class MembersController < ApplicationController
     else
       @num_required_events = @memevents.length
     end
-  end
-
-  def login_index
   end
 
   def login
