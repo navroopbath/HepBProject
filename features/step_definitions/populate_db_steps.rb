@@ -1,5 +1,6 @@
 Given /(.+) is in the database with the following information/ do |mem_name, members_table|
   members_table.hashes.each do |member|
+    @member = member
     Member.create!(member)
   end
 end

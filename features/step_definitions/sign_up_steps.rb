@@ -7,7 +7,7 @@
 # end
 
 When /^I fill in all fields with: (.*)$/ do |values|
-  fields = ['First Name', 'Last Name', 'Graduation Date', 'Phone', 'Email', 'Password', 'Confirm Password']
+  fields = ['First name', 'Last name', 'Grad date', 'Phone', 'Email', 'Password', 'Password confirmation']
   values = values.gsub(' ','').split(',')
   fields.zip(values).each do |field, value|
     steps %Q{
@@ -18,7 +18,7 @@ end
 
 Then /^I should see the following information: (.*)$/ do |values|
   #used for password mismatch scenario
-  fields = ['First Name', 'Last Name', 'Graduation Date', 'Phone', 'Email']
+  fields = ['First name', 'Last name', 'Grad date', 'Phone', 'Email']
   values = values.gsub(' ','').split(',')
   fields.zip(values).each do |field, value|
     steps %Q{
