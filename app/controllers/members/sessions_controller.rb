@@ -13,7 +13,6 @@ class Members::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-    debugger
     super
   end
 

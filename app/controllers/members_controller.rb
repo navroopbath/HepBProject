@@ -8,16 +8,13 @@ class MembersController < ApplicationController
   #
   # You can access the session for this scope:
   # user_session
+  before_filter :set_current_mem
+
   def set_current_mem
-    @current_mem ||= Member.find_by_id(session[:member_id])
-    if !@current_mem
-      flash[:notice] = "You must be signed in first."
-      redirect_to new_member_session_path unless @current_mem
-    end
+    @current_mem ||= current_member
   end
 
   def dashboard_home
-    @current_member = current_member
     @events = @current_member.events.order(:date)
     @announcements = Announcement.where(pinned: true).order(:date_written)
   end
