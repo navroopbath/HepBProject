@@ -1,11 +1,13 @@
 HepBProject::Application.routes.draw do
 
+  devise_for :members
+
   root to: redirect('/members/login')
-  get 'members/login', to: 'members#login_index', as: 'members_login_index'
-  post 'members/login', to: 'members#login', as: 'members_login'
-  get 'members/signup', to: 'members#sign_up_index', as: 'members_sign_up_index'
-  post 'members/signup', to: 'members#sign_up', as: 'members_sign_up'
-  get 'members/logout', to: 'members#logout', as: 'members_logout' 
+  # get 'members/login', to: 'members#login_index', as: 'members_login_index'
+  # post 'members/login', to: 'members#login', as: 'members_login'
+  # get 'members/signup', to: 'members#sign_up_index', as: 'members_sign_up_index'
+  # post 'members/signup', to: 'members#sign_up', as: 'members_sign_up'
+  # get 'members/logout', to: 'members#logout', as: 'members_logout' 
 
   get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
