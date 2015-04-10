@@ -28,8 +28,6 @@ ActiveRecord::Schema.define(:version => 20150410040944) do
     t.float    "duration"
     t.integer  "num_volunteers"
     t.text     "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
   end
 
   create_table "languages", :force => true do |t|
@@ -49,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20150410040944) do
     t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.integer  "sign_in_count",                       :default => 0,  :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
