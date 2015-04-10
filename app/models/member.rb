@@ -11,4 +11,5 @@ class Member < ActiveRecord::Base
   has_many :memevents
   has_many :languages
 
+  validates_presence_of :first_name, :last_name, :phone, :grad_date
 end
