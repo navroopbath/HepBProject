@@ -20,7 +20,7 @@ HepBProject::Application.routes.draw do
   post 'members/:id/settings', to: 'members#settings', as: 'members_settings'
 
   get 'events', to: 'events#show', as: 'events_index'
-
+  post 'events', to: 'events#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
