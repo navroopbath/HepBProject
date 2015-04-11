@@ -12,7 +12,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
     begin
       params[:member][:grad_date] = DateTime.strptime(params[:member][:grad_date], '%m/%d/%y')
     rescue
-      
+      #flash message?
     end
     super
   end
@@ -54,11 +54,11 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # end
 
   def sign_up(resource_name, resource)
-    after_sign_up_path_for(resource)
+   sign_in(resource_name, resource)
   end
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    new_member_session_path
+    after_sign_in_path_for(resource)
   end
 
   # The path used after sign up for inactive accounts.
