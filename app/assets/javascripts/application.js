@@ -16,5 +16,3 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
-
-$(document).ready(function() { $('#calendar').fullCalendar() });

@@ -2,9 +2,14 @@ class EventsController < ApplicationController
 
   def show
     @events = Event.all
-    @event = Event.new
+    respond_to do |format|
+      format.html # show.html.haml
+      format.json { render json: @events }
+    end
   end
 
+  def show
+  end
   def new
     @event = Event.new
   end
