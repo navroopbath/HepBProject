@@ -1,15 +1,14 @@
 class EventsController < ApplicationController
+  respond_to :html, :js, :json
 
-  def show
+  def index
     @events = Event.all
-    respond_to do |format|
-      format.html # show.html.haml
-      format.json { render json: @events }
-    end
   end
 
   def show
+    event_id = params[:id]
   end
+
   def new
     @event = Event.new
   end

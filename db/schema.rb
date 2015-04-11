@@ -12,7 +12,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20150411221501) do
-
   create_table "announcements", :force => true do |t|
     t.datetime "date_written"
     t.text     "body"
@@ -28,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20150411221501) do
     t.float    "duration"
     t.integer  "num_volunteers"
     t.text     "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "languages", :force => true do |t|

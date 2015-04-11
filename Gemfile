@@ -2,16 +2,10 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 gem 'rails', '3.2.16'
-gem 'rake','10.4.2'
 gem 'jquery-rails'
-gem 'haml'
-gem 'mail', '2.5.4'
-gem "rails-settings-cached", "0.2.4"
-gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'simple_form'
 gem 'rake','10.4.2'
-gem 'jquery-rails'
 gem 'haml'
 gem 'mail', '2.5.4'
 gem "rails-settings-cached", "0.2.4"
@@ -19,7 +13,7 @@ gem 'devise'
 gem 'erb2haml'
 gem 'html2haml'
 gem 'fullcalendar-rails'
-gem 'momentjs-rails'
+gem 'rabl'
 
 group :development, :test do
   gem 'sqlite3'

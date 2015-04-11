@@ -37,8 +37,6 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
-    bootstrap_calendar_rails (0.0.2)
-      rails (>= 3)
     builder (3.0.4)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -122,6 +120,8 @@ GEM
     orm_adapter (0.5.0)
     pg (0.18.1)
     polyglot (0.3.5)
+    rabl (0.11.6)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -209,7 +209,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.4)
-  bootstrap_calendar_rails
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
@@ -224,6 +223,7 @@ DEPENDENCIES
   mail (= 2.5.4)
   momentjs-rails
   pg
+  rabl
   rails (= 3.2.16)
   rails-settings-cached (= 0.2.4)
   rake (= 10.4.2)
