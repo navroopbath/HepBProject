@@ -27,6 +27,7 @@ memevent = {:hours => '2', :waitlisted => 'false', :date_added => '2002-05-30T09
 members.each do |member|
   m = Member.create!(member)
   m.languages.build(languages)
+  m.skip_confirmation!
   m.save!
 end
 
