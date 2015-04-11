@@ -16,7 +16,10 @@ HepBProject::Application.routes.draw do
     post :pin_announ, :on => :member
   end
 
+  get 'members/:id/settings', to: 'members#settings_index', as: 'members_settings_index'
+  post 'members/:id/settings', to: 'members#settings', as: 'members_settings'
 
+  get 'events', to: 'events#show', as: 'events_index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
