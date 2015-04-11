@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150409052650) do
+ActiveRecord::Schema.define(:version => 20150411221501) do
 
   create_table "announcements", :force => true do |t|
     t.datetime "date_written"
@@ -39,13 +39,27 @@ ActiveRecord::Schema.define(:version => 20150409052650) do
   create_table "members", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "phone",      :limit => 8
+    t.integer  "phone",                  :limit => 8
     t.string   "email"
-    t.string   "password"
     t.boolean  "is_admin"
     t.datetime "grad_date"
     t.integer  "warnings"
+    t.string   "encrypted_password",                  :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.integer  "sign_in_count",                       :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
+
+  add_index "members", ["email"], :name => "index_members_on_email", :unique => true
+  add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
   create_table "memevents", :force => true do |t|
     t.float    "hours"

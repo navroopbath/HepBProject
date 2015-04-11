@@ -26,12 +26,12 @@
         %ul.dropdown-menu{:role => 'menu'}
           %li 
             %a
-              = session[:member].first_name
-              = session[:member].last_name
+              = @current_member.first_name
+              = @current_member.last_name
           %li 
             %a
-              = session[:member].email
+              = @current_member.email
           %li
-            %a{:href => members_settings_index_path}Edit settings
+            = link_to "Edit Settings", edit_member_registration_path
           %li
-            %a{:href => members_logout_path}Logout
+            = link_to "Logout", destroy_member_session_path, :method => :delete

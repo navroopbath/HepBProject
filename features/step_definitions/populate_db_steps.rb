@@ -1,6 +1,19 @@
 Given /(.+) is in the database with the following information/ do |mem_name, members_table|
   members_table.hashes.each do |member|
-    Member.create!(member)
+    @member = member
+    m = Member.create!(member)
+    m.skip_confirmation!
+    m.save
+  end
+end
+
+Given /the following members exist/ do |members_table|
+  members_table.hashes.each do |member|
+    # each returned element will be a hash whose key is the table header.
+    # you should arrange to add that movie to the database here.
+    m = Member.create! member 
+    m.skip_confirmation!
+    m.save
   end
 end
 

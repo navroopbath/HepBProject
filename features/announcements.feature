@@ -7,8 +7,8 @@ Feature: Announcements Tab
 Background: Members and announcements have been added to the database
 
   Given John is in the database with the following information:
-  | first_name   | last_name  | grad_date | phone       | email                 | password    | is_admin | warnings |
-  | John         | Blume      | 5/16/15   | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
+  | first_name   | last_name  | grad_date     | phone       | email                 | password    | is_admin | warnings |
+  | John         | Blume      | May 15, 2015  | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
 
   And the following announcements exist:
   | date_written            | body             | pinned | announcement_type |

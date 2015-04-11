@@ -6,33 +6,33 @@ Feature: log in as volunteer
 Background: members have been added to database
 
  Given the following members exist:
-  | first_name   | last_name  | grad_date | phone       | email                 | password  | is_admin | 
-  | Judy         | Blume      | 5/16/15   | 5555555555  | judyBlume@gmail.com   | 123456    | no       | 
+  | first_name   | last_name  | grad_date    | phone       | email                 | password    | is_admin | 
+  | Judy         | Blume      | May 15, 2015 | 5555555555  | judyBlume@gmail.com   | 12345678    | no       | 
  
  And I am on the portal login page
 
 Scenario: Successful login 
 	When I fill in "Email" with "judyBlume@gmail.com"
-	And I fill in "Password" with "123456"
-	And I press "Submit"
+	And I fill in "Password" with "12345678"
+	And I press "Log in"
 	Then I should be on the portal dashboard for "Judy"
 
 Scenario: Unsuccessful login (No username) 
 	When I fill in "Email" with "blah"
 	And I fill in "Password" with "blerg"
-	And I press "Submit"
+	And I press "Log in"
 	Then I should be on the portal login page
-	And I should see "Unsuccessful login: Incorrect username or password"
+	And I should see "Invalid email or password. Login Email Password Sign up Forgot your password?"
 
 Scenario: Unsuccessful login (Incorrect password) 
 	When I fill in "Email" with "judyBlume@gmail.com"
 	And I fill in "Password" with "blerggg"
-	And I press "Submit"
+	And I press "Log in"
 	Then I should be on the portal login page
-	And I should see "Unsuccessful login: Incorrect username or password" 
+	And I should see "Invalid email or password. Login Email Password Sign up Forgot your password?" 
 
 Scenario: Unsuccessful login (blank feilds)
 	When I fill in "Email" with "judyBlume@gmail.com"
-	And I press "Submit"
+	And I press "Log in"
 	Then I should be on the portal login page
-	And I should see "Unsuccessful login: One or more of the fields are empty"
+	And I should see "Invalid email or password. Login Email Password Sign up Forgot your password?"

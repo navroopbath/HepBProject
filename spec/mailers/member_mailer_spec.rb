@@ -11,7 +11,7 @@ describe MemberMailer do
   end
 
   it 'should send a confirmation email after successful registration' do
-    ActionMailer::Base.deliveries.count.should == 1
+    ActionMailer::Base.deliveries.count.should == 2
   end
 
   it 'should send to the correct member email' do

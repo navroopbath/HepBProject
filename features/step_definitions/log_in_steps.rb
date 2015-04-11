@@ -16,12 +16,12 @@ When(/^I type "(.*?)" into password$/) do |arg1|
 end
 
 And /I am logged in as "(.+)"/ do |mem_name|
-  mem = Member.where(first_name: mem_name)[0]
+  mem = @member
   steps %Q{
     When I go to the portal login page
-    And I fill in "Email" with "#{mem.email}"
-    And I fill in "Password" with "#{mem.password}"
-    And I press "Submit"
+    And I fill in "Email" with "#{mem[:email]}"
+    And I fill in "Password" with "#{mem[:password]}"
+    And I press "Log in"
     Then I should be on the portal dashboard for "#{mem_name}"
   }
 end

@@ -1,18 +1,15 @@
 HepBProject::Application.routes.draw do
 
-  root to: redirect('/members/login')
-  get 'members/login', to: 'members#login_index', as: 'members_login_index'
-  post 'members/login', to: 'members#login', as: 'members_login'
-  get 'members/signup', to: 'members#sign_up_index', as: 'members_sign_up_index'
-  post 'members/signup', to: 'members#sign_up', as: 'members_sign_up'
-  get 'members/logout', to: 'members#logout', as: 'members_logout' 
+  devise_for :members, controllers: {
+    sessions: 'members/sessions',
+    registrations: 'members/registrations'
+  }
+  root :to => redirect('/members/sign_in')
 
   get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
 
-  get 'members/:id/settings', to: 'members#settings_index', as: 'members_settings_index'
-  post 'members/:id/settings', to: 'members#settings', as: 'members_settings'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
