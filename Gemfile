@@ -40,11 +40,13 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'mail', '2.5.4'
 gem "rails-settings-cached", "0.2.4"
-gem 'bootstrap_calendar_rails'
 gem 'devise'
 gem 'erb2haml'
 gem 'html2haml'
 gem 'simple_form'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
