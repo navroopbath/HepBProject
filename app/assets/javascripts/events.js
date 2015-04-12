@@ -6,7 +6,12 @@ var Calendar = {
         center: 'title',
         right: 'prev,today,next'
       },
-      events: '/events'  
+      events: '/events',
+      eventRender: function(event, element) {
+        element.attr('data-remote', true);
+      },
+      eventClick: function(calEvent, jsEvent, view) {
+      } 
     }); 
   },
   setup: function () {
