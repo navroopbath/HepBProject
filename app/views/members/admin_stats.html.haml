@@ -1,6 +1,13 @@
 =render 'navbar'
 
 %div.col-lg-8
+  .row
+    .col-lg-6
+      .input-group
+        %input.form-control#search_input{:placeholder => "Search by Name...", :type => "text"}
+        %span.input-group-btn
+          %button.btn.btn-default#filter_mems{:type => "button" } Find
+
   %div.panel.panel-default
     %div.panel-heading
       %i.fa.fa-clock-o.fa-fw
@@ -16,8 +23,8 @@
 
         %tbody
           - @allMembers.each do |member|
-            %tr
-              %th 
+            %tr.member_row
+              %th.full_name 
                 =member[:name]
               %th 
                 =member[:total_hours]
