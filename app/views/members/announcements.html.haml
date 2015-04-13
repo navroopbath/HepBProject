@@ -1,5 +1,30 @@
 =render 'navbar'
 / center
+
+-if @current_mem.is_admin 
+  %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Announcement
+
+.modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4#exampleModalLabel.modal-title New Announcement
+      .modal-body
+        %form
+          .form-group
+            %label.control-label{:for => "recipient-name"} Title:
+            %input#recipient-name.form-control{:type => "text"}
+          .form-group
+            %label.control-label{:for => "message-text"} Message:
+            %textarea#message-text.form-control
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+        %button.btn.btn-primary{:type => "button"} Save Announcement
+       
+
+
+
+
 .col-sm-offset-3.col-sm-6
   %div.panel.panel-default
     %div.panel-heading

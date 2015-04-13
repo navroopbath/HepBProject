@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(document).on("click","#myButton",function(){
+  $(#myform).show();
+});
