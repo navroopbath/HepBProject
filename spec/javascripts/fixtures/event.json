@@ -1,5 +1,7 @@
 {
+  "id":"1",
   "title": "Berkeley Clinic",
-  "start": "",
-  "end"
+  "start": "2015-04-13T19:20",
+  "end": "2015-04-13T21:20",
+  "url": "events/1"
 }

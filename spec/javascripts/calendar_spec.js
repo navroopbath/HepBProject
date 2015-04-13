@@ -1,7 +1,10 @@
 describe('The calendar should show up with events in the right dates.', function() {
   beforeEach( function() {
     loadFixtures('calendar.html');
-    spyOn($, 'ajax');
+    var jsonResponse = getJSONFixture('event.json');
+    spyOn($, 'ajax').and.callFake(function (ajaxArgs){
+      ajaxArgs.success(jsonResponse, '200');
+    });
     Calendar.setup();
   });
   
@@ -12,7 +15,7 @@ describe('The calendar should show up with events in the right dates.', function
       expect($('.fc-view-container').length).toEqual(1);
     });
 
-    afterEach
+    // afterEach
 
   });
 
@@ -22,5 +25,10 @@ describe('The calendar should show up with events in the right dates.', function
       expect($.ajax.calls.mostRecent().args[0]['url']).toEqual("/events");
     });
 
+    it('should display Berkeley Clinic in the modal', function() {
+      var test = $(.'fc-title');
+      expect($('.fc-title').text()).toContain("Berkeley Clinic");
+    });
   });
+
 });
