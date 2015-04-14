@@ -23,11 +23,6 @@
           = submit_tag("Create")
 
 
-          
-
-
-
-
 
 .col-sm-offset-3.col-sm-6
   %div.panel.panel-default
@@ -41,5 +36,5 @@
             %p= this_announcement.body
             %p.lead
               -if @current_mem.is_admin 
-                %button.btn.btn-default Delete
+                = link_to 'delete', delete_announ_member_path(this_announcement), :method => :delete
 

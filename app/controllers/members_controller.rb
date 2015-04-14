@@ -21,11 +21,20 @@ class MembersController < ApplicationController
 
   def announcements
     @ordered_announcements = Announcement.order(:date_written)
+    # if(params.has_key?(:one) && params.has_key?(:two))
     @announ = Announcement.new
-    @announ.title = params[:announ][:title]
-    @announ.body = params[:announ][:body]
-    @announ.date_written = Time.now
-    @announ.save 
+     if !params[:some_value].nil?
+      @announ.title = params[:announ][:title]
+      @announ.body = params[:announ][:body]
+      @announ.date_written = Time.now
+      @announ.save 
+     end
+  end
+
+  def delete_announ
+      @to_delete = Announcement.find(params[:id])
+     @to_delete.destroy
+     redirect_to :action => 'announcements'
   end
 
   def stats

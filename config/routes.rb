@@ -8,8 +8,13 @@ HepBProject::Application.routes.draw do
 
   get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
-  post'members/:id/announcements', to: 'members#announcements', as: 'members_new_announcement'
+  post 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
+
+  resources :members do
+    delete :delete_announ, :on => :member
+  end
+
 
 
   # The priority is based upon order of creation:
