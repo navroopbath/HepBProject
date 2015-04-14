@@ -28,11 +28,12 @@
   %div.panel.panel-default
     %div.panel-heading
       %b All Announcements
-    - @ordered_announcements.each do |this_announcement|
+    - @ordered_announcements.reverse.each do |this_announcement|
       %div.panel-body
         .row.centered-form
           .col-xs-12
-            %h2= this_announcement.title
+            %h1= this_announcement.title
+            %strong= this_announcement.date_written.strftime("%B, %d, %Y")
             %p= this_announcement.body
             %p.lead
               -if @current_mem.is_admin 
