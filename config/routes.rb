@@ -13,6 +13,7 @@ HepBProject::Application.routes.draw do
 
   resources :members do
     delete :delete_announ, :on => :member
+    post :pin_announ, :on => :member
   end
 
 

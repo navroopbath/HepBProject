@@ -37,4 +37,5 @@
             %p.lead
               -if @current_mem.is_admin 
                 = link_to 'delete', delete_announ_member_path(this_announcement), :method => :delete
+                = link_to 'pin', pin_announ_member_path(this_announcement), :method => :post
 

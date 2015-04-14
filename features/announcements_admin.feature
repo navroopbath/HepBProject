@@ -23,7 +23,7 @@ Background: Members and announcements have been added to the database
   Scenario: Admin creates a new announcment
     I should see "+Add Announcement"
     When I follow "+Add Announcement"
-    And I fill in body with "My brand new annoucement"
+    When I fill in "title" with "My brand new annoucement"
     And I follow "Create"
     Then I shoud be on the announcments page
     And I should see "My brand new announcement"
