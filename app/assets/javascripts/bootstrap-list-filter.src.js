@@ -39,7 +39,7 @@
         return tmpl(options.sourceTmpl, data);
       },
       emptyNode: function(data) {
-        return '<tr class="member_row"><th class="full_name"><span>No Matches</span></th></tr>';
+        return '<tr class="member_row"><span>No Matches</span></tr>';
       },
       itemEl: '.member_row',
       itemChild: null,  
