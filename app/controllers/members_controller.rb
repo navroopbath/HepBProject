@@ -21,6 +21,11 @@ class MembersController < ApplicationController
 
   def announcements
     @ordered_announcements = Announcement.order(:date_written)
+    @announ = Announcement.new
+    @announ.title = params[:announ][:title]
+    @announ.body = params[:announ][:body]
+    @announ.date_written = Time.now
+    @announ.save 
   end
 
   def stats

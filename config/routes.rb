@@ -8,7 +8,9 @@ HepBProject::Application.routes.draw do
 
   get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
+  post'members/:id/announcements', to: 'members#announcements', as: 'members_new_announcement'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

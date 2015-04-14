@@ -4,23 +4,27 @@
 -if @current_mem.is_admin 
   %button.btn.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Announcement
 
-.modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %h4#exampleModalLabel.modal-title New Announcement
-      .modal-body
-        %form
-          .form-group
-            %label.control-label{:for => "recipient-name"} Title:
-            %input#recipient-name.form-control{:type => "text"}
-          .form-group
-            %label.control-label{:for => "message-text"} Message:
-            %textarea#message-text.form-control
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-        %button.btn.btn-primary{:type => "button"} Save Announcement
-       
+= form_tag do 
+  .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4#exampleModalLabel.modal-title New Announcement
+        .modal-body
+          %form#myForm{:method => "post"}
+            .form-group
+              %label.control-label{:for => "Title"} Title:
+              = text_field(:announ, :title)
+            .form-group
+              %label.control-label{:for => "message-text"} Message:
+              = text_area(:announ, :body)
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+          = submit_tag("Create")
+
+
+          
+
 
 
 
@@ -36,19 +40,6 @@
             %h2= this_announcement.title
             %p= this_announcement.body
             %p.lead
-              %button.btn.btn-default Read More
-            %p.pull-right
-              %span.label.label-default keyword
-              %span.label.label-default tag
-              %span.label.label-default post
-            %ul.list-inline
-              %li
-                %a{:href => "#"} 2 Days Ago
-              %li
-                %a{:href => "#"}
-                  %i.glyphicon.glyphicon-comment
-                  2 Comments
-              %li
-                %a{:href => "#"}
-                  %i.glyphicon.glyphicon-share
-                  14 Shares
+              -if @current_mem.is_admin 
+                %button.btn.btn-default Delete
+

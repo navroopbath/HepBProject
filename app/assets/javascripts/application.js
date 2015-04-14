@@ -15,6 +15,28 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-$(document).on("click","#myButton",function(){
-  $(#myform).show();
-});
+
+// jQuery(function($) {
+//     $('#submit').click(function(e){
+//       e.preventDefault();
+//       // t = $('#title')
+//       // b = $('#message-text')
+
+// //       $.post(members_new_announcement_path, 
+// //          $('#myForm').serialize(), 
+// //          function(data, status, xhr){
+// //            // do something here with response;
+// //          });
+// //       */
+// // });
+
+// 	$('#myForm').submit(funciton(e){
+// 		$.ajax{
+// 			url: members_new_announcement_path,
+// 			contentType: "application/json",
+// 			type: "POST",
+// 			data: JSON.stringify({ title: t, body:b }),
+// 			success: function(response)
+// 		}
+// 	}
+// });
