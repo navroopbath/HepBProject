@@ -23,7 +23,7 @@ class MembersController < ApplicationController
     @ordered_announcements = Announcement.order(:date_written)
     # if(params.has_key?(:one) && params.has_key?(:two))
     @announ = Announcement.new
-     if !params[:some_value].nil?
+     if !params[:announ].nil?
       @announ.title = params[:announ][:title]
       @announ.body = params[:announ][:body]
       @announ.date_written = Time.now
