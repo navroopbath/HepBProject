@@ -10,9 +10,6 @@ When(/^I click "(.*?)"$/) do |arg1|
   page.find(arg1).click
 end
 
-When(/^I fill out "(.*?)" with "(.*?)"$/) do |arg1, arg2|
-  page.find("#myForm").find(arg1).set arg2
-end
 
 When(/^I follow "(.*?)" for "(.*?)"$/) do |arg1, arg2|
   first(:link, arg1).click

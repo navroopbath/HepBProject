@@ -6,14 +6,12 @@ Feature: Home Tab
 Background: members have been added to database
 
  Given John is in the database with the following information:
-<<<<<<< HEAD
   | first_name   | last_name  | grad_date    | phone       | email                 | password    | is_admin | warnings |
   | John         | Blume      | May 15, 2015 | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
-=======
+
   | first_name   | last_name  | grad_date | phone       | email                 | password    | is_admin | warnings |
   | John         | Blume      | 5/16/15   | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
   | Vin          | Disel      | 5/16/15   | 1111111111  | fastandfur@mail.com   | abcdefgh    | no       |    0     |
->>>>>>> d141ce43cdd1760346b572cada3f463ce1a41528
 
   And John speaks the following languages:
   | lang    | fluency        |

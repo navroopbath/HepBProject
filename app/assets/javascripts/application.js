@@ -16,6 +16,3 @@
 //= require bootstrap-sprockets
 
 
-$("#myForm").on('hidden.bs.modal', function () {
-    $(this).data('bs.modal', null);
-});
