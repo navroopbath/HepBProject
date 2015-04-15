@@ -21,7 +21,7 @@ Background: Members and announcements have been added to the database
   When I go to the announcements tab for "Harry"
 
   Scenario: Admin creates a new announcment
-    I should see "+Add Announcement"
+    Then I should see "+Add Announcement"
     And I should see "Come to meeting!"
     When I click "#newA"
     When I fill in "announ_title" with "My brand new annoucement"
