@@ -38,7 +38,7 @@ class MembersController < ApplicationController
 
   def pin_announ
     @to_pin = Announcement.find(params[:id])
-    @to_pin.pinned = true
+    @to_pin.pinned = !@to_pin.pinned
     @to_pin.save
     redirect_to :action => 'announcements'
   end 
