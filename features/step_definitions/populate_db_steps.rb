@@ -11,12 +11,21 @@ Given /the following members exist/ do |members_table|
   members_table.hashes.each do |member|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    @member = member
     m = Member.create! member 
     m.skip_confirmation!
     m.save
   end
 end
 
+Given /the following members are in the database/ do |members_table|
+  members_table.hashes.each do |member|
+    @member = member
+    m = Member.create!(member)
+    m.skip_confirmation!
+    m.save
+  end
+end
 
 And /(.+) speaks the following languages/ do |mem_name, languages_table|
   mem = Member.where(first_name: mem_name)[0]
