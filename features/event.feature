@@ -17,8 +17,8 @@ Background: members and events have been added to database
   | Social     | Oakland  | 2015-04-15 09:30:00.000 | 3        | 15             | it's fun!   | 2015-04-15 09:30:00.000 | 2015-04-15 09:30:00.000 |
 
   And I am logged in as "John"
+  When I go to the events page
 
 @javascript
 Scenario: Going to events page should render the calendar
-  When I go to the events page
   Then it should render the calendar
