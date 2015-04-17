@@ -24,6 +24,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'launchy'
   gem 'jasmine'
+  gem 'poltergeist'
 end
 
 
