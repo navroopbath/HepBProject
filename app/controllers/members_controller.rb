@@ -21,7 +21,28 @@ class MembersController < ApplicationController
 
   def announcements
     @ordered_announcements = Announcement.order(:date_written)
+    @announ = Announcement.new
+     if !params[:announ].nil?
+      @announ.title = params[:announ][:title]
+      @announ.body = params[:announ][:body]
+      @announ.date_written = Time.now
+      @announ.save 
+     end
   end
+
+  def delete_announ
+      @to_delete = Announcement.find(params[:id])
+     @to_delete.destroy
+     redirect_to :action => 'announcements'
+  end
+
+  def pin_announ
+    @to_pin = Announcement.find(params[:id])
+    @to_pin.pinned = !@to_pin.pinned
+    @to_pin.save
+    redirect_to :action => 'announcements'
+  end 
+
 
   def stats
     @memevents = @current_mem.memevents

@@ -1,29 +1,45 @@
 =render 'navbar'
 / center
+
+-if @current_mem.is_admin 
+  %button#newA.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Announcement
+
+= form_tag do 
+  .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4#exampleModalLabel.modal-title New Announcement
+        .modal-body
+          %form#myForm{:method => "post"}
+            .form-group
+              %label.control-label{:for => "Title"} Title:
+              = text_field(:announ, :title)
+            .form-group
+              %label.control-label{:for => "message-text"} Message:
+              = text_area(:announ, :body)
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+          = submit_tag("Create")
+
+
+
 .col-sm-offset-3.col-sm-6
   %div.panel.panel-default
     %div.panel-heading
       %b All Announcements
-    - @ordered_announcements.each do |this_announcement|
+    - @ordered_announcements.reverse.each do |this_announcement|
       %div.panel-body
         .row.centered-form
           .col-xs-12
-            %h2= this_announcement.title
+            %h1= this_announcement.title
+            %strong= this_announcement.date_written.strftime("%B, %d, %Y")
             %p= this_announcement.body
             %p.lead
-              %button.btn.btn-default Read More
-            %p.pull-right
-              %span.label.label-default keyword
-              %span.label.label-default tag
-              %span.label.label-default post
-            %ul.list-inline
-              %li
-                %a{:href => "#"} 2 Days Ago
-              %li
-                %a{:href => "#"}
-                  %i.glyphicon.glyphicon-comment
-                  2 Comments
-              %li
-                %a{:href => "#"}
-                  %i.glyphicon.glyphicon-share
-                  14 Shares
+              -if @current_mem.is_admin 
+                = link_to 'Delete&nbsp;&nbsp;'.html_safe, delete_announ_member_path(this_announcement), :method => :delete
+                -if this_announcement.pinned
+                  = link_to 'Unpin', pin_announ_member_path(this_announcement), :method => :post
+                -else
+                  = link_to 'Pin', pin_announ_member_path(this_announcement), :method => :post
+
