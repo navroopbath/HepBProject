@@ -21,4 +21,4 @@ Background: members and events have been added to database
 @javascript
 Scenario: Going to events page should render the calendar
   When I go to the events page
-  I should see "April 2015"
+  Then it should render the calendar
