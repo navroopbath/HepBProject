@@ -7,11 +7,10 @@ Background: members have been added to database
 
  Given John is in the database with the following information:
   | first_name   | last_name  | grad_date    | phone       | email                 | password    | is_admin | warnings |
-  | John         | Blume      | May 15, 2015 | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
+  | John         | Blume      | May 15, 2015 | 4444444444  | johnBlume@gmail.com   | 12345678    | no       |    0     |
+  | Craig        | Hiller     | May 15, 2015  | 5555555555  | chiller@berkeley.edu | testtest    | yes      |    0     |
+  | Vin          | Disel      | May 16, 2015  | 1111111111  | fastandfur@mail.com  | abcdefgh    | no       |    0     |
 
-  | first_name   | last_name  | grad_date | phone       | email                 | password    | is_admin | warnings |
-  | John         | Blume      | 5/16/15   | 5555555555  | johnBlume@gmail.com   | 12345678    | no       |    0     |
-  | Vin          | Disel      | 5/16/15   | 1111111111  | fastandfur@mail.com   | abcdefgh    | no       |    0     |
 
   And John speaks the following languages:
   | lang    | fluency        |
@@ -34,13 +33,13 @@ Background: members have been added to database
   | 1999-02-26 09:34:00.000 | Don't forget!    | false  | Reminder          | Reminder |
   | 2011-02-26 09:34:00.000 | Oh hai           | true   | Reminder          | Reminder |
 
-  And I am logged in as "John"
-  When I go to the portal dashboard for "John"
+  And I am logged in as "Vin"
+  When I go to the portal dashboard for "Vin"
 
 
-Scenario: Successfully displays my upcoming events
-  Then I should see "Clinic" before "Hospital"
-  And I should not see "Social"
+#Scenario: Successfully displays my upcoming events
+#  Then I should see "Clinic" before "Hospital"
+#  And I should not see "Social"
 
 Scenario: Successfully displays contacts
   Then I should see "Vin Disel"
@@ -50,10 +49,16 @@ Scenario: Successfully displays current announcements
   Then I should see "Oh hai" before "Come to meeting!"
   And I should not see "Don't forget!"
 
-Scenario: Hover over events displays discription 
-  When I hover over Clinic 
-  Then I should see Berkeley
-  And I should "plz attend"
+#Scenario: Hover over events displays discription 
+#  When I hover over Clinic 
+#  Then I should see Berkeley
+#  And I should "plz attend"
 
-Scenario: General meeting block
-  I should see the General Meeting annoucement 
+Scenario: Successfully displays ordered contacts
+  Then I should see "John Blume" before "Vin Disel"
+  And I should see "Craig Hiller"
+  And I should see "chiller@berkeley.edu"
+  And I should see "5555555555"
+
+
+
