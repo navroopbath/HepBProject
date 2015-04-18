@@ -22,4 +22,3 @@ Background: members and events have been added to database
 @javascript
 Scenario: Going to events page should render the calendar
   Then it should render the calendar
-  Then show me the page
