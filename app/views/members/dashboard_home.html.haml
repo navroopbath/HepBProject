@@ -35,23 +35,3 @@
               = time_ago_in_words(event.date) 
       %a.btn.btn-primary.btn-block{:href => '#'}
         View All Events
-
-%div.col-lg-4
-  %div.panel.panel-default
-    %div.panel-heading
-      %i.fa.fa-bell.fa-fw
-        Members
-    %div.panel-body
-      <div id="member_list" style="overflow-y: scroll; height:340px;">
-      %div.list-group
-        - @ordered_members.each do |member|
-          %a.list-group-item{:href => '#'}
-            %tr
-              %h4= member.first_name + " " + member.last_name
-              %p.small
-                = member.email
-              %p.small
-                = member.phone
-                /= member.phone[0..2] + "-" + member.phone[3..5] + "-" + member.phone[6..9]
-
-
