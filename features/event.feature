@@ -22,4 +22,8 @@ Background: members and events have been added to database
 @javascript
 Scenario: Going to events page should render the calendar
   Then it should render the calendar
-  Then show me the page
+
+Scenario: Viewing information for event Clinic
+  When I click "Clinic"
+  Then I should see "Clinic" for the "Title"
+  And I should see "plz attend" for the "Description"
