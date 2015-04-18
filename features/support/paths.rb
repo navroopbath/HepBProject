@@ -19,6 +19,7 @@ module NavigationHelpers
     when /^the announcements tab for "(.+)"$/ then members_announcements_path(Member.where(first_name: $1)[0])
     when /^the stats page for "(.+)"$/ then members_stats_path(Member.where(first_name: $1)[0])
     when /^the fail sign up page$/ then member_registration_path
+    when /^the events page$/ then events_index_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -28,17 +28,15 @@ GEM
     activesupport (3.2.16)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    addressable (2.3.7)
+    addressable (2.3.8)
     arel (3.0.3)
-    autoprefixer-rails (5.1.7.1)
+    autoprefixer-rails (5.1.8.1)
       execjs
       json
     bcrypt (3.1.10)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
-    bootstrap_calendar_rails (0.0.2)
-      rails (>= 3)
     builder (3.0.4)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -46,10 +44,13 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
+    cliver (0.3.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
-    coffee-script (2.3.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
@@ -85,7 +86,11 @@ GEM
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
-    execjs (2.4.0)
+    execjs (2.5.2)
+    ffi (1.9.8)
+    fullcalendar-rails (2.3.1.0)
+      jquery-rails (>= 3.1.1, < 5.0.0)
+      momentjs-rails (~> 2.8, >= 2.8.4)
     gherkin (2.12.2)
       multi_json (~> 1.3)
     haml (4.0.6)
@@ -97,6 +102,12 @@ GEM
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.7.0)
+    jasmine (2.2.0)
+      jasmine-core (~> 2.2)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.2.0)
     journey (1.0.4)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
@@ -110,13 +121,23 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25.1)
     mini_portile (0.6.2)
+    momentjs-rails (2.9.0)
+      railties (>= 3.1)
     multi_json (1.11.0)
     multi_test (0.1.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    phantomjs (1.9.8.0)
+    poltergeist (1.6.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyglot (0.3.5)
+    rabl (0.11.6)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -161,11 +182,17 @@ GEM
       rspec-mocks (~> 2.14.0)
     ruby_parser (3.6.5)
       sexp_processor (~> 4.1)
+    rubyzip (1.1.7)
     sass (3.4.13)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    selenium-webdriver (2.45.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     sexp_processor (4.5.0)
     simple_form (2.1.2)
       actionpack (~> 3.0)
@@ -181,7 +208,7 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.10)
-    therubyracer (0.12.1)
+    therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
@@ -196,6 +223,10 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    websocket (1.2.1)
+    websocket-driver (0.5.4)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -204,24 +235,29 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.4)
-  bootstrap_calendar_rails
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
   debugger
   devise
   erb2haml
+  fullcalendar-rails
   haml
   html2haml
+  jasmine
   jquery-rails
   launchy
   mail (= 2.5.4)
+  momentjs-rails
   pg
+  poltergeist
+  rabl
   rails (= 3.2.16)
   rails-settings-cached (= 0.2.4)
   rake (= 10.4.2)
   rspec-rails (~> 2.14.0)
   sass-rails (~> 3.2.3)
+  selenium-webdriver
   simple_form
   simplecov
   sqlite3
