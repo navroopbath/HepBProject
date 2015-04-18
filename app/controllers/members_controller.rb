@@ -17,6 +17,7 @@ class MembersController < ApplicationController
   def dashboard_home
     @events = @current_member.events.order(:date)
     @announcements = Announcement.where(pinned: true).order(:date_written)
+    @ordered_members = Member.order(:last_name)
   end
 
   def announcements
