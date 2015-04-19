@@ -23,21 +23,3 @@ describe('The calendar should show up with events in the right dates.', function
     $('.fc-view-container').remove()
   })
 });
-
-describe('Events should render properly with the correct information.', function() {
-  beforeEach( function() {
-    loadFixtures('calendar.html');
-    Calendar.setup();
-  })
-
-  it('should display a modal when clicking on an event', function() {
-    spyOn(EventPopup, 'showEventInfo')
-    $('a.fc-day-grid-event').click();
-    expect(EventPopup.showEventInfo).toHaveBeenCalled();
-  });
-
-  it('should display event information event is clicked on', function() {
-    $('a.fc-day-grid-event').click();
-    expect($('#event-modal.title').text()).toContain('Berkeley Clinic')
-  });
-});
