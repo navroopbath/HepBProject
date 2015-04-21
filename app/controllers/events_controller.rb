@@ -8,6 +8,12 @@ class EventsController < ApplicationController
     @current_member ||= current_member
   end
 
+  before_filter :set_current_mem
+
+  def set_current_mem
+    @current_mem ||= current_member
+  end
+
   def index
     @events = Event.all
   end
@@ -26,7 +32,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create!(params[:event])
+    @new_event = Event.new
+    @my_date = Time.now
+    if !params[:event].nil?
+      @new_event = params[:event]
+      @new_event.date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
+      @new_event.save
+    end
+    redirect_to events_index_path
   end
 
   def update
