@@ -1,6 +1,54 @@
+-if @current_mem.is_admin 
+  %button#newA.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Event
+
+=form_for :new_event, :url => {:action => :create} do |f|
+  .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4#exampleModalLabel.modal-title New Event
+        .modal-body
+          %form#myForm{:method => "post"}
+            .form-group
+              %label.control-label{:for => "Name"} Event Name:
+              %br
+              = f.text_field(:name)
+              %br/
+              %label.control-label{:for => "location"} Location:
+              %br
+              = f.text_field(:location)
+              %br/
+              %label.control-label{:for => "date"} Date:
+              %br
+              = f.date_select(:date, date_separator: '/')
+              %br/
+              %label.control-label{:for => "num_volunteers"} Number of Volunteers:
+              %br
+              = f.text_field(:num_volunteers)
+              %br/
+              %br/
+              %label.control-label{:for => "description"} Description:
+              %br
+              = f.text_area(:description)
+              %br/
+              %label.control-label{:for => "start"} Start Time:
+              %br
+              = f.time_select(:start_time, {ampm: true} )
+              %br/
+              %label.control-label{:for => "end"} End Time:
+              %br
+              = f.time_select(:end_time, {ampm: true} )
+              %br/
+            
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+          = f.submit("Create")
+
+
 %div.container
   %div.panel.panel-default.col-md-10.col-md-offset-1
     %div#calendar
+
 
 .row
   .modal.fade#event-modal(tabindex="-1" aria-labelledby="myModalLabel"

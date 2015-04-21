@@ -98,6 +98,12 @@ GEM
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.7.0)
+    jasmine (2.2.0)
+      jasmine-core (~> 2.2)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.2.0)
     journey (1.0.4)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
@@ -119,6 +125,7 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    phantomjs (1.9.8.0)
     polyglot (0.3.5)
     rabl (0.11.6)
       activesupport (>= 2.3.14)
@@ -218,6 +225,7 @@ DEPENDENCIES
   fullcalendar-rails
   haml
   html2haml
+  jasmine
   jquery-rails
   launchy
   mail (= 2.5.4)
