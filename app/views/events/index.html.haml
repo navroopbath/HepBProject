@@ -1,6 +1,6 @@
 =render 'navbar'
 -if @current_mem.is_admin 
-  %button#newA.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Event
+  %button#newE.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Event
 
 =form_for :new_event, :url => {:action => :create} do |f|
   .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
