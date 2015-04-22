@@ -1,7 +1,7 @@
 -if @current_mem.is_admin 
   %button#newE.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} +Add Event
 
-=form_for :new_event, :url => {:action => :create} do |f|
+=form_for :event, :url => {:action => :create} do |f|
   .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog
       .modal-content
@@ -12,7 +12,7 @@
             .form-group
               %label.control-label{:for => "Name"} Event Name:
               %br
-              = f.text_field(:name)
+              = f.text_field(:event_name)
               %br/
               %label.control-label{:for => "location"} Location:
               %br

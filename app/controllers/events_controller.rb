@@ -21,11 +21,9 @@ class EventsController < ApplicationController
 
   def create
     @new_event = Event.new
-    @my_date = Time.now
     if !params[:event].nil?
-      @new_event = params[:event]
-      @new_event.date = Date.new event["date(1i)"].to_i, event["date(2i)"].to_i, event["date(3i)"].to_i
-      @new_event.save
+      @new_event = Event.create(params[:event])
+      @new_event.save!
     end
     redirect_to events_index_path
   end
