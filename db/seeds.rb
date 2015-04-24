@@ -46,9 +46,9 @@ announcements.each do |announcement|
 end
 
 #SEED MASTER SETTINGS
-Settings.master_admin_email = 'hepbproj-noreply@gmail.com'
-Settings.master_admin_password = 'topsecretpassword'
-Settings.notifications_email = 'hepbproj-noreply@gmail.com'
-Settings.notifications_email_password = 'topsecretpassword'
+Settings.master_admin_email = 'hepbhomies@gmail.com'
+Settings.master_admin_password = 'campanile'
+Settings.notifications_email = 'sandbox60b4290575ab49f386dd50fc026416a2.mailgun.org'
+# Settings.notifications_email_password = 'topsecretpassword'
 Settings.deadline_one = '03/15/15' # format '%m/%d/%Y'
 Settings.deadline_two = '05/15/15'
