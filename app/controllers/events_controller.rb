@@ -7,6 +7,14 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event_coordinators = []
+    @event_volunteers = []
+    @event_waitlist = []
+    @event.memevents.each do |memevent|
+      @event_coordinators << memevent.member if memevent.member.is_admin?
+      @event_volunteers << memevent.member if !memevent.member.is_admin and !memevent.waitlisted
+      @event_waitlist << memevent.member if !memevent.member.is_admin and memevent.waitlisted
+    end
   end
 
   def new
