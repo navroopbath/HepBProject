@@ -1,5 +1,5 @@
 class MemberMailer < ActionMailer::Base
-  default from: "hepbhomies@gmail.com"
+  default from: "hepbproj-noreply@gmail.com"
 
   def registration_confirmation(member)
     @member = member
