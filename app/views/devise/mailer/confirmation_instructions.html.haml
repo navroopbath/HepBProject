@@ -1,4 +1,8 @@
 %p
   Welcome #{@email}!
-%p You can confirm your account email through the link below:
+%p You've successfully signed up as a volunteer for the Hep B Project. You can confirm your account email through the link below:
+
 %p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)
+
+
+%p - The Hep B Project Coordinators
