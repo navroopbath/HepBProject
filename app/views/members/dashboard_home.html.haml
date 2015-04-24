@@ -5,6 +5,35 @@
   %div.panel.panel-default
     %div.panel-heading
       %i.fa.fa-clock-o.fa-fw
+        Weekly Meeting
+      %div.panel-body
+        %table.table.table-striped.table-bordered
+        %p
+          -if @current_mem.is_admin
+            %p Admin editable announcement goes here 
+          -else
+            %p Member uneditable announcement goes here
+
+%div.col-lg-4
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-bell.fa-fw
+        Upcoming Events
+    %div.panel-body
+      You are signed up for:
+      %div.list-group
+        - @events.each do |event|
+          %a.list-group-item{:href => '#'}
+            =event.event_name
+            %span.pull-right.text-muted.small
+              = time_ago_in_words(event.date)
+      %a.btn.btn-primary.btn-block{:href => '#'}
+        View All Events
+
+%div.col-lg-8
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-clock-o.fa-fw
         Announcements
     %div.panel-body
       %table.table.table-striped.table-bordered
@@ -24,22 +53,6 @@
   %div.panel.panel-default
     %div.panel-heading
       %i.fa.fa-bell.fa-fw
-        Upcoming Events
-    %div.panel-body
-      You are signed up for:
-      %div.list-group
-        - @events.each do |event|
-          %a.list-group-item{:href => '#'}
-            =event.event_name
-            %span.pull-right.text-muted.small
-              = time_ago_in_words(event.date) 
-      %a.btn.btn-primary.btn-block{:href => '#'}
-        View All Events
-
-%div.col-lg-4
-  %div.panel.panel-default
-    %div.panel-heading
-      %i.fa.fa-bell.fa-fw
         Members
     %div.panel-body
       <div id="member_list" style="overflow-y: scroll; height:340px;">
@@ -53,5 +66,4 @@
               %p.small
                 = member.phone
                 /= member.phone[0..2] + "-" + member.phone[3..5] + "-" + member.phone[6..9]
-
 
