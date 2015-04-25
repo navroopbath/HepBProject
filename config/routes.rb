@@ -22,6 +22,7 @@ HepBProject::Application.routes.draw do
   get 'events', to: 'events#index', as: 'events_index'
   post 'events', to: 'events#create'
   get 'event/:id', to: 'events#show', as: 'event'
+  post 'event/:id', to: 'events#signup', as: 'events_signup'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
