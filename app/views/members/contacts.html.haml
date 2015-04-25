@@ -1,0 +1,17 @@
+- require 'active_support/core_ext'
+= render 'navbar'
+%div.col-lg-8.centered
+  %div.panel
+    %div.panel-body
+      <div id="member_list" style="overflow-y: scroll; height:540px;">
+      %div.list-group#searchlist
+        - @ordered_members.each do |member|
+          %a.list-group-item{:href => '#'}
+            %tr
+              %h3
+                %span 
+                  = member.first_name + " " + member.last_name
+              %p
+                = " " + member.email
+              %p
+                = " (" + member.phone.to_s[0..2] + ") " + member.phone.to_s[3..5] + "-" + member.phone.to_s[6..9]
