@@ -1,6 +1,6 @@
-var MemberList = {
+var ContactList = {
   filterList: function() {
-    $('#searchlist').btsListFilter('#searchfield', {itemChild: 'span', itemEl: 'a.list-group-item'});
+    $('#searchlist').btsListFilterContacts('#searchfield', {itemChild: 'span', itemEl: 'a.list-group-item'});
   }
 }
-$(MemberList.filterList)
+$(ContactList.filterList)

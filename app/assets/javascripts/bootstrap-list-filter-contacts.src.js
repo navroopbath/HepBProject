@@ -1,7 +1,7 @@
 //borrowed from stefanocudini bootstrap-list-filter
 
 (function($) {
-	$.fn.btsListFilter = function(inputEl, options) {
+	$.fn.btsListFilterContacts = function(inputEl, options) {
 		
 		var searchlist = this,
 			searchlist$ = $(this),
@@ -49,7 +49,7 @@
 				//val = val.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 				val = val && val.replace(new RegExp("[({[^.$*+?\\\]})]","g"),'');
 				
-				var text = $(item).text(),
+				var text = $.trim($(item).text()),
 					i = options.initial ? '^' : '',
 					regSearch = new RegExp(i + val,'i');
 				return regSearch.test( text );
@@ -61,6 +61,7 @@
 		inputEl$.on(options.eventKey, debouncer(function(e) {
 			
 			var val = $(this).val();
+			console.log(val);
 
 			if(options.itemEl)
 				items$ = searchlist$.find(options.itemEl);
