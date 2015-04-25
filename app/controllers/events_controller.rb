@@ -35,9 +35,7 @@ class EventsController < ApplicationController
 
   def signup
     @event = Event.where(id: params[:id])[0]
-    if Memevent.where(member_id: current_member.id, event_id: @event.id).length > 0
-      flash[:error] = "You have already signed up for this event."
-    else
+    unless !permit_signup?(@event)
       if @event.memevents.length > @event.num_volunteers
         waitlisted = 'true'
       else
@@ -49,9 +47,16 @@ class EventsController < ApplicationController
     redirect_to events_index_path
   end
 
-  # private
-  # def already_signed_up_for_event(event)
-  #   if Memevent.where(mem)
+  private
+  def permit_signup?(event)
+    if Memevent.where(member_id: current_member.id, event_id: event.id).length > 0
+      flash[:error] = "You have alrady signed up for #{event.event_name}."
+      false
+    else
+      true
+    end
+  end
+      
 
 
 #   def create

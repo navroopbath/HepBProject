@@ -3,7 +3,7 @@ Then /^it should render the calendar$/ do
 end
 
 When /^I click on the event "(.*)"$/ do |event_name|
-  click_link("Clinic")
+  click_link("#{event_name}")
 end
 
 Then /^I should see a modal with information about "(.*)"$/ do |event_name|

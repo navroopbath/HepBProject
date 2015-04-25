@@ -28,13 +28,13 @@ Background: members and events have been added to database
     When I click on the event "Clinic"
     Then I should see a modal with information about "Clinic"
 
-  @ignore
+  @javascript
   Scenario: Adding John to Clinic volunteer list
-    Given that the event Clinic exists
-    And event Clinic has available slots for volunteers
-    Then I should see the button "Sign Up"
-    When I press "Sign Up"
-    Then I should see John Blume on the signed up volunter list for Clinic.
+    When I click on the event "Clinic"
+    And I follow "Sign up"
+    Then I should see "You have successfully signed up for Clinic."
+    And I click on the event "Clinic"
+    Then I should see "John Blume"
   
   @ignore
   Scenario: Adding John to Clinic waitlist
