@@ -35,4 +35,4 @@
               = "#{volunteer.first_name} #{volunteer.last_name}"
   %div.panel-footer
     %button.btn.btn-primary.btn-lg
-      Sign up
+      = link_to "Sign up", events_signup_path(@event), :method => :post
