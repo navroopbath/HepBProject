@@ -36,8 +36,9 @@ class EventsController < ApplicationController
 
   def remove_member
     @event = Event.where(id: params[:id])[0]
-    if Time.now + 2.days <= @event.start_time
-      Memevent.where(member_id: current_member.id, event_id: params[:id])[0].destroy
+    @memevent = Memevent.where(member_id: current_member.id, event_id: params[:id])[0]
+    if Time.now + 2.days <= @event.start_time || @memevent.waitlisted
+      @memevent.destroy
       flash[:error] = "You have been successfully removed from #{@event.event_name}."
     else
       flash[:error] = "You cannot automatically remove yourself inside a 48 hour window before the #{@event.event_name}. Please contact the LC lead for further instrucitons if you need to drop."

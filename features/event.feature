@@ -16,6 +16,7 @@ Background: members and events have been added to database
   | Hospital   | Oakland  | 2015-04-30 09:30:00.000 | 3        | 0              | help out!   | 2015-04-30 09:30:00.000 | 2015-04-30 10:30:00.000 |
   | Social     | Oakland  | 2015-04-15 09:30:00.000 | 3        | 15             | it's fun!   | 2015-04-15 09:30:00.000 | 2015-04-15 09:30:00.000 |
   | Fair       | Berkeley | 2015-04-27 09:30:00.000 | 3        | 15             | Yay!        | 2015-04-27 09:30:00.000 | 2015-04-27 09:30:00.000 |
+  | Benefit    | Berkeley | 2015-04-27 09:30:00.000 | 3        | 0              | Booya!      | 2015-04-27 09:30:00.000 | 2015-04-27 09:30:00.000 |
 
   And I travel to the time '2015-04-26 09:00:00.000'
   And I am logged in as "John"
@@ -72,11 +73,14 @@ Background: members and events have been added to database
     When I click on the event "Fair"
     Then I should see "John Blume"
 
-  @ignore
+  @javascript
   Scenario: Removing John from the Clinic waitlist within 2 days of the event
-    Given that "John Blume" is signed up for the event "Clinic"
-    Then I should see the button "Drop event"
-    When I press "Drop event"
-    Then I should not see "John Blume" on the waitlist volunteer list for Clinic.
+    Given that "John Blume" is signed up for the event "Benefit"
+    And I click on the event "Benefit"
+    Then I should see "Remove from event"
+    When I follow "Remove from event"
+    Then I should see "You have been successfully removed from Benefit"
+    And I click on the event "Benefit"
+    Then I should not see "John Blume"
 
 
