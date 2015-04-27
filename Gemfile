@@ -15,6 +15,8 @@ gem 'html2haml'
 gem 'fullcalendar-rails'
 gem 'rabl'
 gem 'figaro'
+gem 'whenever', :require => false
+gem 'mailgun-ruby', '~>1.0.3', require: 'mailgun'
 
 group :development, :test do
   gem 'sqlite3'

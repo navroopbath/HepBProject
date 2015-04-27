@@ -7,8 +7,8 @@ members = [{:first_name =>'Navroop', :last_name =>'Singh', :grad_date =>'2002-05
         {:first_name =>'Craig', :last_name =>'Hiller', :grad_date =>'2002-05-30T09:00:00', :phone =>'5555555555',:email =>'testchiller@berkeley.edu', :password =>'saassaas', :is_admin =>'false', :warnings =>'0'}
       ]
 
-events = [{:event_name => 'Korean Health Fair', :date => '2015-04-15T10:00:00', :start_time => '2015-04-15T10:00:00', :end_time => '2015-04-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
-        {:event_name => 'Chinese Health Fair', :date => '2015-04-30T10:00:00', :start_time => '2015-04-30T10:00:00', :end_time => '2015-04-30T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
+events = [{:event_name => 'Korean Health Fair', :date => '2015-04-26T10:00:00', :start_time => '2015-04-15T10:00:00', :end_time => '2015-04-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
+        {:event_name => 'Chinese Health Fair', :date => '2015-04-28T10:00:00', :start_time => '2015-04-30T10:00:00', :end_time => '2015-04-30T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Japanese Health Fair', :date => '2015-05-15T10:00:00', :start_time => '2015-05-15T10:00:00', :end_time => '2015-05-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Filipino Health Fair', :date => '2014-05-15T10:00:00', :start_time => '2014-05-15T10:00:00', :end_time => '2014-05-15T11:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'}
 
@@ -42,6 +42,16 @@ end
 
 memevents.each do |memevent|
   m = Memevent.create!(memevent)
+  m.member = Member.where(id: 3)[0]
+  m.event = Event.where(id: i)[0]
+  m.save!
+end
+
+1.upto(3) do |i|
+  m = Memevent.create!(memevent)
+  m.member = Member.where(id: 1)[0]
+  m.event = Event.where(id: i)[0]
+  m.save!
 end
 
 announcements.each do |announcement|
