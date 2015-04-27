@@ -34,8 +34,6 @@
             %li.list-group-item.list-group-item-info      
               = "#{volunteer.first_name} #{volunteer.last_name}"
   %div.panel-footer
-    %button.btn.btn-default.btn-lg
-      = link_to "Sign up", events_signup_path(@event), :method => :post
+    = link_to "Sign up", events_signup_path(@event), :method => :post, :class => 'btn btn-primary btn-lg'
     - if @current_member_signed_up
-      %button.btn.btn-default.btn-lg
-        = link_to "Remove from event", events_remove_member_path(@event), :method => :delete
+      = link_to "Remove from event", events_remove_member_path(@event), :method => :delete, :class => 'btn btn-primary btn-lg'

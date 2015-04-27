@@ -36,15 +36,19 @@ class EventsController < ApplicationController
 
   def remove_member
     @event = Event.where(id: params[:id])[0]
-    Memevent.where(member_id: current_member.id, event_id: params[:id])[0].destroy
-    flash[:error] = "You have been successfully removed from #{@event.event_name}."
+    if Time.now + 2.days <= @event.start_time
+      Memevent.where(member_id: current_member.id, event_id: params[:id])[0].destroy
+      flash[:error] = "You have been successfully removed from #{@event.event_name}."
+    else
+      flash[:error] = "You cannot automatically remove yourself inside a 48 hour window before the #{@event.event_name}. Please contact the LC lead for further instrucitons if you need to drop."
+    end
     redirect_to events_index_path
   end
 
   def signup
     @event = Event.where(id: params[:id])[0]
     unless !permit_signup?(@event)
-      if @event.memevents.length > @event.num_volunteers
+      if @event.memevents.length >= @event.num_volunteers
         waitlisted = 'true'
       else
         waitlisted = 'false'
@@ -58,42 +62,13 @@ class EventsController < ApplicationController
   private
   def permit_signup?(event)
     if Memevent.where(member_id: current_member.id, event_id: event.id).length > 0
-      flash[:error] = "You have alrady signed up for #{event.event_name}."
+      flash[:error] = "You have already signed up for #{event.event_name}."
       false
-    elsif event.start_time > Time.now
+    elsif Time.now > event.start_time
+      flash[:error] = "The start time for #{event.event_name} has already passed."
       false
     else
       true
     end
   end
-      
-
-
-#   def create
-#     @event = Event.create!(params[:event])
-#     flash[:notice] = "You have signed up with username: #{@event.name}"
-#     # redirect_to 'not_sure'
-#   end
-
-#   def edit
-#     @event = Event.find(params[:id])
-#   end
-
-#   def new
-#     # ender new view
-#   end
-
-#   def update
-#     @event = Event.find(params[:id])
-#     @event.update_attributes!(params[:event])
-#     flash[:notice] = "Event #{@event.name} was successfully updated"
-#     # redirect_to 'not sure'
-#   end
-
-#   def destroy
-#     @event = Event.find(params[:id])
-#     @event.destroy
-#     flash[:notice] = "event #{@event.name} was destroyed"
-#     # redirect_to 'not sure'
-#   end
 end
