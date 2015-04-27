@@ -45,13 +45,16 @@ Background: members and events have been added to database
     When I press "Add to Waitlist"
     Then I should see John Blume on the waitlist volunteer list for Clinic.
 
-  @ignore
+  @javascript
   Scenario: Removing John from Clinic volunteer list
-    Given that John Blume is signed up for the event Clinic
-    And today's date is not within 2 days of the event Clinic
-    Then I should see the button "Drop event"
-    When I press "Drop event"
-    Then I should not see "John Blume" on the signed up volunteer list for Clinic.
+    Given that "John Blume" is signed up for the event "Clinic"
+    When I click on the event "Clinic"
+    Then I should see "Remove from event"
+    When I follow "Remove from event"
+    Then I should see "You have been successfully removed from Clinic."
+    When I click on the event "Clinic"
+    Then I should not see "John Blume"
+    And I should not see "Remove from event"
 
   @ignore
   Scenario: Removing John from the Clinic waitlist

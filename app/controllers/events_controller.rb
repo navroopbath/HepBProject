@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @event_coordinators = []
     @event_volunteers = []
     @event_waitlist = []
+    @current_member_signed_up = Memevent.where(member_id: current_member.id, event_id: @event.id).length == 1
     @event.memevents.each do |memevent|
       @event_coordinators << memevent.member if memevent.member.is_admin?
       @event_volunteers << memevent.member if !memevent.member.is_admin and !memevent.waitlisted
@@ -33,6 +34,13 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
+  def remove_member
+    @event = Event.where(id: params[:id])[0]
+    Memevent.where(member_id: current_member.id, event_id: params[:id])[0].destroy
+    flash[:error] = "You have been successfully removed from #{@event.event_name}."
+    redirect_to events_index_path
+  end
+
   def signup
     @event = Event.where(id: params[:id])[0]
     unless !permit_signup?(@event)
@@ -51,6 +59,8 @@ class EventsController < ApplicationController
   def permit_signup?(event)
     if Memevent.where(member_id: current_member.id, event_id: event.id).length > 0
       flash[:error] = "You have alrady signed up for #{event.event_name}."
+      false
+    elsif event.start_time > Time.now
       false
     else
       true
