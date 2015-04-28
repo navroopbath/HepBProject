@@ -33,6 +33,7 @@ Background: members have been added to database
   Scenario: see list of stats for all members
     Then I should see the following members: John, Ben, Tim
 
+  @javascript
   Scenario: search for a specific member
     And I fill in "searchinput" with "Tim"
     Then I should see "Tim"
@@ -41,8 +42,3 @@ Background: members have been added to database
   Scenario: view warnings for each member
     Then I should see Yes within req-met for "John"
     And I should see No within req-met for "Ben"
-
-  Scenario: view a member's list of events
-    #the following feature is the client's last priority
-    #When I hover over "John"
-    #Then I should see the following events: Clinic, Hospital
