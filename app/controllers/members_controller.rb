@@ -48,8 +48,7 @@ class MembersController < ApplicationController
   def stats
     @memevents = []
     @current_mem.memevents.each do |memevent|
-      event_end_time = Event.where(id: memevent.event_id)[0].end_time
-      if Time.now > event_end_time
+      if memevent and Time.now > Event.where(id: memevent.event_id)[0].end_time
         @memevents.insert(-1,memevent)
       end
     end
