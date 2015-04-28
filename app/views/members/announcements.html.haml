@@ -33,14 +33,33 @@
         .row.centered-form
           .col-xs-12
             %h1= this_announcement.title
-            %strong= this_announcement.date_written.strftime("%B, %d, %Y")
+            -if !this_announcement.date_written.nil?
+              %strong= this_announcement.date_written.strftime("%B, %d, %Y")
             %p= this_announcement.body
             %p.lead
               -if @current_mem.is_admin 
                 = link_to 'Delete'.html_safe, delete_announ_member_path(this_announcement), :method => :delete
-                %button#edit.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} Edit
+                %button#edit.btn-primary{"data-target" => ".edit_form", "data-toggle" => "modal", :type => "button"} Edit
                 -if this_announcement.pinned
                   = link_to 'Unpin', pin_announ_member_path(this_announcement), :method => :post
                 -else
                   = link_to 'Pin', pin_announ_member_path(this_announcement), :method => :post
+/ = form_for @ do 
+/   .modal.fade.edit_form{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+/     .modal-dialog
+/       .modal-content
+/         .modal-header
+/           %h4#exampleModalLabel.modal-title Edit
+/         .modal-body
+/           %form#myForm{:method => "post"}
+/             .form-group
+/               %label.control-label{:for => "Title"} Title:
+/               = text_field_tag :announ, this_announcement.title
+/             .form-group
+/               %label.control-label{:for => "message-text"} Message:
+/               = text_area_tag :announ, this_announcement.body
+/         .modal-footer
+/           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+/           = submit_tag("Create")
+
 
