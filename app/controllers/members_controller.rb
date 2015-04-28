@@ -15,9 +15,15 @@ class MembersController < ApplicationController
   end
 
   def dashboard_home
+    @g_announ = Announcement.new
+    @g_announ.title = "General Meetings: Mondays, 8-9pm Wheeler"
+    if !params['messege'].nil?
+      @g_announ.title = params['messege']
+      @g_announ.save!
+    end
+
     @events = @current_member.events.order(:date)
     @announcements = Announcement.where(pinned: true).order(:date_written)
-    @ordered_members = Member.order(:last_name)
   end
 
   def announcements
@@ -29,6 +35,10 @@ class MembersController < ApplicationController
       @announ.date_written = Time.now
       @announ.save 
      end
+  end
+
+  def contacts
+     @ordered_members = Member.order(:last_name)
   end
 
   def delete_announ
