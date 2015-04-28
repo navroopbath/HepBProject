@@ -29,6 +29,7 @@ group :development, :test do
   gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'guard-jasmine'
   gem 'timecop'
+  gem 'headless'
 end
 
 
