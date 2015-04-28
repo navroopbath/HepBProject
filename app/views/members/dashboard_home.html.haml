@@ -7,7 +7,25 @@
       %i.fa.fa-clock-o.fa-fw
         General Meeting
     %div.panel-body
-      Hey everyone, our next meeting is on Monday at 5pm. We will be discussing awareness and outreach for the next week. Please make sure to do a bunch of Hep B volunteer work, because that's what we're all about. 
+      %h3= @g_announ.title
+      -if @current_mem.is_admin 
+        %button#newA.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} Edit
+
+= form_tag do 
+  .modal.fade.bs-example-modal-lg{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h4#exampleModalLabel.modal-title General Announcement
+        .modal-body
+          %form#myForm{:method => "post"}
+            .form-group
+              %label.control-label{:for => "message-text"} Message:
+              = text_area_tag 'messege', @g_announ.title
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
+          = submit_tag("Create")
+
 
 %div.col-lg-8
   %div.panel.panel-default
