@@ -49,7 +49,7 @@ class MembersController < ApplicationController
     @memevents = []
     @current_mem.memevents.each do |memevent|
       if memevent and Time.now > Event.where(id: memevent.event_id)[0].end_time
-        @memevents.insert(-1,memevent)
+        @memevents << memevent
       end
     end
     @total_hours_completed = @memevents.inject(0){|sum, x| sum + x.hours}
