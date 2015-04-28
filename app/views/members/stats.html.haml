@@ -33,11 +33,12 @@
             %th Hours completed
 
         %tbody
-          - @memevents.each do |memevent|
-            %tr
-              %th 
-                =memevent.event.date.strftime("%m/%d/%Y")
-              %th 
-                =memevent.event.event_name
-              %th 
-                =memevent.hours
+          - if @memevents
+            - @memevents.each do |memevent|
+              %tr
+                %th 
+                  =memevent.event.date.strftime("%m/%d/%Y")
+                %th 
+                  =memevent.event.event_name
+                %th 
+                  =memevent.hours
