@@ -117,6 +117,7 @@ GEM
       tilt
     haml (4.0.6)
       tilt
+    headless (2.0.0)
     hike (1.2.3)
     hitimes (1.2.2)
     html2haml (2.0.0)
@@ -289,6 +290,7 @@ DEPENDENCIES
   fullcalendar-rails
   guard-jasmine
   haml
+  headless
   html2haml
   jasmine
   jquery-rails
