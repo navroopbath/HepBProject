@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
   respond_to :html, :json
+  before_filter :set_current_mem, :authenticate_member!
+
+  def set_current_mem
+    @current_member ||= current_member
+  end
 
   def index
     @events = Event.all
