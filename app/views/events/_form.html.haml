@@ -1,6 +1,31 @@
-= simple_form_for @event, :method => :put, :url => events_update_path(@event), remote: true, :html => {:class => 'form-horizontal' } do |f|
-  = f.input :event_name
-  = f.input :location
-  = f.input :date, :as => :string, "data-format" => "dd/MM/yyyy hh:mm"
-  = f.input :description, as: :text, input_html: { rows: 4, cols: 30 }
-  = f.button :submit
+= form_for @event, url: events_update_path(@event), :method => :put do |f|
+  %div.form-group
+    = f.label "Event name"
+    %br
+    = f.text_field :event_name
+  %div.form-group
+    = f.label "Location"
+    %br
+    = f.text_field :location
+  %div.form-group
+    = f.label "Date"
+    %br
+    = f.date_select :date
+  %div.form-group
+    = f.label "Number of Volunteers"
+    %br
+    = f.text_field :num_volunteers
+  %div.form-group
+    = f.label "Description"
+    %br
+    = f.text_area :description
+  %div.form-group
+    = f.label "Start time"
+    %br
+    = f.time_select :start_time, {ampm: true}
+  %div.form-group
+    = f.label "End time"
+    %br
+    = f.time_select :end_time, {ampm: true}
+  %div.form-group
+    = f.submit "Update event"

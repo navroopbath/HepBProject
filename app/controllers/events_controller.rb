@@ -32,8 +32,10 @@ class EventsController < ApplicationController
   end
 
   def update
-    params[:event][:date] = params[:event][:date].to_datetime
+    @event = Event.where(id: params[:id])[0]
     @event.update_attributes(params[:event])
+    flash[:error] = "You have successfully updated #{@event.event_name}."
+    redirect_to events_index_path
   end
 
   def destroy
