@@ -88,7 +88,6 @@ m.event = Event.where(id: 4)[0]
 m.save!
 
 
-
 announcements.each do |announcement|
   Announcement.create!(announcement)
 end

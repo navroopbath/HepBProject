@@ -18,6 +18,20 @@ body {
 }
 
 #error-container {
-  position: relative;
-  top: 0px;
+	position: relative;
+	top: 0px;
+}
+
+.red {
+  background-color: #B80000;
+  color: white;
+  opacity: 0.75;
+}
+
+.centered-stats {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }

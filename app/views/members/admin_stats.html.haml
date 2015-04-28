@@ -1,9 +1,10 @@
 =render 'navbar'
 
-%div.col-lg-8
+%div.col-lg-8.centered-stats
   %form{:role => "form"}
     .form-group
       %input.form-control#searchinput{:placeholder => "Search by Name...", :type => "search"}/
+
 
     %div.panel.panel-default
       %div.panel-heading
@@ -27,5 +28,9 @@
                   =member[:total_hours]
                 %th 
                   =member[:current_events]
-                %th#req-met
-                  =member[:req_met]     
+                -if member[:req_met]
+                  %th#req-met
+                    Yes
+                -else
+                  %th#req-met.red
+                    No     
