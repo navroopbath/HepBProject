@@ -5,7 +5,7 @@ members = [{:first_name =>'Navroop', :last_name =>'Singh', :grad_date =>'2002-05
         {:first_name =>'Michael', :last_name =>'Rowe', :grad_date =>'2002-05-30T09:00:00', :phone =>'5555555555',:email =>'michaelrowe@berkeley.edu', :password =>'testtest', :is_admin =>'true', :warnings =>'0'},
         {:first_name =>'Armando', :last_name =>'Fox', :grad_date =>'2002-05-30T09:00:00', :phone =>'1011100101',:email =>'afox@hotmail.com', :password =>'saassaas', :is_admin =>'false', :warnings =>'0'},
         {:first_name =>'Craig', :last_name =>'Hiller', :grad_date =>'2002-05-30T09:00:00', :phone =>'5555555555',:email =>'testchiller@berkeley.edu', :password =>'saassaas', :is_admin =>'false', :warnings =>'0'}
-      ]
+]
 
 events = [{:event_name => 'Korean Health Fair', :date => '2015-04-15T10:00:00', :start_time => '2015-04-15T10:00:00', :end_time => '2015-04-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Chinese Health Fair', :date => '2015-04-30T10:00:00', :start_time => '2015-04-30T10:00:00', :end_time => '2015-04-30T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
