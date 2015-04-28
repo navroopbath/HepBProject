@@ -1,9 +1,7 @@
 /*
  *= require fullcalendar
+ *= require bootstrap
 */
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 body {
   padding-top: 80px;
@@ -20,6 +18,6 @@ body {
 }
 
 #error-container {
-	position: relative;
-	top: 0px;
+  position: relative;
+  top: 0px;
 }
