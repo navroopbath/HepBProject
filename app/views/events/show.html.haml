@@ -4,4 +4,7 @@
       %button#x-close(type="button" data-dismiss="modal" aria-hidden="true") x
     .modal-body
       %ul.fa-ul.errors
-      = render 'event_info'
+      - if @current_member.is_admin?
+        = render 'admin_event_info'
+      - else
+        = render 'event_info'

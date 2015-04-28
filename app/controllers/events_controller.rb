@@ -32,7 +32,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update_attributes(event_params)
+    params[:event][:date] = params[:event][:date].to_datetime
+    @event.update_attributes(params[:event])
   end
 
   def destroy
