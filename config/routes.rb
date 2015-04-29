@@ -25,6 +25,7 @@ HepBProject::Application.routes.draw do
   post 'event/:id', to: 'events#signup', as: 'events_signup'
   delete 'event/:id', to: 'events#remove_member', as: 'events_remove_member'
   put 'event/:id', to: 'events#update', as: 'events_update'
+  delete 'event/:id/member/:member_id', to: 'events#remove_other_member', as: 'events_remove_other_member'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

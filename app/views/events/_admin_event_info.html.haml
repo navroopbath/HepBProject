@@ -22,18 +22,22 @@
           - @event_coordinators.each do |coord|
             %li.list-group-item.list-group-item-info
               = "#{coord.first_name} #{coord.last_name}"
+              - if coord.id != @current_member.id
+                = link_to '', events_remove_other_member_path(@event, coord), :method => :delete, :class => 'glyphicon glyphicon-remove pull-right'
       %li.list-group-item
         %b Volunteers:
         %ul.list-group
           - @event_volunteers.each do |volunteer|
             %li.list-group-item.list-group-item-info      
               = "#{volunteer.first_name} #{volunteer.last_name}"
+              = link_to '', events_remove_other_member_path(@event, volunteer), :method => :delete, :class => 'glyphicon glyphicon-remove pull-right'
       %li.list-group-item
         %b Waitlist:
         %ul.list-group
           - @event_waitlist.each do |volunteer|
             %li.list-group-item.list-group-item-info      
               = "#{volunteer.first_name} #{volunteer.last_name}"
+              = link_to '', events_remove_other_member_path(@event, volunteer), :method => :delete, :class => 'glyphicon glyphicon-remove pull-right'
   %div.panel-footer
     = link_to "Sign up", events_signup_path(@event), :method => :post, :class => 'btn btn-primary btn-lg'
     - if @current_member_signed_up
