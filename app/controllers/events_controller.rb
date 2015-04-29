@@ -53,9 +53,11 @@ class EventsController < ApplicationController
 
   def remove_member
     @event = Event.where(id: params[:id])[0]
+    @member = Member.where(id: current_member.id)[0]
     @memevent = Memevent.where(member_id: current_member.id, event_id: params[:id])[0]
     if Time.now + 2.days <= @event.start_time || @memevent.waitlisted
       @memevent.destroy
+      bump_from_waitlist(@event, @member)
       flash[:error] = "You have been successfully removed from #{@event.event_name}."
     else
       flash[:error] = "You cannot automatically remove yourself inside a 48 hour window before the #{@event.event_name}. Please contact the LC lead for further instrucitons if you need to drop."
@@ -87,6 +89,17 @@ class EventsController < ApplicationController
       false
     else
       true
+    end
+  end
+
+  def bump_from_waitlist(event)
+    unless member.is_admin?
+      @waitlisted_members = Memevent.where(:event_id => event.id, :waitlisted => :true).order('date_added')
+      if @waitlisted_members.length>0
+        @member_to_bump = @waitlisted_members[0]
+        @member_to_bump.waitlisted = false
+        @member_to_bump.save!
+      end
     end
   end
 end
