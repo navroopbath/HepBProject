@@ -4,6 +4,36 @@
       = @event.event_name
   %div.panel-body
     = render 'form'
+    %ul.list-group
+      %li.list-group-item
+        %b Location:
+        = @event.location
+      %li.list-group-item
+        %b Description:
+        = @event.description
+      %li.list-group-item
+        %b Starts:
+        = @event.start_time.strftime("%H:%M %p")
+        %b Ends:
+        = @event.end_time.strftime("%H:%M %p")
+      %li.list-group-item
+        %b Event Coordinator(s):
+        %ul.list-group
+          - @event_coordinators.each do |coord|
+            %li.list-group-item.list-group-item-info
+              = "#{coord.first_name} #{coord.last_name}"
+      %li.list-group-item
+        %b Volunteers:
+        %ul.list-group
+          - @event_volunteers.each do |volunteer|
+            %li.list-group-item.list-group-item-info      
+              = "#{volunteer.first_name} #{volunteer.last_name}"
+      %li.list-group-item
+        %b Waitlist:
+        %ul.list-group
+          - @event_waitlist.each do |volunteer|
+            %li.list-group-item.list-group-item-info      
+              = "#{volunteer.first_name} #{volunteer.last_name}"
   %div.panel-footer
     = link_to "Sign up", events_signup_path(@event), :method => :post, :class => 'btn btn-primary btn-lg'
     - if @current_member_signed_up
