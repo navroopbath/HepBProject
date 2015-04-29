@@ -30,6 +30,7 @@ group :development, :test do
   gem 'guard-jasmine'
   gem 'timecop'
   gem 'headless'
+  gem 'pry'
 end
 
 

@@ -32,6 +32,15 @@ Then /^I should see the member "(.*)" under "(.*)"$/ do |member, category|
   assert(member_position = category_position +1, "#{member} is not on the #{category}.")
 end
 
+When /^I update the modal field "(.*)" with "(.*)"$/ do |field, value|
+  field = 'event_' + field.downcase.split(' ').join('_')
+  find("\##{field}").set(value)
+end
+
+And /^in the modal I follow "(.*)"$/ do |link|
+  link = find('#' + link.downcase.split(' ').join('_'))
+  link.click
+end
 # And /^it is not within 2 days of the event "(.*)"$/ do |event|
 #   @event = Event.where(event_name: event_name)[0]
 #   # assert(Time.now < @event.start_time - 2.days, "You are within 2 days of the event #{}")

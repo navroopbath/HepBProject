@@ -23,23 +23,15 @@ class EventsController < ApplicationController
     end
   end
 
-  def new
-    @event = Event.new
-  end
-
   def create
     @event = Event.create!(params[:event])
   end
 
   def update
     @event = Event.where(id: params[:id])[0]
-    @event.update_attributes(params[:event])
     flash[:error] = "You have successfully updated #{@event.event_name}."
+    @event.update_attributes(params[:event])
     redirect_to events_index_path
-  end
-
-  def destroy
-    @event.destroy
   end
 
   def remove_other_member

@@ -293,6 +293,7 @@ DEPENDENCIES
   pg
   phantomjs
   poltergeist
+  pry
   rabl
   rails (= 3.2.16)
   rails-settings-cached (= 0.2.4)

@@ -59,7 +59,7 @@ Background: members and events have been added to database
     And I should not see "Remove from event"
 
   @javascript
-  Scenario: signing up for an event that has already started/finished
+  Scenario: Signing up for an event that has already started/finished
     When I click on the event "Social"
     And I follow "Sign up"
     Then I should see "The start time for Social has already passed."
