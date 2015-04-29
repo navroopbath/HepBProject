@@ -32,11 +32,23 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update_attributes(event_params)
+    @event = Event.where(id: params[:id])[0]
+    @event.update_attributes(params[:event])
+    flash[:error] = "You have successfully updated #{@event.event_name}."
+    redirect_to events_index_path
   end
 
   def destroy
     @event.destroy
+  end
+
+  def remove_other_member
+    @event = Event.where(id: params[:id])[0]
+    @member = Member.where(id: params[:member_id])[0]
+    @memevent = Memevent.where(member_id: params[:member_id], event_id: params[:id])[0]
+    @memevent.destroy
+    flash[:error] = "You have successfully removed #{@member.first_name} #{@member.last_name} from #{@event.event_name}."
+    redirect_to events_index_path
   end
 
   def remove_member
