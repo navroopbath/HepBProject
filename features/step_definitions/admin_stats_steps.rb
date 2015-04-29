@@ -1,3 +1,11 @@
+Then /^I should see "(.+)" under Requirement Met for "(.+)"$/ do |bool, member|
+  steps %Q{
+    When I fill in "searchinput" with "#{member}"
+    Then I should see "#{bool}"
+  }
+
+end
+
 Then(/^I should( not)? see the following members:(.*)$/)  do |negation, members|
   members = members.gsub(' ','').split(',')
   if negation

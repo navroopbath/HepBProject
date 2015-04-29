@@ -32,6 +32,7 @@ Background: members have been added to database
 
   Scenario: see list of stats for all members
     Then I should see the following members: John, Ben, Tim
+    Then show me the page
 
   @javascript
   Scenario: search for a specific member
@@ -39,6 +40,7 @@ Background: members have been added to database
     Then I should see "Tim"
     And I should not see the following members: John, Ben
 
+  @javascript
   Scenario: view warnings for each member
-    Then I should see Yes within req-met for "John"
-    And I should see No within req-met for "Ben"
+    Then I should see "Yes" under Requirement Met for "John"
+    And I should see "No" under Requirement Met for "Ben"
