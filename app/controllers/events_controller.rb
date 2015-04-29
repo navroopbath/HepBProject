@@ -47,6 +47,7 @@ class EventsController < ApplicationController
     @member = Member.where(id: params[:member_id])[0]
     @memevent = Memevent.where(member_id: params[:member_id], event_id: params[:id])[0]
     @memevent.destroy
+    bump_from_waitlist(@event, @member)
     flash[:error] = "You have successfully removed #{@member.first_name} #{@member.last_name} from #{@event.event_name}."
     redirect_to events_index_path
   end
@@ -92,7 +93,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def bump_from_waitlist(event)
+  def bump_from_waitlist(event, member)
     unless member.is_admin?
       @waitlisted_members = Memevent.where(:event_id => event.id, :waitlisted => :true).order('date_added')
       if @waitlisted_members.length>0
