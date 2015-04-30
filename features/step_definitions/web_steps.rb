@@ -76,6 +76,11 @@ end
 # TODO: Add support for checkbox, select or option
 # based on naming conventions.
 #
+
+When(/^I select "(.*?)" for "(.*?)"$/) do |arg1, arg2|
+  select arg1, :from => arg2
+end
+
 When /^(?:|I )fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     When %{I fill in "#{name}" with "#{value}"}

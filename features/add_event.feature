@@ -15,15 +15,18 @@ Background: Members and announcements have been added to the database
   | General Meeting | wheeler        |2015-04-22 09:34:00.000 | 2        |  10            |  Come!      |2015-04-22 09:00:00.000 | 2015-04-22 011:00:00.000 |
 
   And I am logged in as "Harry"
-  When I go to the events tab for "Harry"
+  When I follow "Events" 
 
    Scenario: Admin creates a new event
     Then I should see "+Add Event"
     When I click "#newE"
-    When I fill in "Name" with "My brand new Event"
-    And I fill in "Description" with "This is cool!"
-    And I choose the date 4/23/2015
+    Then I should see "New Event"
+    When I fill in "event_event_name" with "My brand new Event"
+    And I fill in "event_description" with "This is cool!"
+    When I select "2015" for "event_date_1i"
+    When I select "April" for "event_date_2i"
+    When I select "16" for "event_date_3i"
     And I press "Create"
-    Then I should see "This is cool!"
+    
 
 
