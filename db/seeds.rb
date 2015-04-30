@@ -51,7 +51,7 @@ end
 #SEED MASTER SETTINGS
 Settings.master_admin_email = 'hepbhomies@gmail.com'
 Settings.master_admin_password = 'campanile'
-Settings.notifications_email = 'sandbox60b4290575ab49f386dd50fc026416a2.mailgun.org'
+Settings.notifications_email = ENV["mailgun_username"]
 # Settings.notifications_email_password = 'topsecretpassword'
 Settings.deadline_one = '03/15/15' # format '%m/%d/%Y'
 Settings.deadline_two = '05/15/15'

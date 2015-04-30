@@ -14,6 +14,7 @@ gem 'erb2haml'
 gem 'html2haml'
 gem 'fullcalendar-rails'
 gem 'rabl'
+gem 'figaro'
 
 group :development, :test do
   gem 'sqlite3'
