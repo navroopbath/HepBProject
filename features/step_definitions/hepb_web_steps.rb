@@ -37,3 +37,7 @@ Then /^the "([^"]*)" field(?: within (.*))? should( not)? contain "([^"]*)"$/ do
     end
   end
 end
+
+When(/^I select "(.*?)" for "(.*?)"$/) do |arg1, arg2|
+  select arg1, :from => arg2
+end
