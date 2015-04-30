@@ -38,7 +38,16 @@ Background: members and events have been added to database
     Then I should see "You have successfully signed up for Clinic."
     And I click on the event "Clinic"
     Then I should see "John Blume"
-  
+
+  @javascript
+  Scenario: Signing up for an event again should fail
+    When I click on the event "Clinic"
+    And I follow "Sign up"
+    Then I should see "You have successfully signed up for Clinic."
+    And I click on the event "Clinic"
+    And I follow "Sign up"
+    Then I should see "You have already signed up for Clinic."
+
   @javascript
   Scenario: Adding John to Hospital waitlist
     When I click on the event "Hospital"

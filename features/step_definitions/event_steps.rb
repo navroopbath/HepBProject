@@ -41,6 +41,11 @@ And /^in the modal I follow "(.*)"$/ do |link|
   link = find('#' + link.downcase.split(' ').join('_'))
   link.click
 end
+
+And /^in the modal I click "(.*)"$/ do |link|
+  debugger
+  find('a.glyphicon glyphicon-remove pull-right')[0].click
+end
 # And /^it is not within 2 days of the event "(.*)"$/ do |event|
 #   @event = Event.where(event_name: event_name)[0]
 #   # assert(Time.now < @event.start_time - 2.days, "You are within 2 days of the event #{}")
