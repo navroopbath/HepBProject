@@ -6,6 +6,7 @@ class Memevent < ActiveRecord::Base
   belongs_to :event
 
   def Memevent.send_email_reminders
+    #using figaro
     api_key = ENV["mailgun_api_key"]
     domain = ENV["mailgun_domain"]
     mg_client = Mailgun::Client.new(api_key)
