@@ -43,8 +43,7 @@ And /^in the modal I follow "(.*)"$/ do |link|
 end
 
 And /^in the modal I click "(.*)"$/ do |link|
-  debugger
-  find('a.glyphicon glyphicon-remove pull-right')[0].click
+  all('div.modal-body a').select {|elt| elt.text == "" }.first.click
 end
 # And /^it is not within 2 days of the event "(.*)"$/ do |event|
 #   @event = Event.where(event_name: event_name)[0]
