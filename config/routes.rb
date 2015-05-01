@@ -11,6 +11,8 @@ HepBProject::Application.routes.draw do
   post 'members/:id/announcements', to: 'members#edit_announ', as: 'members_edit_announcements'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
   post 'members/:id/get_announcement', to: 'members#edit_announcement', as: 'members_edit_announcement'
+  get 'members/:id/admin_settings', to: 'members#admin_settings', as: 'members_admin_settings'
+  put 'members/:id/admin_settings', to:'members#update_admin_settings', as: 'members_update_admin_settings'
 
   resources :members do
     delete :delete_announcement, :on => :member
