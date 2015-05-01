@@ -32,7 +32,6 @@ Background: members have been added to database
 
   Scenario: see list of stats for all members
     Then I should see the following members: John, Ben, Tim
-    Then show me the page
 
   @javascript
   Scenario: search for a specific member

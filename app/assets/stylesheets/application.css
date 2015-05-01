@@ -27,11 +27,3 @@ body {
   color: white;
   opacity: 0.75;
 }
-
-.centered-stats {
-  position: fixed;
-  top: 35%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
