@@ -31,6 +31,11 @@ class MembersController < ApplicationController
      end
   end
 
+  def edit_announ
+    @to_edit = Announcement.find(params[:id])
+    redirect_to members_announcements_path(@to_edit)
+  end
+
   def delete_announ
       @to_delete = Announcement.find(params[:id])
      @to_delete.destroy

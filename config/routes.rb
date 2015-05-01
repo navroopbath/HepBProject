@@ -8,12 +8,13 @@ HepBProject::Application.routes.draw do
 
   get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
-  post 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
+  post 'members/:id/announcements', to: 'members#edit_announ', as: 'members_edit_announcements'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
 
   resources :members do
     delete :delete_announ, :on => :member
     post :pin_announ, :on => :member
+    # post :edit_announ, :on => :member
   end
 
   get 'members/:id/settings', to: 'members#settings_index', as: 'members_settings_index'
