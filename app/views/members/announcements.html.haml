@@ -45,24 +45,7 @@
                   = link_to 'Unpin', pin_announcement_member_path(this_announcement), :method => :post
                 -else
                   = link_to 'Pin', pin_announcement_member_path(this_announcement), :method => :post
-/ = form_for @ do 
-/   .modal.fade.edit_form{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
-/     .modal-dialog
-/       .modal-content
-/         .modal-header
-/           %h4#exampleModalLabel.modal-title Edit
-/         .modal-body
-/           %form#myForm{:method => "post"}
-/             .form-group
-/               %label.control-label{:for => "Title"} Title:
-/               = text_field_tag :announ, this_announcement.title
-/             .form-group
-/               %label.control-label{:for => "message-text"} Message:
-/               = text_area_tag :announ, this_announcement.body
-/         .modal-footer
-/           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-/           = submit_tag("Create")
->>>>>>> making progress
+
 
 
 = form_tag do 
