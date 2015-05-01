@@ -29,10 +29,15 @@ Background: Members and announcements have been added to the database
     And I press "Create"
     Then I should see "This is cool!"
 
- Scenario: Admin pins exsisting announcment 
+ Scenario: Admin pins exsisting announcement 
  	When I follow "Pin" 
  	And I follow "Dashboard"
  	Then I should see "Toy Story was ok."
+
+ Scenario: Admin edits exsisting announcement 
+  When I follow "Edit" for "Toy Story"
+  And I fill in "announcement_body" with "Toy Story was awesome!!!"
+
 
 Scenario: Admin unpins exsisting announcment 
   When I follow "Unpin" for "Toy Story was ok." 
