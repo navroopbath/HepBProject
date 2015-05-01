@@ -1,0 +1,19 @@
+.container
+  .row.centered-form
+    .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title Edit Announcement
+        .panel-body
+          = form_tag do 
+            .form-group
+              .col-xs-12.col-sm-12.col-md-12
+                = label :announcement,:title
+                = text_field :announcement,:title, :value => @to_edit.title, :class => 'form-control'
+            .form-group
+              .col-xs-12.col-sm-12.col-md-12
+                = label :announcement,:body
+                = text_area :announcement,:body, :value => @to_edit.body, :class => 'form-control'
+            .form-group.last
+              .col-xs-12.col-sm-12.col-md-12
+                %input.btn.btn-info.btn-block{:type => "submit", :value => "Save", :href => members_edit_announcement_path}
