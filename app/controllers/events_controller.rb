@@ -1,3 +1,5 @@
+require 'mailgun'
+
 class EventsController < ApplicationController
   respond_to :html, :json
   before_filter :set_current_mem, :authenticate_member!
@@ -73,6 +75,29 @@ class EventsController < ApplicationController
     redirect_to events_index_path
   end
 
+  def send_waitlist_notification(event, member)
+    #using figaro
+    api_key = ENV["mailgun_api_key"]
+    domain = ENV["mailgun_domain"]
+    mg_client = Mailgun::Client.new(api_key)
+    mb_obj = Mailgun::BatchMessage.new(mg_client, domain)
+    # Define the from address.
+    mb_obj.set_from_address("noreply@hepbproject.com", {"first"=>"Hep B Project", "last" => "Admins"})
+    # Define the subject.
+    mb_obj.set_subject("You have been bumped up from the waitlist.");
+    # Define the body of the message.
+    mb_obj.set_text_body("
+       Hello #{member.first_name}, 
+      
+       We just wanted to notify you that you've been bumped up from the waitlist for #{event.event_name} to the volunteer list. 
+       As a reminder, the event is going to be held on #{event.date.strftime('%m/%d/%Y')} at #{event.start_time.strftime('%I:%M%p')}.
+       
+       - The Hep B Project Admins")
+    mb_obj.add_recipient(:to, "#{member.email}", {"first" => "#{member.first_name}", 
+                                                  "last" => "#{member.last_name}"})
+    mb_obj.finalize
+  end
+
   private
   def permit_signup?(event)
     if Memevent.where(member_id: current_member.id, event_id: event.id).length > 0
@@ -92,6 +117,8 @@ class EventsController < ApplicationController
       if @waitlisted_members.length>0
         @member_to_bump = @waitlisted_members[0]
         @member_to_bump.waitlisted = false
+        # send email
+        send_waitlist_notification(event, member)
         @member_to_bump.save!
       end
     end
