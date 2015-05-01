@@ -27,5 +27,5 @@ Background: Members and announcements have been added to the database
     And I should see "Toy Story was ok."
 
   Scenario: see Announcements in order
-    Then I should see "Come to meeting!" before "Don't forget!"
-    And I should see "Actually, don't come." before "Toy Story was ok."
+    Then I should see "Don't forget!" before "Come to meeting!"
+    And I should see "Toy Story was ok." before "Actually, don't come."

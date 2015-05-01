@@ -2,7 +2,9 @@
   .modal-content
     .modal-header
       %button#x-close(type="button" data-dismiss="modal" aria-hidden="true") x
-      %h2.modal-title Event
     .modal-body
       %ul.fa-ul.errors
-      = render 'form'
+      - if @current_member.is_admin?
+        = render 'admin_event_info'
+      - else
+        = render 'event_info'

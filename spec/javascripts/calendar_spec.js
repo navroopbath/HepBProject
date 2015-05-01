@@ -8,27 +8,18 @@ describe('The calendar should show up with events in the right dates.', function
     Calendar.setup();
   });
   
-  describe('setup function', function() {
-
+  describe('Calendar setup.', function() {
     it('should only generate one calendar', function() {
       var calendar = $('#calendar');
       expect($('.fc-view-container').length).toEqual(1);
     });
 
-    // afterEach
-
-  });
-
-  describe('events rendered properly in calendar', function() {
-
     it('should make an ajax request to the proper URL', function() {
       expect($.ajax.calls.mostRecent().args[0]['url']).toEqual("/events");
     });
-
-    it('should display Berkeley Clinic in the modal', function() {
-      var test = $(.'fc-title');
-      expect($('.fc-title').text()).toContain("Berkeley Clinic");
-    });
   });
 
+  afterEach( function() {
+    $('.fc-view-container').remove()
+  })
 });
