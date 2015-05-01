@@ -18,7 +18,6 @@ Background: members and events have been added to database
   | Fair       | Berkeley | 2015-05-27 09:30:00.000 | 3        | 15             | Yay!        | 2015-04-27 09:30:00.000 | 2015-04-27 09:30:00.000 |
   | Benefit    | Berkeley | 2015-05-27 09:30:00.000 | 3        | 0              | Booya!      | 2015-04-27 09:30:00.000 | 2015-04-27 09:30:00.000 |
 
-  And I travel to the time '2015-04-26 09:00:00.000'
   And I am logged in as "John"
   When I go to the events page
 

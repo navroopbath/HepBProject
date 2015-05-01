@@ -2,11 +2,6 @@ Then /^it should render the calendar$/ do
   page.should have_content Time.now.strftime("%B %Y")
 end
 
-And /^I travel to the time '2015-04-26 09:00:00.000'$/ do
-  fake_time = Time.local(2015,4,26,9,0,0)
-  Timecop.travel(fake_time)
-end
-
 When /^I click on the event "(.*)"$/ do |event_name|
   click_link("#{event_name}")
 end
