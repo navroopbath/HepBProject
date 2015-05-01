@@ -1,0 +1,23 @@
+- require 'active_support/core_ext'
+= render 'navbar'
+
+%div.col-lg-8.col-offset{:style => "padding-left:500px;"}
+  %div.panel.panel-default
+    %div.panel-heading
+      %i.fa.fa-clock-o.fa-fw
+        Admin Settings
+    %div.panel-body
+      = form_tag members_update_admin_settings_path, :method => :put do
+        .form-group
+          %label{:for => "semester-start"} Semester Start Date
+          %input#semester-start.form-control{:placeholder => "Enter Semester Start Date", :type => "date", :value => @semester_start, :name => "admin[semester_start]"} 
+        .form-group
+          %label{:for => "semester-end"} Semester End Date
+          %input#semester-end.form-control{:placeholder => "Enter Semester End Date", :type => "date", :value => @semester_end, :name => "admin[semester_end]"}
+        .form-group
+          %label{:for => "deadline-one"} Half-Semester Deadline
+          %input#deadline-one.form-control{:placeholder => "Enter First Semester Deadline", :type => "date", :value => @deadline_one, :name => "admin[deadline_one]"}
+        .form-group
+          %label{:for => "deadline-two"} End-Semester Deadline
+          %input#deadline-two.form-control{:placeholder => "Enter Second Semester Deadline", :type => "date", :value => @deadline_two, :name => "admin[deadline_two]"}
+        %button.btn.btn-default{:type => "submit"} Update 
