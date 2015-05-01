@@ -22,7 +22,6 @@ Background: members and events have been added to database
     
   @javascript
   Scenario: Updating the event name
-    When I travel to the date "April 26, 2015"
     When I click on the event "Clinic"
     When I update the modal field "Event name" with "Hep B Clinic"
     And in the modal I follow "Update event"
@@ -32,7 +31,6 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Removing a member from an event
-    When I travel to the date "April 26, 2015"
     Given that "John Blume" is signed up for the event "Clinic"
     And that "Bob Builder" is signed up for the event "Clinic"
     When I click on the event "Clinic"
@@ -41,7 +39,6 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Removing a member should bump up any waitlisted members
-    When I travel to the date "April 26, 2015"
     Given that "John Blume" is signed up for the event "Hospital"
     Given that "Tom Train" is signed up for the event "Hospital"
     Given that "Bob Builder" is signed up for the event "Hospital"

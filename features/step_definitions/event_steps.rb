@@ -2,10 +2,6 @@ Then /^it should render the calendar$/ do
   page.should have_content Time.now.strftime("%B %Y")
 end
 
-When /^I travel to the date "April 26, 2015"$/ do
-    page.execute_script("$('#calendar').fullCalendar('gotoDate', '2015-04-26');")
-end
-
 And /^I travel to the time '2015-04-26 09:00:00.000'$/ do
   fake_time = Time.local(2015,4,26,9,0,0)
   Timecop.travel(fake_time)

@@ -24,18 +24,15 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Going to events page should render the calendar
-    When I travel to the date "April 26, 2015"
     Then it should render the calendar
 
   @javascript
   Scenario: Viewing information for event Clinic
-    When I travel to the date "April 26, 2015"
     When I click on the event "Clinic"
     Then I should see a modal with information about "Clinic"
 
   @javascript
   Scenario: Adding John to Clinic volunteer list
-    When I travel to the date "April 26, 2015"
     When I click on the event "Clinic"
     And I follow "Sign up"
     Then I should see "You have successfully signed up for Clinic."
@@ -44,7 +41,6 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Signing up for an event again should fail
-    When I travel to the date "April 26, 2015"
     When I click on the event "Clinic"
     And I follow "Sign up"
     Then I should see "You have successfully signed up for Clinic."
@@ -54,7 +50,6 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Adding John to Hospital waitlist
-    When I travel to the date "April 26, 2015"
     When I click on the event "Hospital"
     And I follow "Sign up"
     Then I should see "You have been waitlisted for Hospital. You'll receive an email notification if you are moved into the volunteer list."
@@ -63,7 +58,6 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Removing John from Clinic volunteer list
-    When I travel to the date "April 26, 2015"
     Given that "John Blume" is signed up for the event "Clinic"
     When I click on the event "Clinic"
     Then I should see "Remove from event"
@@ -75,14 +69,12 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Signing up for an event that has already started/finished
-    When I travel to the date "April 26, 2015"
     When I click on the event "Social"
     And I follow "Sign up"
     Then I should see "The start time for Social has already passed."
 
   @javascript
   Scenario: Removing John from Fair volunteer list within 2 days of Fair
-    When I travel to the date "April 26, 2015"
     Given that "John Blume" is signed up for the event "Fair"
     When I click on the event "Fair"
     And I follow "Remove from event"
@@ -92,7 +84,6 @@ Background: members and events have been added to database
 
   @javascript
   Scenario: Removing John from the Clinic waitlist within 2 days of the event
-    When I travel to the date "April 26, 2015"
     Given that "John Blume" is signed up for the event "Benefit"
     And I click on the event "Benefit"
     Then I should see "Remove from event"
