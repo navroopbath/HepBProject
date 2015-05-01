@@ -30,7 +30,6 @@ class EventsController < ApplicationController
   def update
     @event = Event.where(id: params[:id])[0]
     flash[:error] = "You have successfully updated #{@event.event_name}."
-    debugger
     @event.update_attributes(params[:event])
     redirect_to events_index_path
   end
