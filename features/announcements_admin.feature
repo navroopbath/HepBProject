@@ -35,8 +35,7 @@ Background: Members and announcements have been added to the database
  	Then I should see "Toy Story was ok."
 
  Scenario: Admin edits exsisting announcement 
-  When I follow "Edit" for "Toy Story"
-  And I fill in "announcement_body" with "Toy Story was awesome!!!"
+  When I follow "Edit" for "Toy Story was ok"
 
 
 Scenario: Admin unpins exsisting announcment 
