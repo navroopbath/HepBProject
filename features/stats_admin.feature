@@ -39,7 +39,3 @@ Background: members have been added to database
     Then I should see "Tim"
     And I should not see the following members: John, Ben
 
-  @javascript
-  Scenario: view warnings for each member
-    Then I should see "Yes" under Requirement Met for "John"
-    And I should see "No" under Requirement Met for "Ben"
