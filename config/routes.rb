@@ -10,10 +10,12 @@ HepBProject::Application.routes.draw do
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
   post 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
+  post 'members/:id/get_announcement', to: 'members#edit_announcement', as: 'members_edit_announcement'
 
   resources :members do
-    delete :delete_announ, :on => :member
-    post :pin_announ, :on => :member
+    delete :delete_announcement, :on => :member
+    post :pin_announcement, :on => :member
+    get :get_announcement, :on => :member
   end
 
   get 'members/:id/settings', to: 'members#settings_index', as: 'members_settings_index'

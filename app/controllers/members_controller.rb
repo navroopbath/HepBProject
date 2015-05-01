@@ -31,13 +31,25 @@ class MembersController < ApplicationController
      end
   end
 
-  def delete_announ
+  def get_announcement
+    @to_edit = Announcement.find(params[:id])
+  end
+
+  def edit_announcement
+    @to_edit = Announcement.find(params[:id])
+    @to_edit.title = params[:announcement][:title]
+    @to_edit.body = params[:announcement][:body]
+    @to_edit.save!
+    redirect_to members_announcements_path
+  end
+
+  def delete_announcement
       @to_delete = Announcement.find(params[:id])
      @to_delete.destroy
      redirect_to :action => 'announcements'
   end
 
-  def pin_announ
+  def pin_announcement
     @to_pin = Announcement.find(params[:id])
     @to_pin.pinned = !@to_pin.pinned
     @to_pin.save
