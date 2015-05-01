@@ -57,6 +57,7 @@ Scenario: Admin edits exsisting announcement
   Then I should see "Toy Story was awesome!"
   And I should not see "Toy Story was ok"
 
+
 Scenario: Deleting annoucnments 
   When I follow "Delete" for "Toy Story was ok." 
   Then I should not see "Toy Story was ok." 
