@@ -6,8 +6,10 @@ class Memevent < ActiveRecord::Base
   belongs_to :event
 
   def Memevent.send_email_reminders
-    mg_client = Mailgun::Client.new("key-37e77d62982a839bf6c8788670355e84")
-    mb_obj = Mailgun::BatchMessage.new(mg_client, "sandbox60b4290575ab49f386dd50fc026416a2.mailgun.org")
+    api_key = ENV["mailgun_api_key"]
+    domain = ENV["mailgun_domain"]
+    mg_client = Mailgun::Client.new(api_key)
+    mb_obj = Mailgun::BatchMessage.new(mg_client, domain)
     # Define the from address.
     mb_obj.set_from_address("noreply@hepbproject.com", {"first"=>"Hep B Project", "last" => "Admins"})
     # Define the subject.
