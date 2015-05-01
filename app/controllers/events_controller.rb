@@ -49,7 +49,7 @@ class EventsController < ApplicationController
     @member = Member.where(id: current_member.id)[0]
     @memevent = Memevent.where(member_id: current_member.id, event_id: params[:id])[0]
     if Time.now + 2.days <= @event.start_time || @memevent.waitlisted
-      @memevent.destroy
+      @memevent.destroy  
       bump_from_waitlist(@event, @member)
       flash[:error] = "You have been successfully removed from #{@event.event_name}."
     else
@@ -60,11 +60,12 @@ class EventsController < ApplicationController
 
   def signup
     @event = Event.where(id: params[:id])[0]
+    num_volunteers = @event.memevents.select {  |memevent| memevent.member.is_admin == false }.length
     unless !permit_signup?(@event)
-      if @event.memevents.length >= @event.num_volunteers
-        waitlisted = 'true'
+      if num_volunteers >= @event.num_volunteers
+        waitlisted = true
       else
-        waitlisted = 'false'
+        waitlisted = false
       end
       Memevent.create(:event_id => @event.id, :member_id => current_member.id, :waitlisted => waitlisted, :date_added => Time.now.utc, :approved => 'true', :hours => @event.duration)
       waitlisted == 'true' ? flash[:error] = "You have been waitlisted for #{@event.event_name}. You'll receive an email notification if you are moved into the volunteer list." : flash[:error] = "You have successfully signed up for #{@event.event_name}."
@@ -87,7 +88,7 @@ class EventsController < ApplicationController
 
   def bump_from_waitlist(event, member)
     unless member.is_admin?
-      @waitlisted_members = Memevent.where(:event_id => event.id, :waitlisted => :true).order('date_added')
+      @waitlisted_members = Memevent.where(:event_id => event.id, :waitlisted => true).order('date_added')
       if @waitlisted_members.length>0
         @member_to_bump = @waitlisted_members[0]
         @member_to_bump.waitlisted = false

@@ -22,7 +22,8 @@ Given /^that "(.*)" is signed up for the event "(.*)"$/ do |member, event_name|
   member_first_name = member.split(" ")[0]
   @member = Member.where(first_name: member_first_name)[0]
   @event = Event.where(event_name: event_name)[0]
-  waitlisted = @event.memevents.length >= @event.num_volunteers ? 'true' : 'false'
+  num_volunteers = @event.memevents.select {  |memevent| memevent.member.is_admin == false  }.length
+  waitlisted = num_volunteers >= @event.num_volunteers ? true : false
   Memevent.create({  :event_id => @event.id, :member_id => @member.id, :hours => @event.duration, :waitlisted => waitlisted, :date_added => Time.now, :approved => 'true'  })
 end
 
@@ -42,8 +43,8 @@ And /^in the modal I follow "(.*)"$/ do |link|
   link.click
 end
 
-And /^in the modal I click "(.*)"$/ do |link|
-  all('div.modal-body a').select {|elt| elt.text == "" }.first.click
+And /^in the modal I click remove "(.*)"$/ do |volunteer|
+  all('li.list-group-item.list-group-item-info').select {|elt| elt.text == volunteer}[0].find('a').click
 end
 # And /^it is not within 2 days of the event "(.*)"$/ do |event|
 #   @event = Event.where(event_name: event_name)[0]
