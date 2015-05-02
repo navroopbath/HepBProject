@@ -18,7 +18,6 @@ body {
 }
 
 #error-container {
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
 	position: relative;
 	top: 0px;
 }
@@ -30,8 +29,4 @@ body {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-=======
-  position: relative;
-  top: 0px;
->>>>>>> master:app/assets/stylesheets/application.css
 }
