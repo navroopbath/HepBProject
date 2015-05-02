@@ -29,15 +29,26 @@ Background: Members and announcements have been added to the database
     And I press "Create"
     Then I should see "This is cool!"
 
- Scenario: Admin pins exsisting announcment 
+ Scenario: Admin pins exsisting announcement 
  	When I follow "Pin" 
  	And I follow "Dashboard"
  	Then I should see "Toy Story was ok."
+
+ Scenario: Admin edits exsisting announcement 
+  When I follow "Edit" for "Toy Story was ok"
+  Then I should see "Edit Announcement"
+  When I fill in "announcement_body" with "Toy Sotry was awesome!!!!!"
+  And I press "Save"
+  Then I should see "Announcements"
+  And I should see "Toy Sotry was awesome!!!!!"
+  And I should not see "Toy Sotry was ok"
+
 
 Scenario: Admin unpins exsisting announcment 
   When I follow "Unpin" for "Toy Story was ok." 
   And I follow "Dashboard"
   Then I should not see "Toy Story was ok."
+
 
 Scenario: Deleting annoucnments 
   When I follow "Delete" for "Toy Story was ok." 

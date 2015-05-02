@@ -1,3 +1,12 @@
+Given /the following settings/ do |settings_table|
+  settings_table.hashes.each do |setting|
+    Settings.deadline_one = setting["deadline_one"]
+    Settings.deadline_two = setting["deadline_two"]
+    Settings.semester_start_date = setting["semester_start_date"]
+    Settings.semester_end_date = setting["semester_end_date"]
+  end
+end
+
 Given /(.+) is in the database with the following information/ do |mem_name, members_table|
   members_table.hashes.each do |member|
     @member = member

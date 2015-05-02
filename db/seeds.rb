@@ -101,4 +101,3 @@ Settings.deadline_one = DateTime.new(2015, 3, 15)
 Settings.deadline_two = DateTime.new(2015, 4, 25) 
 Settings.semester_start_date = DateTime.new(2015, 1, 20)
 Settings.semester_end_date = DateTime.new(2015, 5, 15)
-

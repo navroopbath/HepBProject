@@ -21,6 +21,7 @@ module NavigationHelpers
     when /^the admin stats page for "(.+)"$/ then members_admin_stats_path(Member.where(first_name: $1)[0])
     when /^the fail sign up page$/ then member_registration_path
     when /^the events page$/ then events_index_path
+    when /^the admin settings page for "(.+)"$/ then settings_index_path(Member.where(first_name: $1)[0])
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

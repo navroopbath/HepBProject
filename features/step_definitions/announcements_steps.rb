@@ -12,5 +12,6 @@ end
 
 
 When(/^I follow "(.*?)" for "(.*?)"$/) do |arg1, arg2|
-  first(:link, arg1).click
+  	first(:link, arg1).click
+
 end
