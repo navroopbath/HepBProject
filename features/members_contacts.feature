@@ -6,10 +6,10 @@ Feature: Contacts Tab
 Background: members have been added to database
 
  Given John is in the database with the following information:
-  | first_name   | last_name  | grad_date    | phone       | email                 | password    | is_admin | warnings |
-  | John         | Blume      | May 15, 2015 | 4444444444  | johnBlume@gmail.com   | 12345678    | no       |    0     |
+  | first_name   | last_name  | grad_date     | phone       | email                 | password    | is_admin | warnings |
+  | John         | Blume      | May 15, 2015  | 4444444444  | johnBlume@gmail.com   | 12345678    | no       |    0     |
   | Craig        | Hiller     | May 15, 2015  | 5555555555  | thriller@berkeley.edu | testtest    | yes      |    0     |
-  | Vin          | Disel      | May 16, 2015  | 1111111111  | fastandfur@mail.com  | abcdefgh    | no       |    0     |
+  | Vin          | Disel      | May 16, 2015  | 1111111111  | fastandfur@mail.com   | abcdefgh    | no       |    0     |
 
 
   And John speaks the following languages:
@@ -40,8 +40,8 @@ Background: members have been added to database
 Scenario: Successfully displays ordered contacts
   Then I should see "John Blume" before "Vin Disel"
   And I should see "Craig Hiller"
-  And I should see "chiller@berkeley.edu"
-  And I should see "5555555555"
+  And I should see "thriller@berkeley.edu"
+  And I should see "(555) 555-5555"
 
 
 
