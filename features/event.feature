@@ -36,8 +36,6 @@ Background: members and events have been added to database
     When I click on the event "Clinic"
     And I follow "Sign up"
     Then I should see "You have successfully signed up for Clinic."
-    And I click on the event "Clinic"
-    Then I should see "John Blume"
 
   @javascript
   Scenario: Signing up for an event again should fail
