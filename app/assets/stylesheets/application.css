@@ -18,11 +18,15 @@ body {
 }
 
 #error-container {
-<<<<<<< HEAD:app/assets/stylesheets/application.scss
 	position: relative;
 	top: 0px;
 }
 
+.red {
+  background-color: #B80000;
+  color: white;
+  opacity: 0.75;
+}
 .centered {
   /* found this code at https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ */
   position: fixed;
@@ -30,8 +34,4 @@ body {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
-=======
-  position: relative;
-  top: 0px;
->>>>>>> master:app/assets/stylesheets/application.css
 }
