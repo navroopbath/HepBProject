@@ -14,4 +14,31 @@ class Member < ActiveRecord::Base
   has_many :events, :through => :memevents
   has_many :memevents
   has_many :languages
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def total_hours
+    total = 0
+    memevents.each do |memevent|
+      if memevent.approved
+        total += memevent.hours
+      end
+    end
+    total
+  end
+
+  def num_current_events
+    total = 0
+    memevents.each do |memevent|
+      Time.now > Settings.deadline_one ? current_deadline = Settings.deadline_two : current_deadline = Settings.deadline_one
+      this_semester = Settings.semester_start_date.to_date < memevent.event.date.to_date && memevent.event.date.to_date < current_deadline.to_date
+      if this_semester && memevent.approved && !memevent.waitlisted
+        total += 1
+      end
+    end
+    total
+  end
+
 end

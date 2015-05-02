@@ -1,0 +1,36 @@
+=render 'navbar'
+
+%div.col-lg-10{:style => "padding-left:260px;"}
+  %form{:role => "form"}
+    .form-group
+      %input.form-control#searchinput{:placeholder => "Search by Name...", :type => "search"}/
+
+
+    %div.panel.panel-default
+      %div.panel-heading
+        %i.fa.fa-clock-o.fa-fw
+          Volunteer Statistics
+      %div.panel-body
+        %table.table.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Total Hours
+              %th Current Events
+              %th Requirement Met?
+
+          %tbody#searchlist  
+            - @allMembers.each do |member|
+              %tr.member_row
+                %th.full_name
+                  =member[:name]
+                %th 
+                  =member[:total_hours]
+                %th 
+                  =member[:current_events]
+                -if member[:req_met]
+                  %th#req-met
+                    Yes
+                -else
+                  %th#req-met.red
+                    No     

@@ -16,7 +16,10 @@
       %li
         %a{:href => members_announcements_path}Announcements
       %li
-        %a{:href => members_stats_path}Stats
+        - if current_member.is_admin
+          %a{:href => members_admin_stats_path}Stats
+        - else
+          %a{:href => members_stats_path}Stats
       %li
         %a{:href => members_contacts_path}Contacts
       - if current_member.is_admin
