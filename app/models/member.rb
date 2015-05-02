@@ -33,7 +33,7 @@ class Member < ActiveRecord::Base
     total = 0
     memevents.each do |memevent|
       Time.now > Settings.deadline_one ? current_deadline = Settings.deadline_two : current_deadline = Settings.deadline_one
-      this_semester = Settings.semester_start_date < memevent.event.date && memevent.event.date < current_deadline
+      this_semester = Settings.semester_start_date.to_date < memevent.event.date.to_date && memevent.event.date.to_date < current_deadline.to_date
       if this_semester && memevent.approved && !memevent.waitlisted
         total += 1
       end
