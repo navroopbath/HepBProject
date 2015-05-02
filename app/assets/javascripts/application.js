@@ -17,4 +17,5 @@
 //= require bootstrap
 //= require bootstrap-list-filter
 //= require bootstrap-list-filter-contacts
+//= require dropdown
 //= require_tree .
