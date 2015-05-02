@@ -40,13 +40,25 @@ class MembersController < ApplicationController
      @ordered_members = Member.order(:last_name)
   end
 
-  def delete_announ
+  def get_announcement
+    @to_edit = Announcement.find(params[:id])
+  end
+
+  def edit_announcement
+    @to_edit = Announcement.find(params[:id])
+    @to_edit.title = params[:announcement][:title]
+    @to_edit.body = params[:announcement][:body]
+    @to_edit.save!
+    redirect_to members_announcements_path
+  end
+
+  def delete_announcement
       @to_delete = Announcement.find(params[:id])
      @to_delete.destroy
      redirect_to :action => 'announcements'
   end
 
-  def pin_announ
+  def pin_announcement
     @to_pin = Announcement.find(params[:id])
     @to_pin.pinned = !@to_pin.pinned
     @to_pin.save
@@ -63,5 +75,22 @@ class MembersController < ApplicationController
       @num_required_events = @memevents.length
     end
   end
+
+  def admin_settings
+    @semester_start = Settings.semester_start_date.to_date
+    @semester_end = Settings.semester_end_date.to_date
+    @deadline_one = Settings.deadline_one.to_date
+    @deadline_two = Settings.deadline_two.to_date
+  end
+
+  def update_admin_settings
+    settings_hash = params["admin"]
+    Settings.semester_start_date = settings_hash["semester_start"].to_date
+    Settings.semester_end_date = settings_hash["semester_end"].to_date
+    Settings.deadline_one = settings_hash["deadline_one"].to_date
+    Settings.deadline_two = settings_hash["deadline_two"].to_date
+    redirect_to :action => 'admin_settings'
+  end
+
 
 end
