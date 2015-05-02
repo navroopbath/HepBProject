@@ -17,6 +17,9 @@
         %a{:href => members_announcements_path}Announcements
       %li
         %a{:href => members_stats_path}Stats
+      - if current_member.is_admin
+        %li
+          %a{:href => settings_index_path}Admin
 
     %ul.nav.navbar-nav.navbar-right
       %li.dropdown
@@ -26,11 +29,11 @@
         %ul.dropdown-menu{:role => 'menu'}
           %li 
             %a
-              = @current_member.first_name
-              = @current_member.last_name
+              = current_member.first_name
+              = current_member.last_name
           %li 
             %a
-              = @current_member.email
+              = current_member.email
           %li
             = link_to "Edit Settings", edit_member_registration_path
           %li
