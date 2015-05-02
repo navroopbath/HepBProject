@@ -14,7 +14,6 @@ HepBProject::Application.routes.draw do
   get 'settings/:id', to: 'settings#index', as: 'settings_index'
   put 'settings/:id', to:'settings#update', as: 'settings_update'
 
-
   resources :members do
     delete :delete_announcement, :on => :member
     post :pin_announcement, :on => :member
