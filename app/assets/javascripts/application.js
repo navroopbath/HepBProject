@@ -15,4 +15,5 @@
 //= require moment
 //= require fullcalendar
 //= require bootstrap
+//= require bootstrap-list-filter
 //= require_tree .
