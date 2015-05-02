@@ -44,7 +44,7 @@ And /^in the modal I follow "(.*)"$/ do |link|
 end
 
 And /^in the modal I click remove "(.*)"$/ do |volunteer|
-  all('li.list-group-item.list-group-item-info').select {|elt| elt.text == volunteer}[0].find('a').click
+  all('a').select {|elt| elt.text == ''}[0].click
 end
 # And /^it is not within 2 days of the event "(.*)"$/ do |event|
 #   @event = Event.where(event_name: event_name)[0]
