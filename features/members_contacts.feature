@@ -1,7 +1,7 @@
-Feature: Home Tab
+Feature: Contacts Tab
   As a HepB volunteer
-  So that I can see my volunteer progress and be up to date with current announcements
-  I want to see my volunteer info and current announcements when I click the Home tab
+  So that I can find another member's contact information
+  I want to see all member's contact information listed on then contacts tab
 
 Background: members have been added to database
 
@@ -34,22 +34,14 @@ Background: members have been added to database
   | 2011-02-26 09:34:00.000 | Oh hai           | true   | Reminder          | Reminder |
 
   And I am logged in as "Vin"
-  When I go to the portal dashboard for "Vin"
+  When I go to the contacts page for "Vin"
 
 
-#Scenario: Successfully displays my upcoming events
-#  Then I should see "Clinic" before "Hospital"
-#  And I should not see "Social"
+Scenario: Successfully displays ordered contacts
+  Then I should see "John Blume" before "Vin Disel"
+  And I should see "Craig Hiller"
+  And I should see "chiller@berkeley.edu"
+  And I should see "5555555555"
 
-Scenario: Successfully displays contacts
-  Then I should see "Vin Disel"
-  And I should see "fastandfur@mail.com"
 
-Scenario: Successfully displays current announcements
-  Then I should see "Oh hai" before "Come to meeting!"
-  And I should not see "Don't forget!"
 
-#Scenario: Hover over events displays discription 
-#  When I hover over Clinic 
-#  Then I should see Berkeley
-#  And I should "plz attend"

@@ -7,7 +7,9 @@
       %i.fa.fa-clock-o.fa-fw
         General Meeting
     %div.panel-body
-      %p= @general_meeting_block.body
+      -if @general_meeting_block
+        %p
+          @general_meeting_block.body
       -if @current_mem.is_admin 
         %button#newA.btn-primary{"data-target" => ".bs-example-modal-lg", "data-toggle" => "modal", :type => "button"} Edit
 
@@ -21,7 +23,8 @@
           %form#myForm{:method => "post"}
             .form-group
               %label.control-label{:for => "message-text"} Message:
-              = text_area_tag 'messege', @general_meeting_block.body
+              - if @general_meeting_block
+                = text_area_tag 'messege', @general_meeting_block.body
         .modal-footer
           %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
           = submit_tag("Create")
