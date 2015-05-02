@@ -45,5 +45,3 @@ Background: members and events have been added to database
     When I click on the event "Hospital"
     And in the modal I click remove "Tom Train"
     Then I should see "You have successfully removed Tom Train from Hospital."
-    When I click on the event "Hospital"
-    Then I should see "Bob Builder" under "Volunteers"
