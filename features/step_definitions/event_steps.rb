@@ -3,7 +3,7 @@ Then /^it should render the calendar$/ do
 end
 
 And /^I travel to the time '2015-05-26 09:00:00.000'$/ do
-  fake_time = Time.local(2015,4,26,9,0,0)
+  fake_time = Time.local(2015,5,26,9,0,0)
   Timecop.travel(fake_time)
 end
 
