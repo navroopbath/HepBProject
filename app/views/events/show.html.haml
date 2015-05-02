@@ -1,10 +1,10 @@
 .modal-dialog.draggable
-  .modal-content
+  .modal-content{:id => "event-parameters"}
     .modal-header
       %button#x-close(type="button" data-dismiss="modal" aria-hidden="true") x
     .modal-body
       %ul.fa-ul.errors
-      - if @current_member.is_admin?
+      - if @current_member.is_admin
         = render 'admin_event_info'
       - else
         = render 'event_info'
