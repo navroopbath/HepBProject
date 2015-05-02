@@ -23,9 +23,9 @@ Background: Members and announcements have been added to the database
     Then I should see "New Event"
     When I fill in "event_event_name" with "My brand new Event"
     And I fill in "event_description" with "This is cool!"
-    When I select "2015" for "event_date_1i"
-    When I select "April" for "event_date_2i"
-    When I select "16" for "event_date_3i"
+    When I select "2015" for "event_start_time_1i"
+    When I select "April" for "event_start_time_2i"
+    When I select "16" for "event_start_time_3i"
     And I press "Create"
     
 
