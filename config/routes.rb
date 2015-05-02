@@ -8,7 +8,7 @@ HepBProject::Application.routes.draw do
 
   get 'members/:id/dashboard_home', to: 'members#dashboard_home', as: 'members_dashboard_home'
   get 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
-  post 'members/:id/announcements', to: 'members#edit_announ', as: 'members_edit_announcements'
+  post 'members/:id/announcements', to: 'members#announcements', as: 'members_announcements'
   get 'members/:id/stats', to: 'members#stats', as: 'members_stats'
   post 'members/:id/get_announcement', to: 'members#edit_announcement', as: 'members_edit_announcement'
   get 'members/:id/admin_settings', to: 'members#admin_settings', as: 'members_admin_settings'

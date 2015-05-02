@@ -47,23 +47,3 @@
                   = link_to 'Pin', pin_announcement_member_path(this_announcement), :method => :post
 
 
-
-= form_tag do 
-  .modal.fade.edit_form{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog
-      .modal-content
-        .modal-header
-          %h4#exampleModalLabel.modal-title Edit Announcement
-        .modal-body
-          %form#myForm{:method => "post"}
-            .form-group
-              %label.control-label{:for => "Title"} Title:
-              = text_field(:announ, :title)
-            .form-group
-              %label.control-label{:for => "message-text"} Message:
-              = text_area(:announ, :body)
-        .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancel
-          = submit_tag("Create")
-
-
