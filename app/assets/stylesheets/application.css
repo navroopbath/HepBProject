@@ -22,6 +22,11 @@ body {
 	top: 0px;
 }
 
+.red {
+  background-color: #B80000;
+  color: white;
+  opacity: 0.75;
+}
 .centered {
   /* found this code at https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ */
   position: fixed;

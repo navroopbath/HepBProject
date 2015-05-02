@@ -76,6 +76,18 @@ class MembersController < ApplicationController
     end
   end
 
+  def admin_stats
+    @allMembers = []
+    Member.find_each do |member|
+      mem = {}
+      mem[:name] = member.full_name
+      mem[:total_hours] = member.total_hours
+      mem[:current_events] = member.num_current_events
+      mem[:req_met] = member.num_current_events >= 2
+      @allMembers << mem
+    end
+  end
+
   def admin_settings
     @semester_start = Settings.semester_start_date.to_date
     @semester_end = Settings.semester_end_date.to_date
@@ -91,6 +103,5 @@ class MembersController < ApplicationController
     Settings.deadline_two = settings_hash["deadline_two"].to_date
     redirect_to :action => 'admin_settings'
   end
-
 
 end
