@@ -7,7 +7,7 @@
       %i.fa.fa-clock-o.fa-fw
         Admin Settings
     %div.panel-body
-      = form_tag members_update_admin_settings_path, :method => :put do
+      = form_tag settings_update_path, :method => :put do
         .form-group
           %label{:for => "semester-start"} Semester Start Date
           %input#semester-start.form-control{:placeholder => "Enter Semester Start Date", :type => "date", :value => @semester_start, :name => "admin[semester_start]"} 
