@@ -15,13 +15,12 @@ class MembersController < ApplicationController
   end
 
   def dashboard_home
-    @g_announ = Announcement.new
-    @g_announ.title = "General Meetings: Mondays, 8-9pm Wheeler"
-    if !params['messege'].nil?
-      @g_announ.title = params['messege']
-      @g_announ.save!
+    @general_meeting_block = Announcement.where(announcement_type: "general_meeting_block")[0]
+    #@general_meeting_block.title = "General Meetings: Mondays, 8-9pm Wheeler"
+    unless params['messege'].nil?
+      @general_meeting_block.body = params['messege']
+      @general_meeting_block.save!
     end
-
     @events = @current_member.events.order(:date)
     @announcements = Announcement.where(pinned: true).order(:date_written)
   end
