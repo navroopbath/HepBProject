@@ -15,7 +15,8 @@ events = [{:event_name => 'Korean Health Fair', :date => '2015-04-15T10:00:00', 
 
 announcements = [{:date_written => '2015-04-18T09:00:00',:title => 'Ice Cream Social', :body => 'Wazup HepB Homies! This is your chance to social up with all the new and existing chill volunteers in this club, hope to see you there! :)', :pinned => 'true', :announcement_type => 'Upcoming Events'},
               {:date_written => '2015-05-30T09:00:00',:title => 'Workshop', :body => 'Wanna learn more about how the HepBProject runs? Come to this workshop to get up to speed!', :pinned => 'true', :announcement_type => 'Upcoming Events'},
-              {:date_written => '2012-05-30T09:00:00', :title => 'Welcome to Hep B', :body => 'Workshop tomorrow!', :pinned => 'false', :announcement_type => 'Upcoming Events'}
+              {:date_written => '2012-05-30T09:00:00', :title => 'Welcome to Hep B', :body => 'Workshop tomorrow!', :pinned => 'false', :announcement_type => 'Upcoming Events'},
+              {:date_written => '2012-05-30T09:00:00', :title => 'General Meeting', :body => 'Hi Everyone! This is our first meeting of the year!', :pinned => 'false', :announcement_type => 'general_meeting_block'}
 
             ]
 
