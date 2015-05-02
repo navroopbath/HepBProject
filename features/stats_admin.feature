@@ -12,6 +12,10 @@ Background: members have been added to database
   | Tim          | Smith      | 2015-04-19 09:34:00.000   | 4444444444  | timsmith@gmail.com    | testtest    | false    |    2     |
   | Admin        | Master     | 2015-02-25 09:34:00.000   | 3333333333  | adminmaster@gmail.com | testtest    | true     |    0     |
 
+  And the following settings:
+  | semester_start_date     | semester_end_date       | deadline_one            | deadline_two            |
+  | 2015-01-20 09:34:00.000 | 2015-05-15 09:34:00.000 | 2015-03-15 09:34:00.000 | 2015-04-25 09:34:00.000 |
+
   And the following events exist:
   | event_name | location | date                    | duration | num_volunteers | description |
   | Clinic     | Berkeley | 2012-02-26 09:34:00.000 | 2        | 10             | plz attend  |
