@@ -7,8 +7,8 @@ members = [{:first_name =>'Navroop', :last_name =>'Singh', :grad_date =>'2002-05
         {:first_name =>'Craig', :last_name =>'Hiller', :grad_date =>'2002-05-30T09:00:00', :phone =>'5555555555',:email =>'testchiller@berkeley.edu', :password =>'saassaas', :is_admin =>'false', :warnings =>'0'}
       ]
 
-events = [{:event_name => 'Korean Health Fair', :date => '2015-04-15T10:00:00', :start_time => '2015-04-15T10:00:00', :end_time => '2015-04-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
-        {:event_name => 'Chinese Health Fair', :date => '2015-04-30T10:00:00', :start_time => '2015-04-30T10:00:00', :end_time => '2015-04-30T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
+events = [{:event_name => 'Korean Health Fair', :date => '2015-05-02T10:00:00', :start_time => '2015-04-15T10:00:00', :end_time => '2015-04-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
+        {:event_name => 'Chinese Health Fair', :date => '2015-04-28T10:00:00', :start_time => '2015-04-30T10:00:00', :end_time => '2015-04-30T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Japanese Health Fair', :date => '2015-05-15T10:00:00', :start_time => '2015-05-15T10:00:00', :end_time => '2015-05-15T12:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'},
         {:event_name => 'Filipino Health Fair', :date => '2014-05-15T10:00:00', :start_time => '2014-05-15T10:00:00', :end_time => '2014-05-15T11:00:00', :location => 'Sproul Hall', :description => 'Open Admission', :duration => '2:00', :num_volunteers => '10'}
 
@@ -21,6 +21,8 @@ announcements = [{:date_written => '2015-04-18T09:00:00',:title => 'Ice Cream So
             ]
 
 languages = {:lang => 'English', :fluency => 'Native Speaker'}
+
+memevent = {:hours => '2', :waitlisted => 'false', :date_added => '2002-05-30T09:00:00', :approved => 'true'}
 
 memevents = [{:event_id => '1', :member_id => '1',:hours => '2', :waitlisted => 'false', :date_added => '2015-04-10T09:00:00', :approved => 'true'},
             {:event_id => '1', :member_id => '2',:hours => '2', :waitlisted => 'false', :date_added => '2015-04-10T09:00:00', :approved => 'true'},
@@ -44,6 +46,20 @@ memevents.each do |memevent|
   m = Memevent.create!(memevent)
 end
 
+1.upto(3) do |i|
+  m = Memevent.create!(memevent)
+  m.member = Member.where(id: 3)[0]
+  m.event = Event.where(id: i)[0]
+  m.save!
+end
+
+1.upto(3) do |i|
+  m = Memevent.create!(memevent)
+  m.member = Member.where(id: 1)[0]
+  m.event = Event.where(id: i)[0]
+  m.save!
+end
+
 announcements.each do |announcement|
   Announcement.create!(announcement)
 end
@@ -51,7 +67,7 @@ end
 #SEED MASTER SETTINGS
 Settings.master_admin_email = 'hepbhomies@gmail.com'
 Settings.master_admin_password = 'campanile'
-Settings.notifications_email = 'sandbox60b4290575ab49f386dd50fc026416a2.mailgun.org'
+Settings.notifications_email = ENV["mailgun_username"]
 # Settings.notifications_email_password = 'topsecretpassword'
 Settings.deadline_one = '03/15/15' # format '%m/%d/%Y'
 Settings.deadline_two = '05/15/15'
