@@ -36,6 +36,12 @@ Background: Members and announcements have been added to the database
 
  Scenario: Admin edits exsisting announcement 
   When I follow "Edit" for "Toy Story was ok"
+  Then I should see "Edit Announcement"
+  When I fill in "announcement_body" with "Toy Sotry was awesome!!!!!"
+  And I press "Save"
+  Then I should see "Announcements"
+  And I should see "Toy Sotry was awesome!!!!!"
+  And I should not see "Toy Sotry was ok"
 
 
 Scenario: Admin unpins exsisting announcment 
