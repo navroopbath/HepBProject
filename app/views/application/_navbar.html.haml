@@ -1,0 +1,37 @@
+%nav.navbar.navbar-default.navbar-fixed-top{:role => 'navigation'}
+  %div.navbar-header
+    %button{:type => 'button', :class => 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '#navbar'}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => members_dashboard_home_path(@current_member)} HepB Project
+
+  %div.collapse.navbar-collapse{:id => 'navbar'}
+    %ul.nav.navbar-nav
+      %li
+        %a{:href => members_dashboard_home_path(@current_member)}Dashboard
+      %li
+        %a{:href => events_index_path}Events
+      %li
+        %a{:href => members_announcements_path(@current_member)}Announcements
+      %li
+        %a{:href => members_stats_path(@current_member)}Stats
+
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a{:href => '#', :class => 'dropdown-toggle', 'data-toggle' => 'dropdown'}
+          Account
+          %span.caret
+        %ul.dropdown-menu{:role => 'menu'}
+          %li 
+            %a
+              = @current_member.first_name
+              = @current_member.last_name
+          %li 
+            %a
+              = @current_member.email
+          %li
+            = link_to "Edit Settings", edit_member_registration_path
+          %li
+            = link_to "Logout", destroy_member_session_path, :method => :delete
